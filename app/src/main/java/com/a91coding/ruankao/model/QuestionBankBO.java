@@ -1,6 +1,7 @@
 package com.a91coding.ruankao.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *  题库Model
@@ -8,31 +9,31 @@ import java.io.Serializable;
  */
 public class QuestionBankBO implements Serializable {
 
-    public QuestionItemBO[] getQuestionItemBOs() {
-        return QuestionItemBOs;
+    public List<QuestionItemBO> getQuestionItemList() {
+        return questionItemList;
     }
 
-    public void setQuestionItemBOs(QuestionItemBO[] questionItemBOs) {
-        QuestionItemBOs = questionItemBOs;
+    public void setQuestionItemList(List<QuestionItemBO> questionItemList) {
+        this.questionItemList = questionItemList;
     }
 
-    public int getFirstQuestionItemId() {
-        return firstQuestionItemId;
+    public String getPeriod() {
+        return period;
     }
 
-    public void setFirstQuestionItemId(int firstQuestionItemId) {
-        this.firstQuestionItemId = firstQuestionItemId;
+    public void setPeriod(String period) {
+        this.period = period;
     }
 
-    public int getLastestQuestionItemId() {
-        return lastestQuestionItemId;
+    public String getCategory() {
+        return category;
     }
 
-    public void setLastestQuestionItemId(int lastestQuestionItemId) {
-        this.lastestQuestionItemId = lastestQuestionItemId;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    private int firstQuestionItemId;//第一题id
-    private int lastestQuestionItemId;//最后一题id
-    private QuestionItemBO[] QuestionItemBOs;
+    private String period;
+    private String category;
+    private List<QuestionItemBO> questionItemList;
 }

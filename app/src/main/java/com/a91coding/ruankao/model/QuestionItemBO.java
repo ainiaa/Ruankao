@@ -40,17 +40,27 @@ public class QuestionItemBO implements Serializable {
         this.questionTitle = questionTitle;
     }
 
-    public String[] getAnswers() {
-        return answers;
+    public String[] getAnswerList() {
+        return answerList;
     }
 
-    public void setAnswers(String[] answers) {
-        this.answers = answers;
+    public void setAnswerList(String[] answerList) {
+        this.answerList = answerList;
     }
 
     private int id;//问题ID
     private String questionDesc;//问题详解
     private int rightAnswer;//正确答案
     private String questionTitle;//问题题目
-    private String[] answers;//问题答案
+    private String[] answerList;//问题答案
+
+    public String getTestPoint() {
+        return testPoint;
+    }
+
+    public void setTestPoint(String testPoint) {
+        this.testPoint = testPoint;
+    }
+
+    private String testPoint;//考点
 }
