@@ -2,9 +2,11 @@ package com.a91coding.ruankao.Activity;
 //https://github.com/wyouflf/xUtils3   -- 后面添加(现在使用最原始的方式)
 
 import android.content.Context;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
@@ -13,32 +15,17 @@ import android.widget.TextView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.a91coding.ruankao.R;
 import com.a91coding.ruankao.Service.QuestionBankService;
+import com.a91coding.ruankao.adapter.MYViewPagerAdapter;
+import com.a91coding.ruankao.model.QuestionItemBO;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    private TextView answerDesc;
-    private TextView answerTitle;
-    private RadioButton answerA;
-    private RadioButton answerB;
-    private RadioButton answerC;
-    private RadioButton answerD;
-    private LinearLayout answerDescLayout;
-
-    private String rightAnswer; //正确答案
-    private String currentAnswer;//当前答案
-    private boolean testingResult = false;//测试结果
-    private RadioGroup answerGroup;
-    private Map<Integer, RadioButton> answerMap;
-    final int RIGHT = 0;
-    final int LEFT = 1;
-    private GestureDetector gestureDetector;
-    private int questionId = 1;
     private QuestionBankService questionBankService;
 
     @Override
@@ -48,128 +35,97 @@ public class MainActivity extends AppCompatActivity {
         questionBankService = new QuestionBankService();
 
         setContentView(R.layout.activity_main);
+
+        //
+        initViewPager();
+    }
+
+    private void initViewPager(){
+        ViewPager viewPager = (ViewPager)findViewById(R.id.viewPager);
+        ArrayList<View> views = new ArrayList<>();
+
         //填充内容
-        initUI();
-
-        //添加手势监听事件
-        gestureDetector = new GestureDetector(MainActivity.this, onGestureListener);
-    }
-
-    public boolean onTouchEvent(MotionEvent event) {
-        return gestureDetector.onTouchEvent(event);
-    }
-
-    public void doResult(int action) {
-        int id = 0;
-        String msg = "";
-        switch (action) {
-            case RIGHT: // 右划
-                showMessage(getApplicationContext(), "go right");
-                id = questionBankService.nextQuestionItemId(questionId, 1);
-                msg = "已经是最后一题了^_^";
-                break;
-            case LEFT: // 左划
-                showMessage(getApplicationContext(), "go left");
-                id = questionBankService.nextQuestionItemId(questionId, -1);
-                msg= "已经是第一题了^_^";
-                break;
+        int max = 2;
+        for(int id = 1;id <= max;id++) {
+            View view = LayoutInflater.from(this).inflate(R.layout.question_layout, null);
+            initUI(view, id);
+            views.add(view);
         }
-        if (id == questionId) {//不能再进行操作 （第一题或者最后一题）
-            showMessage(getApplicationContext(), msg);
-        } else { //跳转 // TODO: 2017/01/04
 
-        }
+        MYViewPagerAdapter adapter = new MYViewPagerAdapter();
+        adapter.setViews(views);
+        viewPager.setAdapter(adapter);
     }
-
-    /**
-     * 手势事件监听
-     */
-    private GestureDetector.OnGestureListener onGestureListener =
-            new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-                                       float velocityY) {
-                    float x = e2.getX() - e1.getX();
-                    float y = e2.getY() - e1.getY();
-
-                    if (x > 0) {
-                        doResult(RIGHT);
-                    } else if (x < 0) {
-                        doResult(LEFT);
-                    }
-                    return true;
-                }
-            };
 
     /**
      * UI初始化
+     * @param view
+     * @param id
      */
-    private void initUI() {
-        answerDescLayout = (LinearLayout) findViewById(R.id.answerDescLayout);
-        answerDesc = (TextView) findViewById(R.id.answerDescTextView);
-        answerTitle = (TextView) findViewById(R.id.answerTitleTextView);
-        answerA = (RadioButton) findViewById(R.id.answerARadioButton);
-        answerB = (RadioButton) findViewById(R.id.answerBRadioButton);
-        answerC = (RadioButton) findViewById(R.id.answerCRadioButton);
-        answerD = (RadioButton) findViewById(R.id.answerDRadioButton);
-        answerGroup = (RadioGroup) findViewById(R.id.answerRadioGroup);
+    private void initUI(View view, int id) {
+        final LinearLayout answerDescLayout = (LinearLayout) view.findViewById(R.id.answerDescLayout);//试题详解Layout
+        final TextView answerDesc = (TextView) view.findViewById(R.id.answerDescTextView);//试题详解内容
+        final TextView answerTitle = (TextView) view.findViewById(R.id.answerTitleTextView);//试题标题
+        final RadioButton answerA = (RadioButton) view.findViewById(R.id.answerARadioButton);//答案A
+        final RadioButton answerB = (RadioButton) view.findViewById(R.id.answerBRadioButton);//答案B
+        final RadioButton answerC = (RadioButton) view.findViewById(R.id.answerCRadioButton);//答案C
+        final RadioButton answerD = (RadioButton) view.findViewById(R.id.answerDRadioButton);//答案D
+        final RadioGroup answerGroup = (RadioGroup) view.findViewById(R.id.answerRadioGroup);//答案group
+        QuestionItemBO questionItem = questionBankService.getQuestionItemById(id);
 
-        answerDesc.setText("initUI  answerDesc answerDesc answerDescanswerDescanswerDescanswerDescanswerDescanswerDesc");
-        answerTitle.setText("initUI TextView");
-        answerA.setText("initUI answerAanswerAanswerAanswerAanswerAanswerAanswerAanswerAanswerAanswerAanswerAanswerAanswerAanswerAanswerAanswerAanswerAanswerA");
-        answerB.setText("initUI answerB");
-        answerC.setText("initUI answerCanswerCanswerCanswerCanswerCanswerCanswerCanswerCanswerCanswerCanswerCanswerCanswerCanswerCanswerCanswerCanswerCanswerCanswerC");
-        answerD.setText("initUI answerD");
+        String questionDesc = questionItem.getQuestionDesc();
+        String questionTitle = questionItem.getQuestionTitle();
+        String[] answers =  questionItem.getAnswers();
+        String answerAText       = answers[0];
+        String answerBText       = answers[1];
+        String answerCText       = answers[2];
+        String answerDText       = answers[3];
+        answerDesc.setText(questionDesc);
+        answerTitle.setText(questionTitle);
+        answerA.setText(answerAText);
+        answerB.setText(answerBText);
+        answerC.setText(answerCText);
+        answerD.setText(answerDText);
 
-        answerMap = new HashMap<>();
-        answerMap.put(R.id.answerARadioButton, answerA);
-        answerMap.put(R.id.answerBRadioButton, answerB);
-        answerMap.put(R.id.answerCRadioButton, answerC);
-        answerMap.put(R.id.answerDRadioButton, answerD);
+        final Map<Integer, Map<String, Object>> answerMap = new HashMap<>();
+        Map<String, Object> answerItem= new HashMap<>();
+        answerItem.put("answer", "A");
+        answerItem.put("RadioButton", answerA);
+        answerMap.put(R.id.answerARadioButton, answerItem);
+        answerItem.put("answer", "B");
+        answerItem.put("RadioButton", answerB);
+        answerMap.put(R.id.answerBRadioButton, answerItem);
+        answerItem.put("answer", "C");
+        answerItem.put("RadioButton", answerC);
+        answerMap.put(R.id.answerCRadioButton, answerItem);
+        answerItem.put("answer", "D");
+        answerItem.put("RadioButton", answerD);
+        answerMap.put(R.id.answerDRadioButton, answerItem);
 
-        rightAnswer = "B";
+        final String rightAnswer = "B";
 
         answerGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton currentButton = answerMap.get(checkedId);
+                Map<String, Object> currentAnswerItem = answerMap.get(checkedId);
+                RadioButton currentButton = (RadioButton)currentAnswerItem.get("RadioButton");
+                boolean testingResult = false;//测试结果
                 if (!currentButton.isPressed()) {
                     return;
                 }
-                String msg;
-                switch (checkedId) {
-                    case R.id.answerARadioButton:
-                        msg = "A";
-                        currentAnswer = "A";
-                        break;
-                    case R.id.answerBRadioButton:
-                        msg = "B";
-                        currentAnswer = "B";
-                        break;
-                    case R.id.answerCRadioButton:
-                        msg = "C";
-                        currentAnswer = "C";
-                        break;
-                    case R.id.answerDRadioButton:
-                        msg = "D";
-                        currentAnswer = "D";
-                        break;
-                    default:
-                        msg = "eeee";
-                }
+                String currentAnswer = (String)currentAnswerItem.get("answer");
                 if (rightAnswer.equals(currentAnswer)) {
                     testingResult = true;
                 } else {
                     answerDescLayout.setVisibility(View.VISIBLE);
                 }
                 if (testingResult) {
-                    showMessage(getApplicationContext(), "您选择的答案是：" + msg);
+                    showMessage(getApplicationContext(), "您选择的答案是：" + currentAnswer);
                 } else {
-                    showMessage(getApplicationContext(), "您选择的答案是：" + msg + " 正确答案为:" + rightAnswer);
+                    showMessage(getApplicationContext(), "您选择的答案是：" + currentAnswer + " 正确答案为:" + rightAnswer);
                 }
             }
         });
-
     }
 
     /**
