@@ -5,10 +5,8 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<View> views = new ArrayList<>();
 
         //填充内容
-        int max = 2;
+        int max = questionBankService.getCount();
         for(int id = 1;id <= max;id++) {
             View view = LayoutInflater.from(this).inflate(R.layout.question_layout, null);
             initUI(view, id);
@@ -73,9 +71,10 @@ public class MainActivity extends AppCompatActivity {
         final RadioGroup answerGroup = (RadioGroup) view.findViewById(R.id.answerRadioGroup);//答案group
         QuestionItemBO questionItem = questionBankService.getQuestionItemById(id);
 
+        //// TODO: 2017/01/05  答案可以是任意多个
         String questionDesc = questionItem.getQuestionDesc();
         String questionTitle = questionItem.getQuestionTitle();
-        String[] answers =  questionItem.getAnswers();
+        String[] answers =  questionItem.getAnswerList();
         String answerAText       = answers[0];
         String answerBText       = answers[1];
         String answerCText       = answers[2];
