@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.a91coding.ruankao.R;
+import com.a91coding.ruankao.Service.QuestionBankService;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -37,10 +38,15 @@ public class MainActivity extends AppCompatActivity {
     final int RIGHT = 0;
     final int LEFT = 1;
     private GestureDetector gestureDetector;
+    private int questionId = 1;
+    private QuestionBankService questionBankService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        questionBankService = new QuestionBankService();
+
         setContentView(R.layout.activity_main);
         //填充内容
         initUI();
@@ -54,13 +60,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void doResult(int action) {
+        int id = 0;
+        String msg = "";
         switch (action) {
-            case RIGHT: // 右划 // TODO: 2017/01/04  
+            case RIGHT: // 右划
                 showMessage(getApplicationContext(), "go right");
+                id = questionBankService.nextQuestionItemId(questionId, 1);
+                msg = "已经是最后一题了^_^";
                 break;
-            case LEFT: // 左划 // TODO: 2017/01/04
+            case LEFT: // 左划
                 showMessage(getApplicationContext(), "go left");
+                id = questionBankService.nextQuestionItemId(questionId, -1);
+                msg= "已经是第一题了^_^";
                 break;
+        }
+        if (id == questionId) {//不能再进行操作 （第一题或者最后一题）
+            showMessage(getApplicationContext(), msg);
+        } else { //跳转 // TODO: 2017/01/04
+
         }
     }
 
