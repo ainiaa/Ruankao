@@ -50,12 +50,21 @@ public class QuestionBankService extends Service {
         setCount(questionItemBOMap.size());
     }
 
+    /**
+     * todo 这个需要根本period和category进行分类
+     * @return
+     */
     public String getJSONstring() {
         InputStream in = getClass().getResourceAsStream("/assets/data/201612-rjsjs.json");
         byte[] data = inputStreamToByte(in);
         return new String(data);
     }
 
+    /**
+     *
+     * @param is
+     * @return
+     */
     private byte[] inputStreamToByte(InputStream is) {
         byte[] imgdata = null;
         try {

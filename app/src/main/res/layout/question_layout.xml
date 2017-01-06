@@ -16,42 +16,102 @@
         tools:layout_editor_absoluteX="50dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="20dp"
+        android:weightSum="1">
 
         <TextView
             android:id="@+id/answerTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            style="@style/QuestionTitleTextView"
+            android:text="answerTitleTextViewanswerTitleTextView"
             tools:layout_editor_absoluteX="26dp"
             tools:layout_editor_absoluteY="7dp" />
 
-        <RadioGroup
-            android:id="@+id/answerRadioGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/answerARadioButton"
-                style="@style/RadioButton"
-                android:text="RadioButton" />
-
-            <RadioButton
-                android:id="@+id/answerBRadioButton"
-                style="@style/RadioButton"
-                android:text="RadioButton" />
-
-            <RadioButton
-                android:id="@+id/answerCRadioButton"
-                style="@style/RadioButton"
-                android:text="RadioButton" />
-
-            <RadioButton
-                android:id="@+id/answerDRadioButton"
-                style="@style/RadioButton"
-                android:text="RadioButton" />
-        </RadioGroup>
-
+        <LinearLayout
+            android:id="@+id/answerALinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="1">
+                <ImageView
+                    android:id="@+id/answerAImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/AnswerImageView"
+                    android:src="@mipmap/ic_a"/>
+                <TextView
+                    android:id="@+id/answerATextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/AnswerTextView"
+                    android:text="answerATextView"/>
+            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/answerBLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="1">
+            <ImageView
+                android:id="@+id/answerBImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/AnswerImageView"
+                android:src="@mipmap/ic_b"/>
+            <TextView
+                android:id="@+id/answerBTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/AnswerTextView"
+                android:text="answerBTextView"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/answerCLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="1">
+            <ImageView
+                android:id="@+id/answerCImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/AnswerImageView"
+                android:src="@mipmap/ic_c"/>
+            <TextView
+                android:id="@+id/answerCTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/AnswerTextView"
+                android:text="answerCTextView"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/answerDLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="1">
+            <ImageView
+                android:id="@+id/answerDImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/AnswerImageView"
+                android:src="@mipmap/ic_d"/>
+            <TextView
+                android:id="@+id/answerDTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/AnswerTextView"
+                android:text="answerDTextView"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -73,6 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            style="@style/QuestionTitleTextView"
             tools:layout_editor_absoluteX="326dp"
             tools:layout_editor_absoluteY="327dp" />
     </LinearLayout>

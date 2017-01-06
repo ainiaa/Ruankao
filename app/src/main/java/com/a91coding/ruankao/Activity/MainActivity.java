@@ -7,10 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -38,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
         initViewPager();
     }
 
-    private void initViewPager(){
-        ViewPager viewPager = (ViewPager)findViewById(R.id.viewPager);
+    private void initViewPager() {
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         ArrayList<View> views = new ArrayList<>();
 
         //填充内容
         int max = questionBankService.getCount();
-        for(int id = 1;id <= max;id++) {
+        for (int id = 1; id <= max; id++) {
             View view = LayoutInflater.from(this).inflate(R.layout.question_layout, null);
             initUI(view, id);
             views.add(view);
@@ -57,82 +56,134 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * UI初始化
+     *
      * @param view
      * @param id
      */
     private void initUI(View view, int id) {
-        final LinearLayout answerDescLayout = (LinearLayout) view.findViewById(R.id.answerDescLayout);//试题详解Layout
-        final TextView answerDesc = (TextView) view.findViewById(R.id.answerDescTextView);//试题详解内容
-        final TextView answerTitle = (TextView) view.findViewById(R.id.answerTitleTextView);//试题标题
-        final RadioButton answerA = (RadioButton) view.findViewById(R.id.answerARadioButton);//答案A
-        final RadioButton answerB = (RadioButton) view.findViewById(R.id.answerBRadioButton);//答案B
-        final RadioButton answerC = (RadioButton) view.findViewById(R.id.answerCRadioButton);//答案C
-        final RadioButton answerD = (RadioButton) view.findViewById(R.id.answerDRadioButton);//答案D
-        final RadioGroup answerGroup = (RadioGroup) view.findViewById(R.id.answerRadioGroup);//答案group
+         Map<Integer, Map<String, Object>> answerMap = new HashMap<>();//试题答案相关内容
+         LinearLayout answerDescLayout = (LinearLayout) view.findViewById(R.id.answerDescLayout);//试题详解Layout
+         TextView answerDesc = (TextView) view.findViewById(R.id.answerDescTextView);//试题详解内容
+         TextView answerTitle = (TextView) view.findViewById(R.id.answerTitleTextView);//试题标题
+
+         LinearLayout answerALayout = (LinearLayout) view.findViewById(R.id.answerALinearLayout);//答案A layout
+         ImageView answerAImageView = (ImageView) view.findViewById(R.id.answerAImageView);//答案A ImageView
+         TextView answerATextView = (TextView) view.findViewById(R.id.answerATextView);//答案A ImageView
+
+         LinearLayout answerBLayout = (LinearLayout) view.findViewById(R.id.answerBLinearLayout);//答案B layout
+         ImageView answerBImageView = (ImageView) view.findViewById(R.id.answerBImageView);//答案B ImageView
+         TextView answerBTextView = (TextView) view.findViewById(R.id.answerBTextView);//答案B ImageView
+
+         LinearLayout answerCLayout = (LinearLayout) view.findViewById(R.id.answerCLinearLayout);//答案C layout
+         ImageView answerCImageView = (ImageView) view.findViewById(R.id.answerCImageView);//答案C ImageView
+         TextView answerCTextView = (TextView) view.findViewById(R.id.answerCTextView);//答案C ImageView
+
+         LinearLayout answerDLayout = (LinearLayout) view.findViewById(R.id.answerDLinearLayout);//答案D layout
+         ImageView answerDImageView = (ImageView) view.findViewById(R.id.answerDImageView);//答案D ImageView
+         TextView answerDTextView = (TextView) view.findViewById(R.id.answerDTextView);//答案D ImageView
+
         QuestionItemBO questionItem = questionBankService.getQuestionItemById(id);
 
         //// TODO: 2017/01/05  答案可以是任意多个
         String questionDesc = questionItem.getQuestionDesc();
         String questionTitle = questionItem.getQuestionTitle();
-        String[] answers =  questionItem.getAnswerList();
-        String answerAText       = answers[0];
-        String answerBText       = answers[1];
-        String answerCText       = answers[2];
-        String answerDText       = answers[3];
+        String[] answers = questionItem.getAnswerList();
+        String answerAText = answers[0];
+        String answerBText = answers[1];
+        String answerCText = answers[2];
+        String answerDText = answers[3];
         answerDesc.setText(questionDesc);
         answerTitle.setText(questionTitle);
-        answerA.setText(answerAText);
-        answerB.setText(answerBText);
-        answerC.setText(answerCText);
-        answerD.setText(answerDText);
+        answerATextView.setText(answerAText);
+        answerBTextView.setText(answerBText);
+        answerCTextView.setText(answerCText);
+        answerDTextView.setText(answerDText);
 
-        final Map<Integer, Map<String, Object>> answerMap = new HashMap<>();
-        Map<String, Object> answerItem= new HashMap<>();
-        answerItem.put("answer", "A");
-        answerItem.put("RadioButton", answerA);
-        answerMap.put(R.id.answerARadioButton, answerItem);
-        answerItem.put("answer", "B");
-        answerItem.put("RadioButton", answerB);
-        answerMap.put(R.id.answerBRadioButton, answerItem);
-        answerItem.put("answer", "C");
-        answerItem.put("RadioButton", answerC);
-        answerMap.put(R.id.answerCRadioButton, answerItem);
-        answerItem.put("answer", "D");
-        answerItem.put("RadioButton", answerD);
-        answerMap.put(R.id.answerDRadioButton, answerItem);
+
+        int rightAnswerId = 0;
+        Map<String, Object> answerItemA = new HashMap<>();
+        answerItemA.put("answer", "A");
+        answerItemA.put("LinearLayout", answerALayout);
+        answerItemA.put("ImageView", answerAImageView);
+        answerMap.put(R.id.answerALinearLayout, answerItemA);
+        Map<String, Object> answerItemB = new HashMap<>();
+        answerItemB.put("answer", "B");
+        answerItemB.put("ImageView", answerBImageView);
+        answerItemB.put("LinearLayout", answerBLayout);
+        answerMap.put(R.id.answerBLinearLayout, answerItemB);
+        Map<String, Object> answerItemC = new HashMap<>();
+        answerItemC.put("answer", "C");
+        answerItemC.put("LinearLayout", answerCLayout);
+        answerItemC.put("ImageView", answerCImageView);
+        answerMap.put(R.id.answerCLinearLayout, answerItemC);
+        Map<String, Object> answerItemD = new HashMap<>();
+        answerItemD.put("answer", "D");
+        answerItemD.put("LinearLayout", answerDLayout);
+        answerItemD.put("ImageView", answerDImageView);
+        answerMap.put(R.id.answerDLinearLayout, answerItemD);
 
         final String rightAnswer = "B";
+        rightAnswerId = R.id.answerBLinearLayout;
 
-        answerGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                Map<String, Object> currentAnswerItem = answerMap.get(checkedId);
-                RadioButton currentButton = (RadioButton)currentAnswerItem.get("RadioButton");
-                boolean testingResult = false;//测试结果
-                if (!currentButton.isPressed()) {
-                    return;
-                }
-                String currentAnswer = (String)currentAnswerItem.get("answer");
-                if (rightAnswer.equals(currentAnswer)) {
-                    testingResult = true;
-                } else {
-                    answerDescLayout.setVisibility(View.VISIBLE);
-                }
-                if (testingResult) {
-                    showMessage(getApplicationContext(), "您选择的答案是：" + currentAnswer);
-                } else {
-                    showMessage(getApplicationContext(), "您选择的答案是：" + currentAnswer + " 正确答案为:" + rightAnswer);
-                }
+        View.OnClickListener onClickListener = new AnswerOnClickListener(answerMap, rightAnswer, answerDescLayout, rightAnswerId);
+        answerALayout.setOnClickListener(onClickListener);
+        answerBLayout.setOnClickListener(onClickListener);
+        answerCLayout.setOnClickListener(onClickListener);
+        answerDLayout.setOnClickListener(onClickListener);
+    }
+
+    private class AnswerOnClickListener implements View.OnClickListener {
+        private String rightAnswer;
+        private int rightAnswerId;
+        Map<Integer, Map<String, Object>> answerMap;
+        LinearLayout answerDescLayout;//试题详解Layout
+        public AnswerOnClickListener(Map<Integer, Map<String, Object>> answerMap, String rightAnswer, LinearLayout answerDescLayout, int rightAnswerId) {
+            this.answerMap = answerMap;
+            this.rightAnswer = rightAnswer;
+            this.answerDescLayout = answerDescLayout;
+            this.rightAnswerId = rightAnswerId;
+        }
+
+        public void onClick(View v) {
+            int id = v.getId();
+            Map<String, Object> currentAnswerItem = answerMap.get(id);
+            boolean testingResult = rightAnswerId == id;//测试结果
+            String currentAnswer = (String) currentAnswerItem.get("answer");
+            ImageView currentImageView = (ImageView)currentAnswerItem.get("ImageView");
+            if (rightAnswer.equals(currentAnswer)) {
+                testingResult = true;
+            } else {
+                answerDescLayout.setVisibility(View.VISIBLE);
             }
-        });
+            if (testingResult) {
+                currentImageView.setImageResource(R.mipmap.ic_right);
+                showMessage(getApplicationContext(), "您选择的答案是：" + currentAnswer);
+            } else {
+                currentImageView.setImageResource(R.mipmap.ic_error);
+                Map<String, Object> rightAnswerItem = answerMap.get(rightAnswerId);
+                ImageView rightImageView = (ImageView)rightAnswerItem.get("ImageView");
+                rightImageView.setImageResource(R.mipmap.ic_right);
+                showMessage(getApplicationContext(), "您选择的答案是：" + currentAnswer + " 正确答案为:" + rightAnswer);
+            }
+
+            //已经选择了。 去掉onclick事件
+
+            //遍历map中的值
+            for (Map<String, Object> value : answerMap.values()) {
+                LinearLayout currentLinearLayout = (LinearLayout)value.get("LinearLayout");
+                currentLinearLayout.setOnClickListener(null);
+//                currentLinearLayout.setClickable(false);
+            }
+        }
     }
 
     /**
      * 信息提示
+     *
      * @param context
      * @param msg
      */
     public static void showMessage(Context context, String msg) {
-        Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 }
