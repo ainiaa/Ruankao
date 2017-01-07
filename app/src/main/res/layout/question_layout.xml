@@ -41,13 +41,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/AnswerImageView"
-                    android:src="@mipmap/ic_a"/>
+                    android:src="@mipmap/ic_a"
+                    android:contentDescription="@string/question_answer_a" />
                 <TextView
                     android:id="@+id/answerATextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/AnswerTextView"
-                    android:text="answerATextView"/>
+                    android:text="@string/question_answer_textview"/>
             </LinearLayout>
         <LinearLayout
             android:id="@+id/answerBLinearLayout"
@@ -62,13 +63,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/AnswerImageView"
-                android:src="@mipmap/ic_b"/>
+                android:src="@mipmap/ic_b"
+                android:contentDescription="@string/question_answer_b"/>
             <TextView
                 android:id="@+id/answerBTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/AnswerTextView"
-                android:text="answerBTextView"/>
+                android:text="@string/question_answer_textview"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/answerCLinearLayout"
@@ -83,13 +85,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/AnswerImageView"
-                android:src="@mipmap/ic_c"/>
+                android:src="@mipmap/ic_c"
+                android:contentDescription="@string/question_answer_c"/>
             <TextView
                 android:id="@+id/answerCTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/AnswerTextView"
-                android:text="answerCTextView"/>
+                android:text="@string/question_answer_textview"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/answerDLinearLayout"
@@ -104,13 +107,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/AnswerImageView"
-                android:src="@mipmap/ic_d"/>
+                android:src="@mipmap/ic_d"
+                android:contentDescription="@string/question_answer_d"/>
             <TextView
                 android:id="@+id/answerDTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/AnswerTextView"
-                android:text="answerDTextView"/>
+                android:text="@string/question_answer_textview"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -19,7 +19,9 @@
         <service
             android:name=".Activity.Service.QuestionBankService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".Activity.CategoryListActivity"></activity>
     </application>
 
 </manifest>

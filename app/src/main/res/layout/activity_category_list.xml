@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context="com.a91coding.ruankao.Activity.CategoryListActivity"
+android:id="@+id/activity_category_list"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent" >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:context="com.a91coding.ruankao.Activity.MainActivity"
+        android:weightSum="1">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/CategoryListTitle"
+                android:text="@string/category_list_title"/>
+    </LinearLayout>
+</RelativeLayout>
