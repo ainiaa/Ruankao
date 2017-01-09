@@ -23,29 +23,22 @@ import com.a91coding.ruankao.model.QuestionItemBO;
 
 
 public class MainActivity extends AppCompatActivity {
-    private QuestionBankService questionBankService;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        questionBankService = new QuestionBankService();
-
         setContentView(R.layout.activity_main);
-
-        //
         initViewPager();
     }
 
     private void initViewPager() {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         ArrayList<View> views = new ArrayList<>();
-
+        QuestionBankService questionBankService = new QuestionBankService();
         //填充内容
         int max = questionBankService.getCount();
         for (int id = 1; id <= max; id++) {
             View view = LayoutInflater.from(this).inflate(R.layout.question_layout, null);
-            initUI(view, id);
+            initUI(view, id, questionBankService);
             views.add(view);
         }
 
@@ -60,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      * @param id
      */
-    private void initUI(View view, int id) {
+    private void initUI(View view, int id, QuestionBankService questionBankService) {
          Map<Integer, Map<String, Object>> answerMap = new HashMap<>();//试题答案相关内容
          LinearLayout answerDescLayout = (LinearLayout) view.findViewById(R.id.answerDescLayout);//试题详解Layout
          TextView answerDesc = (TextView) view.findViewById(R.id.answerDescTextView);//试题详解内容

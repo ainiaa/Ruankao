@@ -14,11 +14,5 @@ android:layout_height="fill_parent" >
         android:layout_height="fill_parent"
         tools:context="com.a91coding.ruankao.Activity.MainActivity"
         android:weightSum="1">
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/CategoryListTitle"
-                android:text="@string/category_list_title"/>
     </LinearLayout>
 </RelativeLayout>
