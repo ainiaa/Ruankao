@@ -24,6 +24,7 @@ import java.util.Map;
 
 public class QuestionDetailActivity extends AppCompatActivity {
 
+    private ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
     }
 
     private void initViewPager() {
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
         ArrayList<View> views = new ArrayList<>();
 
         Intent intent = getIntent();
@@ -114,6 +115,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
             ImageView currentImageView = (ImageView) currentAnswerItem.findViewById(R.id.answerImageView);
             if (((AnswerDetailView) v).isRightAnswer()) {//当前为正确答案
                 currentImageView.setImageResource(R.mipmap.ic_right);
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);//跳转下一页
             } else { //当前选项不正确
                 answerDescLayout.setVisibility(View.VISIBLE);
                 currentImageView.setImageResource(R.mipmap.ic_error);
