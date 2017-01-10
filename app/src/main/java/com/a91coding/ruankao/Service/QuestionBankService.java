@@ -3,6 +3,7 @@ package com.a91coding.ruankao.Service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.a91coding.ruankao.model.QuestionBankBO;
 import com.a91coding.ruankao.model.QuestionItemBO;
@@ -19,8 +20,18 @@ import java.util.Map;
 public class QuestionBankService extends Service {
     private Map<Integer, QuestionItemBO> questionItemBOMap = new HashMap<>();
 
+    private Integer categoryId = 0;
+    private String period = "default";
+    private String extInfo = "default";
 
-    public QuestionBankService() {
+    public QuestionBankService(Integer categoryId, String period, String extInfo) {
+        this.categoryId = categoryId;
+        this.period = period;
+        this.extInfo = extInfo;
+        initData();
+    }
+
+    private void initData() {
         String json = getJSONstring();
         JSONObject jsonObject = JSONObject.fromObject(json);
         QuestionBankBO questionBankBO= new QuestionBankBO();
@@ -50,14 +61,32 @@ public class QuestionBankService extends Service {
         setCount(questionItemBOMap.size());
     }
 
+    public QuestionBankService() {
+        initData();
+    }
+
     /**
      * todo 这个需要根本period和category进行分类
      * @return
      */
     public String getJSONstring() {
-        InputStream in = getClass().getResourceAsStream("/assets/data/201612-rjsjs.json");
+        String dataPath = getDataPath();
+        InputStream in = getClass().getResourceAsStream(dataPath);
         byte[] data = inputStreamToByte(in);
         return new String(data);
+    }
+
+    /**
+     *
+     * @return
+     */
+    private String getDataPath() {
+        if (extInfo.equals("上午")) {
+            extInfo = "am";
+        } else {
+            extInfo = "pm";
+        }
+        return String.format("/assets/data/%d-%s-%s.json", categoryId, period, extInfo);
     }
 
     /**

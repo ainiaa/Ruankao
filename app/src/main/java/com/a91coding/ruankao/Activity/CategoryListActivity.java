@@ -1,8 +1,8 @@
 package com.a91coding.ruankao.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -40,12 +40,34 @@ public class CategoryListActivity extends AppCompatActivity {
             for (CategoryItemBO categoryItemBO : categoryItemBOMap.values()) {
                 String period = categoryItemBO.getPeriod();
                 String extInfo = categoryItemBO.getExtInfo();
+                Integer categoryId = categoryItemBO.getCategoryId();
                 LinearLayout tplSubTitleLayout =  (LinearLayout)inflater.inflate(R.layout.single_category_tpl_sub_title, null);
                 TextView tplSubTextView = (TextView) tplSubTitleLayout.findViewById(R.id.tpl_sub_title);
                 tplSubTextView.setText(String.format("%s(%s)", period, extInfo));
                 baseLayout.addView(tplSubTitleLayout);
+                View.OnClickListener onClickListener = new CategoryListActivity.CategoryItemOnClickListener(categoryId, period, extInfo);
+                tplSubTitleLayout.setOnClickListener(onClickListener);
             }
         }
         layout.addView(baseLayout);
+    }
+
+    private class CategoryItemOnClickListener implements View.OnClickListener {
+        int categoryId;
+        String period;
+        String extInfo;
+        public CategoryItemOnClickListener(int categoryId, String period, String extInfo) {
+            this.categoryId = categoryId;
+            this.period = period;
+            this.extInfo = extInfo;
+        }
+
+        public void onClick(View v) {
+            Intent intent = new Intent(CategoryListActivity.this, QuestionDetailActivity.class);
+            intent.putExtra("categoryId", categoryId);
+            intent.putExtra("period", period);
+            intent.putExtra("extInfo", extInfo);
+            startActivity(intent);
+        }
     }
 }

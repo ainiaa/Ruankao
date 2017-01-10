@@ -8,12 +8,12 @@ import java.io.Serializable;
  */
 public class CategoryItemBO implements Serializable {
 
-    public int getId() {
-        return id;
+    public int getNo() {
+        return no;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setNo(int no) {
+        this.no = no;
     }
 
 
@@ -41,7 +41,16 @@ public class CategoryItemBO implements Serializable {
         this.extInfo = extInfo;
     }
 
-    private int id;//分类ID
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    private int categoryId;//分类ID
+    private int no;//序号
     private String categoryName;//分类名称
     private String period;//期数
     private String extInfo;//扩展信息 -- 上午、下午

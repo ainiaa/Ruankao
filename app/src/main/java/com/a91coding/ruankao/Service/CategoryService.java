@@ -25,12 +25,14 @@ public class CategoryService extends Service {
         for(int i = 0; i < jsonArray.size();i++) {
             Map<Integer, CategoryItemBO> currentCategoryItemMap;
             JSONObject currentObj = (JSONObject)jsonArray.get(i);
-            int id = Integer.valueOf(currentObj.getString("id"));
+            int no = Integer.valueOf(currentObj.getString("no"));
+            int categoryId = Integer.valueOf(currentObj.getString("categoryId"));
             String period = currentObj.getString("period");
             String categoryName = currentObj.getString("categoryName");
             String extInfo      = currentObj.getString("extInfo");
             CategoryItemBO itemBO = new CategoryItemBO();
-            itemBO.setId(id);
+            itemBO.setNo(no);
+            itemBO.setCategoryId(categoryId);
             itemBO.setPeriod(period);
             itemBO.setCategoryName(categoryName);
             itemBO.setExtInfo(extInfo);
@@ -39,8 +41,8 @@ public class CategoryService extends Service {
             } else {
                 currentCategoryItemMap = new HashMap<>();
             }
-            currentCategoryItemMap.put(id, itemBO);
-            categoryItemBOMap.put(id, itemBO);
+            currentCategoryItemMap.put(no, itemBO);
+            categoryItemBOMap.put(no, itemBO);
             categoryItemBOMap2.put(categoryName, currentCategoryItemMap);
         }
 

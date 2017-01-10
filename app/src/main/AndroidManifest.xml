@@ -21,7 +21,8 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".Activity.CategoryListActivity"></activity>
+        <activity android:name=".Activity.CategoryListActivity" />
+        <activity android:name=".Activity.QuestionDetailActivity"></activity>
     </application>
 
 </manifest>
