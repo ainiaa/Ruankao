@@ -28,20 +28,24 @@ public class CategoryListActivity extends AppCompatActivity {
         //填充内容
         Map<String, Map<Integer, CategoryItemBO>> getAllCategoryItemBOMap = categoryService.getAllCategoryItemBOMap();
         LinearLayout layout = (LinearLayout)findViewById(R.id.activity_main);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        LinearLayout baseLayout = (LinearLayout)inflater.inflate(R.layout.single_category_info, null);
         for (Map.Entry<String, Map<Integer, CategoryItemBO>> entry : getAllCategoryItemBOMap.entrySet()) {
             String categoryName = entry.getKey();
             Map<Integer, CategoryItemBO> categoryItemBOMap = entry.getValue();
-            View baseView = LayoutInflater.from(this).inflate(R.layout.single_category_info, null);
-            TextView currentCategoryNameTextView = (TextView) baseView.findViewById(R.id.tplMainTextView);
-            currentCategoryNameTextView.setText(categoryName);
+            LinearLayout tplMainTitleLayout =  (LinearLayout)inflater.inflate(R.layout.single_category_tpl_main_title, null);
+            TextView tplMainTextView = (TextView) tplMainTitleLayout.findViewById(R.id.tpl_main_title);
+            tplMainTextView.setText(categoryName);
+            baseLayout.addView(tplMainTitleLayout);
             for (CategoryItemBO categoryItemBO : categoryItemBOMap.values()) {
                 String period = categoryItemBO.getPeriod();
                 String extInfo = categoryItemBO.getExtInfo();
-                TextView tplSubTextView = (TextView) baseView.findViewById(R.id.tplSubTextView);
+                LinearLayout tplSubTitleLayout =  (LinearLayout)inflater.inflate(R.layout.single_category_tpl_sub_title, null);
+                TextView tplSubTextView = (TextView) tplSubTitleLayout.findViewById(R.id.tpl_sub_title);
                 tplSubTextView.setText(String.format("%s(%s)", period, extInfo));
-                baseView
+                baseLayout.addView(tplSubTitleLayout);
             }
-            layout.addView(baseView);
         }
+        layout.addView(baseLayout);
     }
 }
