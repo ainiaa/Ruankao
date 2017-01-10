@@ -17,7 +17,7 @@
         </activity>
 
         <service
-            android:name=".Activity.Service.QuestionBankService"
+            android:name=".Service.QuestionBankService"
             android:enabled="true"
             android:exported="true" />
 
