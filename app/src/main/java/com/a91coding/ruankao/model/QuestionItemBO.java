@@ -47,13 +47,6 @@ public class QuestionItemBO implements Serializable {
     public void setAnswerList(String[] answerList) {
         this.answerList = answerList;
     }
-
-    private int id;//问题ID
-    private String questionDesc;//问题详解
-    private int rightAnswer;//正确答案
-    private String questionTitle;//问题题目
-    private String[] answerList;//问题答案
-
     public String getTestPoint() {
         return testPoint;
     }
@@ -62,5 +55,11 @@ public class QuestionItemBO implements Serializable {
         this.testPoint = testPoint;
     }
 
+
+    private int id;//问题ID
+    private String questionDesc;//问题详解
+    private String questionTitle;//问题题目
+    private int rightAnswer;//正确答案
+    private String[] answerList;//问题答案
     private String testPoint;//考点
 }

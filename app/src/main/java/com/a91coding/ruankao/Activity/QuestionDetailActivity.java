@@ -16,9 +16,10 @@ import com.a91coding.ruankao.R;
 import com.a91coding.ruankao.Service.QuestionBankService;
 import com.a91coding.ruankao.adapter.MYViewPagerAdapter;
 import com.a91coding.ruankao.model.QuestionItemBO;
+import com.a91coding.ruankao.ui.AnswerDetailView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class QuestionDetailActivity extends AppCompatActivity {
@@ -29,6 +30,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question_detail);
         initViewPager();
     }
+
     private void initViewPager() {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         ArrayList<View> views = new ArrayList<>();
@@ -51,125 +53,79 @@ public class QuestionDetailActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
-    /**
-     * UI初始化
-     *
-     * @param view
-     * @param id
-     */
     private void initUI(View view, int id, QuestionBankService questionBankService) {
-        Map<Integer, Map<String, Object>> answerMap = new HashMap<>();//试题答案相关内容
         LinearLayout answerDescLayout = (LinearLayout) view.findViewById(R.id.answerDescLayout);//试题详解Layout
         TextView answerDesc = (TextView) view.findViewById(R.id.answerDescTextView);//试题详解内容
         TextView answerTitle = (TextView) view.findViewById(R.id.answerTitleTextView);//试题标题
 
-        LinearLayout answerALayout = (LinearLayout) view.findViewById(R.id.answerALinearLayout);//答案A layout
-        ImageView answerAImageView = (ImageView) view.findViewById(R.id.answerAImageView);//答案A ImageView
-        TextView answerATextView = (TextView) view.findViewById(R.id.answerATextView);//答案A ImageView
-
-        LinearLayout answerBLayout = (LinearLayout) view.findViewById(R.id.answerBLinearLayout);//答案B layout
-        ImageView answerBImageView = (ImageView) view.findViewById(R.id.answerBImageView);//答案B ImageView
-        TextView answerBTextView = (TextView) view.findViewById(R.id.answerBTextView);//答案B ImageView
-
-        LinearLayout answerCLayout = (LinearLayout) view.findViewById(R.id.answerCLinearLayout);//答案C layout
-        ImageView answerCImageView = (ImageView) view.findViewById(R.id.answerCImageView);//答案C ImageView
-        TextView answerCTextView = (TextView) view.findViewById(R.id.answerCTextView);//答案C ImageView
-
-        LinearLayout answerDLayout = (LinearLayout) view.findViewById(R.id.answerDLinearLayout);//答案D layout
-        ImageView answerDImageView = (ImageView) view.findViewById(R.id.answerDImageView);//答案D ImageView
-        TextView answerDTextView = (TextView) view.findViewById(R.id.answerDTextView);//答案D ImageView
-
         QuestionItemBO questionItem = questionBankService.getQuestionItemById(id);
 
-        //// TODO: 2017/01/05  答案可以是任意多个
-        String questionDesc = questionItem.getQuestionDesc();
-        String questionTitle = questionItem.getQuestionTitle();
-        String[] answers = questionItem.getAnswerList();
-        String answerAText = answers[0];
-        String answerBText = answers[1];
-        String answerCText = answers[2];
-        String answerDText = answers[3];
+        String questionDesc = questionItem.getQuestionDesc(); //问题描述
+        String questionTitle = questionItem.getQuestionTitle();//问题题干
+        String[] answers = questionItem.getAnswerList();//答案列表
+        int rightAnswer = questionItem.getRightAnswer();//问题正确答案
+
         answerDesc.setText(questionDesc);
         answerTitle.setText(questionTitle);
-        answerATextView.setText(answerAText);
-        answerBTextView.setText(answerBText);
-        answerCTextView.setText(answerCText);
-        answerDTextView.setText(answerDText);
 
+        Integer[] answerIcon = new Integer[]{R.mipmap.ic_a, R.mipmap.ic_b, R.mipmap.ic_c, R.mipmap.ic_d, R.mipmap.ic_e, R.mipmap.ic_f, R.mipmap.ic_g};
+        Integer rightAnswerId = answerIcon[rightAnswer];
 
-        int rightAnswerId = 0;
-        Map<String, Object> answerItemA = new HashMap<>();
-        answerItemA.put("answer", "A");
-        answerItemA.put("LinearLayout", answerALayout);
-        answerItemA.put("ImageView", answerAImageView);
-        answerMap.put(R.id.answerALinearLayout, answerItemA);
-        Map<String, Object> answerItemB = new HashMap<>();
-        answerItemB.put("answer", "B");
-        answerItemB.put("ImageView", answerBImageView);
-        answerItemB.put("LinearLayout", answerBLayout);
-        answerMap.put(R.id.answerBLinearLayout, answerItemB);
-        Map<String, Object> answerItemC = new HashMap<>();
-        answerItemC.put("answer", "C");
-        answerItemC.put("LinearLayout", answerCLayout);
-        answerItemC.put("ImageView", answerCImageView);
-        answerMap.put(R.id.answerCLinearLayout, answerItemC);
-        Map<String, Object> answerItemD = new HashMap<>();
-        answerItemD.put("answer", "D");
-        answerItemD.put("LinearLayout", answerDLayout);
-        answerItemD.put("ImageView", answerDImageView);
-        answerMap.put(R.id.answerDLinearLayout, answerItemD);
-
-        final String rightAnswer = "B";
-        rightAnswerId = R.id.answerBLinearLayout;
-
-        View.OnClickListener onClickListener = new QuestionDetailActivity.AnswerOnClickListener(answerMap, rightAnswer, answerDescLayout, rightAnswerId);
-        answerALayout.setOnClickListener(onClickListener);
-        answerBLayout.setOnClickListener(onClickListener);
-        answerCLayout.setOnClickListener(onClickListener);
-        answerDLayout.setOnClickListener(onClickListener);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        Map<Integer, AnswerDetailView> answerDetailViewMap = new LinkedHashMap<>();
+        for (int i = 0; i < answers.length; i++) {
+            Integer currentId = answerIcon[i];
+            String currentAnswer = answers[i];
+            AnswerDetailView currentAnswerDetailLayout = (AnswerDetailView) inflater.inflate(R.layout.single_answer_detail_tpl, null);
+            ImageView currentAnswerImageView = (ImageView) currentAnswerDetailLayout.findViewById(R.id.answerImageView);
+            if (i < answerIcon.length) {
+                currentAnswerImageView.setImageResource(currentId);
+            } else {// todo 还不清楚怎么处理
+                currentAnswerImageView.setImageResource(0);
+            }
+            TextView currentAnswerTextView = (TextView) currentAnswerDetailLayout.findViewById(R.id.answerTextView);
+            currentAnswerTextView.setText(currentAnswer);
+            currentAnswerDetailLayout.setRightAnswer(i == rightAnswer);
+            currentAnswerDetailLayout.setId(currentId);
+            answerDetailViewMap.put(currentId, currentAnswerDetailLayout);
+        }
+        View.OnClickListener onClickListener = new QuestionDetailActivity.AnswerOnClickListener(answerDescLayout, rightAnswerId, answerDetailViewMap);
+        for (AnswerDetailView answerDetailView : answerDetailViewMap.values()) {
+            answerDetailView.setOnClickListener(onClickListener);
+            View answerListContainer = view.findViewById(R.id.answerListContainer);
+            ((LinearLayout) answerListContainer).addView(answerDetailView);
+        }
     }
 
     private class AnswerOnClickListener implements View.OnClickListener {
-        private String rightAnswer;
         private int rightAnswerId;
-        Map<Integer, Map<String, Object>> answerMap;
         LinearLayout answerDescLayout;//试题详解Layout
-        public AnswerOnClickListener(Map<Integer, Map<String, Object>> answerMap, String rightAnswer, LinearLayout answerDescLayout, int rightAnswerId) {
-            this.answerMap = answerMap;
-            this.rightAnswer = rightAnswer;
+        Map<Integer, AnswerDetailView> answerDetailViewMap;
+
+        public AnswerOnClickListener(LinearLayout answerDescLayout, int rightAnswerId, Map<Integer, AnswerDetailView> answerDetailViewMap) {
             this.answerDescLayout = answerDescLayout;
             this.rightAnswerId = rightAnswerId;
+            this.answerDetailViewMap = answerDetailViewMap;
         }
 
         public void onClick(View v) {
             int id = v.getId();
-            Map<String, Object> currentAnswerItem = answerMap.get(id);
-            boolean testingResult = rightAnswerId == id;//测试结果
-            String currentAnswer = (String) currentAnswerItem.get("answer");
-            ImageView currentImageView = (ImageView)currentAnswerItem.get("ImageView");
-            if (rightAnswer.equals(currentAnswer)) {
-                testingResult = true;
-            } else {
-                answerDescLayout.setVisibility(View.VISIBLE);
-            }
-            if (testingResult) {
+            AnswerDetailView currentAnswerItem = answerDetailViewMap.get(id);
+            ImageView currentImageView = (ImageView) currentAnswerItem.findViewById(R.id.answerImageView);
+            if (((AnswerDetailView) v).isRightAnswer()) {//当前为正确答案
                 currentImageView.setImageResource(R.mipmap.ic_right);
-                showMessage(getApplicationContext(), "您选择的答案是：" + currentAnswer);
-            } else {
+            } else { //当前选项不正确
+                answerDescLayout.setVisibility(View.VISIBLE);
                 currentImageView.setImageResource(R.mipmap.ic_error);
-                Map<String, Object> rightAnswerItem = answerMap.get(rightAnswerId);
-                ImageView rightImageView = (ImageView)rightAnswerItem.get("ImageView");
+                //显示正确答案
+                AnswerDetailView rightAnswerItem = answerDetailViewMap.get(rightAnswerId);
+                ImageView rightImageView = (ImageView) rightAnswerItem.findViewById(R.id.answerImageView);
                 rightImageView.setImageResource(R.mipmap.ic_right);
-                showMessage(getApplicationContext(), "您选择的答案是：" + currentAnswer + " 正确答案为:" + rightAnswer);
             }
 
             //已经选择了。 去掉onclick事件
-
-            //遍历map中的值
-            for (Map<String, Object> value : answerMap.values()) {
-                LinearLayout currentLinearLayout = (LinearLayout)value.get("LinearLayout");
-                currentLinearLayout.setOnClickListener(null);
-//                currentLinearLayout.setClickable(false);
+            for (AnswerDetailView answerDetailView : answerDetailViewMap.values()) {
+                answerDetailView.setOnClickListener(null);
             }
         }
     }
