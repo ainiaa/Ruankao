@@ -69,7 +69,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
         answerDesc.setText(questionDesc);
         answerTitle.setText(questionTitle);
 
-        Integer[] answerIcon = new Integer[]{R.mipmap.ic_a, R.mipmap.ic_b, R.mipmap.ic_c, R.mipmap.ic_d, R.mipmap.ic_e, R.mipmap.ic_f, R.mipmap.ic_g};
+        Integer[] answerIcon = new Integer[]{R.mipmap.ic_a_1, R.mipmap.ic_b_1, R.mipmap.ic_c_1, R.mipmap.ic_d_1, R.mipmap.ic_e_1, R.mipmap.ic_f_1, R.mipmap.ic_g_1};
         Integer rightAnswerId = answerIcon[rightAnswer];
 
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -114,15 +114,15 @@ public class QuestionDetailActivity extends AppCompatActivity {
             AnswerDetailView currentAnswerItem = answerDetailViewMap.get(id);
             ImageView currentImageView = (ImageView) currentAnswerItem.findViewById(R.id.answerImageView);
             if (((AnswerDetailView) v).isRightAnswer()) {//当前为正确答案
-                currentImageView.setImageResource(R.mipmap.ic_right);
+                currentImageView.setImageResource(R.mipmap.ic_right_1);
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);//跳转下一页
             } else { //当前选项不正确
                 answerDescLayout.setVisibility(View.VISIBLE);
-                currentImageView.setImageResource(R.mipmap.ic_error);
+                currentImageView.setImageResource(R.mipmap.ic_error_1);
                 //显示正确答案
                 AnswerDetailView rightAnswerItem = answerDetailViewMap.get(rightAnswerId);
                 ImageView rightImageView = (ImageView) rightAnswerItem.findViewById(R.id.answerImageView);
-                rightImageView.setImageResource(R.mipmap.ic_right);
+                rightImageView.setImageResource(R.mipmap.ic_right_1);
             }
 
             //已经选择了。 去掉onclick事件
