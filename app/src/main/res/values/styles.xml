@@ -26,9 +26,14 @@
         <item name="android:paddingTop">16dp</item>
         <item name="android:paddingLeft">10dp</item>
     </style>
+    <style name="QuestionNoTextView">
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
     <style name="QuestionTitleTextView">
-        <item name="android:paddingTop">10dp</item>
-        <item name="android:paddingLeft">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:background">@drawable/bg</item>
     </style>
 
     <!-- 水平分隔线 start -->

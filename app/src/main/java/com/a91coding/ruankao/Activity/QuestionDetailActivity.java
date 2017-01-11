@@ -67,7 +67,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
         String questionNo    = String.valueOf(questionItem.getNo());//问题序号
         String[] answers = questionItem.getAnswerList();//答案列表
         int rightAnswer = questionItem.getRightAnswer();//问题正确答案
-
+        questionTitle = "              "  + questionTitle;
         questionDescTV.setText(questionDesc);
         questionTitleTV.setText(questionTitle);
         questionNoTV.setText(questionNo);
