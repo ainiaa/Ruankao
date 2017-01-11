@@ -10,4 +10,5 @@
     <string name="question_answer_textview">answerTextView</string>
     <string name="question_title_textview">answerTextView</string>
     <string name="category_list_title">categoryListTitle</string>
+    <string name="question_type">单选题</string>
 </resources>
