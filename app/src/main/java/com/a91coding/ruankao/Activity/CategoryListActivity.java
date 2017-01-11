@@ -39,11 +39,12 @@ public class CategoryListActivity extends AppCompatActivity {
             baseLayout.addView(tplMainTitleLayout);
             for (CategoryItemBO categoryItemBO : categoryItemBOMap.values()) {
                 String period = categoryItemBO.getPeriod();
+                String periodToShow= categoryItemBO.getPeriodToShow();
                 String extInfo = categoryItemBO.getExtInfo();
                 Integer categoryId = categoryItemBO.getCategoryId();
                 LinearLayout tplSubTitleLayout =  (LinearLayout)inflater.inflate(R.layout.single_category_tpl_sub_title, null);
                 TextView tplSubTextView = (TextView) tplSubTitleLayout.findViewById(R.id.tpl_sub_title);
-                tplSubTextView.setText(String.format("%s(%s)", period, extInfo));
+                tplSubTextView.setText(String.format("%s(%s)", periodToShow, extInfo));
                 baseLayout.addView(tplSubTitleLayout);
                 View.OnClickListener onClickListener = new CategoryListActivity.CategoryItemOnClickListener(categoryId, period, extInfo);
                 tplSubTitleLayout.setOnClickListener(onClickListener);

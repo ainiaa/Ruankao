@@ -49,10 +49,20 @@ public class CategoryItemBO implements Serializable {
         this.categoryId = categoryId;
     }
 
-    private int categoryId;//分类ID
+
+
+    public String getPeriodToShow() {
+        return periodToShow;
+    }
+
+    public void setPeriodToShow(String periodToShow) {
+        this.periodToShow = periodToShow;
+    }
+
     private int no;//序号
+    private int categoryId;//分类ID
     private String categoryName;//分类名称
     private String period;//期数
+    private String periodToShow;//期数（用于展示）
     private String extInfo;//扩展信息 -- 上午、下午
-
 }

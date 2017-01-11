@@ -56,18 +56,21 @@ public class QuestionDetailActivity extends AppCompatActivity {
 
     private void initUI(View view, int id, QuestionBankService questionBankService) {
         LinearLayout answerDescLayout = (LinearLayout) view.findViewById(R.id.answerDescLayout);//试题详解Layout
-        TextView answerDesc = (TextView) view.findViewById(R.id.answerDescTextView);//试题详解内容
-        TextView answerTitle = (TextView) view.findViewById(R.id.answerTitleTextView);//试题标题
+        TextView questionDescTV = (TextView) view.findViewById(R.id.answerDescTextView);//试题详解内容
+        TextView questionTitleTV = (TextView) view.findViewById(R.id.answerTitleTextView);//试题标题
+        TextView questionNoTV = (TextView) view.findViewById(R.id.questionNoTextView);//试题No
 
         QuestionItemBO questionItem = questionBankService.getQuestionItemById(id);
 
         String questionDesc = questionItem.getQuestionDesc(); //问题描述
         String questionTitle = questionItem.getQuestionTitle();//问题题干
+        String questionNo    = String.valueOf(questionItem.getNo());//问题序号
         String[] answers = questionItem.getAnswerList();//答案列表
         int rightAnswer = questionItem.getRightAnswer();//问题正确答案
 
-        answerDesc.setText(questionDesc);
-        answerTitle.setText(questionTitle);
+        questionDescTV.setText(questionDesc);
+        questionTitleTV.setText(questionTitle);
+        questionNoTV.setText(questionNo);
 
         Integer[] answerIcon = new Integer[]{R.mipmap.ic_a_1, R.mipmap.ic_b_1, R.mipmap.ic_c_1, R.mipmap.ic_d_1, R.mipmap.ic_e_1, R.mipmap.ic_f_1, R.mipmap.ic_g_1};
         Integer rightAnswerId = answerIcon[rightAnswer];

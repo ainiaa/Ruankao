@@ -3,7 +3,7 @@ package com.a91coding.ruankao.model;
 import java.io.Serializable;
 
 /**
- *  题库Model
+ * 题库Model
  * Created by Administrator on 2017/01/04.
  */
 public class QuestionItemBO implements Serializable {
@@ -47,6 +47,7 @@ public class QuestionItemBO implements Serializable {
     public void setAnswerList(String[] answerList) {
         this.answerList = answerList;
     }
+
     public String getTestPoint() {
         return testPoint;
     }
@@ -55,8 +56,17 @@ public class QuestionItemBO implements Serializable {
         this.testPoint = testPoint;
     }
 
-
     private int id;//问题ID
+
+    public int getNo() {
+        return no;
+    }
+
+    public void setNo(int no) {
+        this.no = no;
+    }
+
+    private int no;//问题序号
     private String questionDesc;//问题详解
     private String questionTitle;//问题题目
     private int rightAnswer;//正确答案

@@ -43,6 +43,7 @@ public class QuestionBankService extends Service {
         for(int i = 0; i < jsonArray.size();i++) {
             JSONObject currentObj = (JSONObject)jsonArray.get(i);
             int id = Integer.valueOf(currentObj.getString("id"));
+            int no = Integer.valueOf(currentObj.getString("no"));
             int rightAnswer = Integer.valueOf(currentObj.getString("rightAnswer"));
             String questionDesc = currentObj.getString("questionDesc");
             String questionTitle = currentObj.getString("questionTitle");
@@ -50,6 +51,7 @@ public class QuestionBankService extends Service {
             String[] answerList = (String[]) currentObj.getJSONArray("answerList").toArray(new String[]{});
             QuestionItemBO itemBO = new QuestionItemBO();
             itemBO.setId(id);
+            itemBO.setNo(no);
             itemBO.setQuestionTitle(questionTitle);
             itemBO.setQuestionDesc(questionDesc);
             itemBO.setAnswerList(answerList);

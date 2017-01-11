@@ -14,8 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CategoryService extends Service {
-    private Map<Integer, CategoryItemBO> categoryItemBOMap = new HashMap<>();
-    private Map<String, Map<Integer, CategoryItemBO>> categoryItemBOMap2 = new HashMap<>();
+    private Map<String, Map<Integer, CategoryItemBO>> categoryItemBOMap = new HashMap<>();
 
     public CategoryService() {
         String json = getJSONstring();
@@ -28,25 +27,26 @@ public class CategoryService extends Service {
             int no = Integer.valueOf(currentObj.getString("no"));
             int categoryId = Integer.valueOf(currentObj.getString("categoryId"));
             String period = currentObj.getString("period");
+            String periodToShow = currentObj.getString("periodToShow");
             String categoryName = currentObj.getString("categoryName");
             String extInfo      = currentObj.getString("extInfo");
             CategoryItemBO itemBO = new CategoryItemBO();
             itemBO.setNo(no);
             itemBO.setCategoryId(categoryId);
             itemBO.setPeriod(period);
+            itemBO.setPeriodToShow(periodToShow);
             itemBO.setCategoryName(categoryName);
             itemBO.setExtInfo(extInfo);
-            if (categoryItemBOMap2.containsKey(categoryName)) {
-                currentCategoryItemMap = categoryItemBOMap2.get(categoryName);
+            if (categoryItemBOMap.containsKey(categoryName)) {
+                currentCategoryItemMap = categoryItemBOMap.get(categoryName);
             } else {
                 currentCategoryItemMap = new HashMap<>();
             }
             currentCategoryItemMap.put(no, itemBO);
-            categoryItemBOMap.put(no, itemBO);
-            categoryItemBOMap2.put(categoryName, currentCategoryItemMap);
+            categoryItemBOMap.put(categoryName, currentCategoryItemMap);
         }
 
-        setCount(categoryItemBOMap2.size());
+        setCount(categoryItemBOMap.size());
     }
 
     /**
@@ -86,19 +86,11 @@ public class CategoryService extends Service {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    /**
-     * 根据ID 获得对应的题目
-     * @param id 需要查询的id
-     * @return 当前需要查询的id的详细内容
-     */
-    public CategoryItemBO getCategoryItemById(int id) {
-        return categoryItemBOMap.get(id);
-    }
     public Map<Integer, CategoryItemBO> getCategoryItemBOMapByName(String categoryName) {
-        return categoryItemBOMap2.get(categoryName);
+        return categoryItemBOMap.get(categoryName);
     }
     public Map<String, Map<Integer, CategoryItemBO>> getAllCategoryItemBOMap() {
-        return categoryItemBOMap2;
+        return categoryItemBOMap;
     }
 
     public int getCount() {
