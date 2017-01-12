@@ -9,11 +9,11 @@ import java.util.List;
  */
 public class QuestionBankBO implements Serializable {
 
-    public List<QuestionItemBO> getQuestionItemList() {
+    public List<QuestionItemSingleAnswerBO> getQuestionItemList() {
         return questionItemList;
     }
 
-    public void setQuestionItemList(List<QuestionItemBO> questionItemList) {
+    public void setQuestionItemList(List<QuestionItemSingleAnswerBO> questionItemList) {
         this.questionItemList = questionItemList;
     }
 
@@ -35,5 +35,5 @@ public class QuestionBankBO implements Serializable {
 
     private String period;
     private String category;
-    private List<QuestionItemBO> questionItemList;
+    private List<QuestionItemSingleAnswerBO> questionItemList;
 }

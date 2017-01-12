@@ -3,10 +3,9 @@ package com.a91coding.ruankao.Service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.util.Log;
 
 import com.a91coding.ruankao.model.QuestionBankBO;
-import com.a91coding.ruankao.model.QuestionItemBO;
+import com.a91coding.ruankao.model.QuestionItemSingleAnswerBO;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -18,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class QuestionBankService extends Service {
-    private Map<Integer, QuestionItemBO> questionItemBOMap = new HashMap<>();
+    private Map<Integer, QuestionItemSingleAnswerBO> questionItemBOMap = new HashMap<>();
 
     private Integer categoryId = 0;
     private String period = "default";
@@ -31,6 +30,9 @@ public class QuestionBankService extends Service {
         initData();
     }
 
+    /**
+     * todo 一题多问的情况需要特殊处理
+     */
     private void initData() {
         String json = getJSONstring();
         JSONObject jsonObject = JSONObject.fromObject(json);
@@ -49,7 +51,7 @@ public class QuestionBankService extends Service {
             String questionTitle = currentObj.getString("questionTitle");
             String testPoint = currentObj.getString("testPoint");
             String[] answerList = (String[]) currentObj.getJSONArray("answerList").toArray(new String[]{});
-            QuestionItemBO itemBO = new QuestionItemBO();
+            QuestionItemSingleAnswerBO itemBO = new QuestionItemSingleAnswerBO();
             itemBO.setId(id);
             itemBO.setNo(no);
             itemBO.setQuestionTitle(questionTitle);
@@ -123,7 +125,7 @@ public class QuestionBankService extends Service {
      * @param id
      * @return
      */
-    public QuestionItemBO getQuestionItemById(int id) {
+    public QuestionItemSingleAnswerBO getQuestionItemById(int id) {
         return questionItemBOMap.get(id);
     }
 
