@@ -3,14 +3,14 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
-        android:id="@+id/answerImageView"
+        android:id="@+id/answer_ic_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/AnswerImageView"
         android:src="@mipmap/ic_b"
         android:contentDescription="@string/question_answer_b"/>
     <TextView
-        android:id="@+id/answerTextView"
+        android:id="@+id/answer_text_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/AnswerTextView"

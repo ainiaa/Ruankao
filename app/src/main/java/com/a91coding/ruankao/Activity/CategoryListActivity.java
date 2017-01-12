@@ -14,6 +14,8 @@ import com.a91coding.ruankao.model.CategoryItemBO;
 
 import java.util.Map;
 
+/**
+ */
 public class CategoryListActivity extends AppCompatActivity {
 
     @Override
@@ -23,40 +25,43 @@ public class CategoryListActivity extends AppCompatActivity {
         initUI();
     }
 
+    /**
+     * 初始化分类列表
+     */
     private void initUI() {
         CategoryService categoryService = new CategoryService();
-        //填充内容
-        Map<String, Map<Integer, CategoryItemBO>> getAllCategoryItemBOMap = categoryService.getAllCategoryItemBOMap();
-        LinearLayout layout = (LinearLayout)findViewById(R.id.activity_main);
+        //获取所有的category详情
+        Map<String, Map<Integer, CategoryItemBO>> allCategoryItemBOMap = categoryService.getAllCategoryItemBOMap();
+        LinearLayout categoryListLayout = (LinearLayout)findViewById(R.id.category_list_ll);
         LayoutInflater inflater = LayoutInflater.from(this);
-        LinearLayout baseLayout = (LinearLayout)inflater.inflate(R.layout.single_category_info, null);
-        for (Map.Entry<String, Map<Integer, CategoryItemBO>> entry : getAllCategoryItemBOMap.entrySet()) {
+        LinearLayout singleCategoryInfoLayout = (LinearLayout)inflater.inflate(R.layout.activity_category_list_single_category_info, null);
+        for (Map.Entry<String, Map<Integer, CategoryItemBO>> entry : allCategoryItemBOMap.entrySet()) {
             String categoryName = entry.getKey();
             Map<Integer, CategoryItemBO> categoryItemBOMap = entry.getValue();
-            LinearLayout tplMainTitleLayout =  (LinearLayout)inflater.inflate(R.layout.single_category_tpl_main_title, null);
-            TextView tplMainTextView = (TextView) tplMainTitleLayout.findViewById(R.id.tpl_main_title);
-            tplMainTextView.setText(categoryName);
-            baseLayout.addView(tplMainTitleLayout);
+            LinearLayout cateTitleTplLayout =  (LinearLayout)inflater.inflate(R.layout.activity_category_list_cate_title_tpl, null);
+            TextView categoryNameTv = (TextView) cateTitleTplLayout.findViewById(R.id.category_name_tv);
+            categoryNameTv.setText(categoryName);
+            singleCategoryInfoLayout.addView(cateTitleTplLayout);
             for (CategoryItemBO categoryItemBO : categoryItemBOMap.values()) {
                 String period = categoryItemBO.getPeriod();
                 String periodToShow= categoryItemBO.getPeriodToShow();
                 String extInfo = categoryItemBO.getExtInfo();
                 Integer categoryId = categoryItemBO.getCategoryId();
-                LinearLayout tplSubTitleLayout =  (LinearLayout)inflater.inflate(R.layout.single_category_tpl_sub_title, null);
-                TextView tplSubTextView = (TextView) tplSubTitleLayout.findViewById(R.id.tpl_sub_title);
-                tplSubTextView.setText(String.format("%s(%s)", periodToShow, extInfo));
-                baseLayout.addView(tplSubTitleLayout);
+                LinearLayout catePeriodTplLayout =  (LinearLayout)inflater.inflate(R.layout.activity_category_list_cate_period_tpl, null);
+                TextView categoryPeriodTv = (TextView) catePeriodTplLayout.findViewById(R.id.category_period_tv);
+                categoryPeriodTv.setText(String.format("%s(%s)", periodToShow, extInfo));
+                singleCategoryInfoLayout.addView(catePeriodTplLayout);
                 View.OnClickListener onClickListener = new CategoryListActivity.CategoryItemOnClickListener(categoryId, period, extInfo);
-                tplSubTitleLayout.setOnClickListener(onClickListener);
+                catePeriodTplLayout.setOnClickListener(onClickListener);
             }
         }
-        layout.addView(baseLayout);
+        categoryListLayout.addView(singleCategoryInfoLayout);
     }
 
     private class CategoryItemOnClickListener implements View.OnClickListener {
-        int categoryId;
-        String period;
-        String extInfo;
+        private int categoryId;
+        private String period;
+        private String extInfo;
         public CategoryItemOnClickListener(int categoryId, String period, String extInfo) {
             this.categoryId = categoryId;
             this.period = period;

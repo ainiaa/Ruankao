@@ -32,8 +32,11 @@ public class QuestionDetailActivity extends AppCompatActivity {
         initViewPager();
     }
 
+    /**
+     * 初始化viewPager
+     */
     private void initViewPager() {
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager = (ViewPager) findViewById(R.id.activity_question_detail_view_pager);
         ArrayList<View> views = new ArrayList<>();
 
         Intent intent = getIntent();
@@ -43,10 +46,12 @@ public class QuestionDetailActivity extends AppCompatActivity {
         QuestionBankService questionBankService = new QuestionBankService(categoryId, period, extInfo);
         //填充内容
         int max = questionBankService.getCount();
+        LayoutInflater inflater = LayoutInflater.from(this);
         for (int id = 1; id <= max; id++) {
-            View view = LayoutInflater.from(this).inflate(R.layout.question_layout, null);
-            initUI(view, id, questionBankService);
-            views.add(view);
+            View questionContainerView = inflater.inflate(R.layout.activity_question_detail_question_container, null);
+            QuestionItemBO questionItem = questionBankService.getQuestionItemById(id);
+            initUI(questionContainerView, questionItem);
+            views.add(questionContainerView);
         }
 
         MYViewPagerAdapter adapter = new MYViewPagerAdapter();
@@ -54,57 +59,55 @@ public class QuestionDetailActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
-    private void initUI(View view, int id, QuestionBankService questionBankService) {
-        LinearLayout answerDescLayout = (LinearLayout) view.findViewById(R.id.answerDescLayout);//试题详解Layout
-        TextView questionDescTV = (TextView) view.findViewById(R.id.answerDescTextView);//试题详解内容
-        TextView questionTitleTV = (TextView) view.findViewById(R.id.answerTitleTextView);//试题标题
-        TextView questionNoTV = (TextView) view.findViewById(R.id.questionNoTextView);//试题No
-
-        QuestionItemBO questionItem = questionBankService.getQuestionItemById(id);
+    private void initUI(View questionContainerView, QuestionItemBO questionItem) {
+        LinearLayout questionAnswerAnalysisLayout = (LinearLayout) questionContainerView.findViewById(R.id.question_answer_analysis_ll);//试题详解Layout
+        TextView questionAnswerAnalysisTv = (TextView) questionContainerView.findViewById(R.id.question_answer_analysis_tv);//试题详解内容
+        TextView questionTitleTv = (TextView) questionContainerView.findViewById(R.id.question_title_tv);//试题标题
+        TextView questionNoTv = (TextView) questionContainerView.findViewById(R.id.question_no_tv);//试题No
 
         String questionDesc = questionItem.getQuestionDesc(); //问题描述
         String questionTitle = questionItem.getQuestionTitle();//问题题干
         String questionNo    = String.valueOf(questionItem.getNo());//问题序号
         String[] answers = questionItem.getAnswerList();//答案列表
         int rightAnswer = questionItem.getRightAnswer();//问题正确答案
-        questionTitle = "              "  + questionTitle;
-        questionDescTV.setText(questionDesc);
-        questionTitleTV.setText(questionTitle);
-        questionNoTV.setText(questionNo);
+        questionTitle = "              "  + questionTitle;//空出来icon内容（要不然显示不好看）
+        questionAnswerAnalysisTv.setText(questionDesc);
+        questionTitleTv.setText(questionTitle);
+        questionNoTv.setText(questionNo);
 
-        Integer[] answerIcon = new Integer[]{R.mipmap.ic_a_1, R.mipmap.ic_b_1, R.mipmap.ic_c_1, R.mipmap.ic_d_1, R.mipmap.ic_e_1, R.mipmap.ic_f_1, R.mipmap.ic_g_1};
-        Integer rightAnswerId = answerIcon[rightAnswer];
+        Integer[] answerIcons = new Integer[]{R.mipmap.ic_a_1, R.mipmap.ic_b_1, R.mipmap.ic_c_1, R.mipmap.ic_d_1, R.mipmap.ic_e_1, R.mipmap.ic_f_1, R.mipmap.ic_g_1};
+        Integer rightAnswerId = answerIcons[rightAnswer];
 
         LayoutInflater inflater = LayoutInflater.from(this);
         Map<Integer, AnswerDetailView> answerDetailViewMap = new LinkedHashMap<>();
+        LinearLayout questionAnswerListContainerLayout = (LinearLayout)questionContainerView.findViewById(R.id.question_answer_list_container);
         for (int i = 0; i < answers.length; i++) {
-            Integer currentId = answerIcon[i];
+            Integer currentId = answerIcons[i];
             String currentAnswer = answers[i];
-            AnswerDetailView currentAnswerDetailLayout = (AnswerDetailView) inflater.inflate(R.layout.single_answer_detail_tpl, null);
-            ImageView currentAnswerImageView = (ImageView) currentAnswerDetailLayout.findViewById(R.id.answerImageView);
-            if (i < answerIcon.length) {
-                currentAnswerImageView.setImageResource(currentId);
+            AnswerDetailView currentAnswerDetailLayout = (AnswerDetailView) inflater.inflate(R.layout.activity_question_detail_single_answer_tpl, null);
+            ImageView currentAnswerIconIv = (ImageView) currentAnswerDetailLayout.findViewById(R.id.answer_ic_iv);
+            if (i < answerIcons.length) {
+                currentAnswerIconIv.setImageResource(currentId);
             } else {// todo 还不清楚怎么处理
-                currentAnswerImageView.setImageResource(0);
+                currentAnswerIconIv.setImageResource(0);
             }
-            TextView currentAnswerTextView = (TextView) currentAnswerDetailLayout.findViewById(R.id.answerTextView);
-            currentAnswerTextView.setText(currentAnswer);
+            TextView currentAnswerTextTv = (TextView) currentAnswerDetailLayout.findViewById(R.id.answer_text_tv);
+            currentAnswerTextTv.setText(currentAnswer);
             currentAnswerDetailLayout.setRightAnswer(i == rightAnswer);
             currentAnswerDetailLayout.setId(currentId);
             answerDetailViewMap.put(currentId, currentAnswerDetailLayout);
         }
-        View.OnClickListener onClickListener = new QuestionDetailActivity.AnswerOnClickListener(answerDescLayout, rightAnswerId, answerDetailViewMap);
+        View.OnClickListener onClickListener = new QuestionDetailActivity.AnswerOnClickListener(questionAnswerAnalysisLayout, rightAnswerId, answerDetailViewMap);
         for (AnswerDetailView answerDetailView : answerDetailViewMap.values()) {
             answerDetailView.setOnClickListener(onClickListener);
-            View answerListContainer = view.findViewById(R.id.answerListContainer);
-            ((LinearLayout) answerListContainer).addView(answerDetailView);
+            questionAnswerListContainerLayout.addView(answerDetailView);
         }
     }
 
     private class AnswerOnClickListener implements View.OnClickListener {
         private int rightAnswerId;
-        LinearLayout answerDescLayout;//试题详解Layout
-        Map<Integer, AnswerDetailView> answerDetailViewMap;
+        private LinearLayout answerDescLayout;//试题详解Layout
+        private Map<Integer, AnswerDetailView> answerDetailViewMap;
 
         public AnswerOnClickListener(LinearLayout answerDescLayout, int rightAnswerId, Map<Integer, AnswerDetailView> answerDetailViewMap) {
             this.answerDescLayout = answerDescLayout;
@@ -115,7 +118,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
         public void onClick(View v) {
             int id = v.getId();
             AnswerDetailView currentAnswerItem = answerDetailViewMap.get(id);
-            ImageView currentImageView = (ImageView) currentAnswerItem.findViewById(R.id.answerImageView);
+            ImageView currentImageView = (ImageView) currentAnswerItem.findViewById(R.id.answer_ic_iv);
             if (((AnswerDetailView) v).isRightAnswer()) {//当前为正确答案
                 currentImageView.setImageResource(R.mipmap.ic_right_1);
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);//跳转下一页
@@ -124,7 +127,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
                 currentImageView.setImageResource(R.mipmap.ic_error_1);
                 //显示正确答案
                 AnswerDetailView rightAnswerItem = answerDetailViewMap.get(rightAnswerId);
-                ImageView rightImageView = (ImageView) rightAnswerItem.findViewById(R.id.answerImageView);
+                ImageView rightImageView = (ImageView) rightAnswerItem.findViewById(R.id.answer_ic_iv);
                 rightImageView.setImageResource(R.mipmap.ic_right_1);
             }
 
