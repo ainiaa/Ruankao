@@ -15,6 +15,7 @@ import com.a91coding.ruankao.model.CategoryItemBO;
 import java.util.Map;
 
 /**
+ * 分类列表
  */
 public class CategoryListActivity extends AppCompatActivity {
 
