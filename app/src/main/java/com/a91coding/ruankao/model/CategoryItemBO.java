@@ -16,7 +16,6 @@ public class CategoryItemBO implements Serializable {
         this.no = no;
     }
 
-
     public String getCategoryName() {
         return categoryName;
     }
@@ -49,8 +48,6 @@ public class CategoryItemBO implements Serializable {
         this.categoryId = categoryId;
     }
 
-
-
     public String getPeriodToShow() {
         return periodToShow;
     }
@@ -59,8 +56,9 @@ public class CategoryItemBO implements Serializable {
         this.periodToShow = periodToShow;
     }
 
+    private int id;//当前分类id
     private int no;//序号
-    private int categoryId;//分类ID
+    private int categoryId;//大分类ID
     private String categoryName;//分类名称
     private String period;//期数
     private String periodToShow;//期数（用于展示）

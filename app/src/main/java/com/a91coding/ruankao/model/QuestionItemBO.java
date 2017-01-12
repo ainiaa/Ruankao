@@ -55,17 +55,14 @@ public class QuestionItemBO implements Serializable {
     public void setTestPoint(String testPoint) {
         this.testPoint = testPoint;
     }
-
-    private int id;//问题ID
-
     public int getNo() {
         return no;
     }
-
     public void setNo(int no) {
         this.no = no;
     }
 
+    private int id;//问题ID
     private int no;//问题序号
     private String questionDesc;//问题详解
     private String questionTitle;//问题题目
