@@ -23,9 +23,10 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class QuestionDetailActivity extends AppCompatActivity {
+public class QuestionDetailActivity extends RKBaseActivity {
 
     private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +51,14 @@ public class QuestionDetailActivity extends AppCompatActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         for (int id = 1; id <= max; id++) {
             View questionContainerView = inflater.inflate(R.layout.activity_question_detail_question_container, null);
-            QuestionItemSingleAnswerBO questionItem = questionBankService.getQuestionItemById(id);
-            initUI(questionContainerView, questionItem);
+            int questionType = questionBankService.getQuestionTypeById(id);
+            if (questionType == 0) { //一题一问
+                QuestionItemSingleAnswerBO questionItem = questionBankService.getQuestionItemSingleAnswerById(id);
+                initUI(questionContainerView, questionItem);
+            } else {//一题多问
+                QuestionItemMultiAnswerBO questionItem = questionBankService.getQuestionItemMultiAnswerById(id);
+                initUI(questionContainerView, questionItem);
+            }
             views.add(questionContainerView);
         }
 
@@ -61,6 +68,8 @@ public class QuestionDetailActivity extends AppCompatActivity {
     }
 
     /**
+     * 一题多问
+     * todo 自动跳转逻辑还没有处理  --- 答案不正正常显示
      * @param questionContainerView
      * @param questionItem
      */
@@ -72,22 +81,23 @@ public class QuestionDetailActivity extends AppCompatActivity {
 
         String questionDesc = questionItem.getQuestionDesc(); //问题描述
         String questionTitle = questionItem.getQuestionTitle();//问题题干
-        String questionNo    = String.valueOf(questionItem.getNo());//问题序号
+        String questionNo = String.valueOf(questionItem.getNo());//问题序号
         String[][] answers = questionItem.getAnswerList();//答案列表
-        int[] rightAnswer = questionItem.getRightAnswer();//问题正确答案
+        Integer[] rightAnswer = questionItem.getRightAnswer();//问题正确答案
         int questionCount = questionItem.getQuestionCount();//问题个数
-        questionTitle = "              "  + questionTitle;//空出来icon内容（要不然显示不好看）
+        questionTitle = "              " + questionTitle;//空出来icon内容（要不然显示不好看）
         questionAnswerAnalysisTv.setText(questionDesc);
         questionTitleTv.setText(questionTitle);
         questionNoTv.setText(questionNo);
         Integer[] answerIcons = new Integer[]{R.mipmap.ic_a_1, R.mipmap.ic_b_1, R.mipmap.ic_c_1, R.mipmap.ic_d_1, R.mipmap.ic_e_1, R.mipmap.ic_f_1, R.mipmap.ic_g_1};
         LayoutInflater inflater = LayoutInflater.from(this);
-        for(int i = 0; i < questionCount;i++) {
-            int currentRightAnswer =rightAnswer[i];
+        Integer[] rightAnswerIds = new Integer[questionCount];
+        for (int i = 0; i < questionCount; i++) {
+            int currentRightAnswer = rightAnswer[i];
             Integer rightAnswerId = answerIcons[currentRightAnswer];
-
+            rightAnswerIds[i] = rightAnswerId;
             Map<Integer, AnswerDetailView> answerDetailViewMap = new LinkedHashMap<>();
-            LinearLayout questionAnswerListContainerLayout = (LinearLayout)questionContainerView.findViewById(R.id.question_answer_list_container);
+            LinearLayout questionAnswerListContainerLayout = (LinearLayout) questionContainerView.findViewById(R.id.question_answer_list_container);
             for (int j = 0; j < answers.length; j++) {
                 Integer currentId = answerIcons[j];
                 String currentAnswer = answers[i][j];
@@ -104,7 +114,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
                 currentAnswerDetailLayout.setId(currentId);
                 answerDetailViewMap.put(currentId, currentAnswerDetailLayout);
             }
-            View.OnClickListener onClickListener = new QuestionDetailActivity.AnswerOnClickListener(questionAnswerAnalysisLayout, rightAnswerId, answerDetailViewMap);
+            View.OnClickListener onClickListener = new MultiAnswerOnClickListener(questionAnswerAnalysisLayout, rightAnswerId, answerDetailViewMap);
             for (AnswerDetailView answerDetailView : answerDetailViewMap.values()) {
                 answerDetailView.setOnClickListener(onClickListener);
                 questionAnswerListContainerLayout.addView(answerDetailView);
@@ -112,8 +122,9 @@ public class QuestionDetailActivity extends AppCompatActivity {
         }
 
     }
+
     /**
-     * todo 一题一问的情况需要处理
+     * 一题一问
      * @param questionContainerView
      * @param questionItem
      */
@@ -122,23 +133,30 @@ public class QuestionDetailActivity extends AppCompatActivity {
         TextView questionAnswerAnalysisTv = (TextView) questionContainerView.findViewById(R.id.question_answer_analysis_tv);//试题详解内容
         TextView questionTitleTv = (TextView) questionContainerView.findViewById(R.id.question_title_tv);//试题标题
         TextView questionNoTv = (TextView) questionContainerView.findViewById(R.id.question_no_tv);//试题No
-
+        ImageView illustrationIv = (ImageView) questionContainerView.findViewById(R.id.question_illustration_iv);//问题插图
         String questionDesc = questionItem.getQuestionDesc(); //问题描述
         String questionTitle = questionItem.getQuestionTitle();//问题题干
-        String questionNo    = String.valueOf(questionItem.getNo());//问题序号
+        String questionNo = String.valueOf(questionItem.getNo());//问题序号
+        String illustration = questionItem.getIllustration();//问题插图
         String[] answers = questionItem.getAnswerList();//答案列表
         int rightAnswer = questionItem.getRightAnswer();//问题正确答案
-        questionTitle = "              "  + questionTitle;//空出来icon内容（要不然显示不好看）
+        questionTitle = "              " + questionTitle;//空出来icon内容（要不然显示不好看）
         questionAnswerAnalysisTv.setText(questionDesc);
         questionTitleTv.setText(questionTitle);
         questionNoTv.setText(questionNo);
+        illustrationIv.setImageResource(getResource(illustration));
 
         Integer[] answerIcons = new Integer[]{R.mipmap.ic_a_1, R.mipmap.ic_b_1, R.mipmap.ic_c_1, R.mipmap.ic_d_1, R.mipmap.ic_e_1, R.mipmap.ic_f_1, R.mipmap.ic_g_1};
-        Integer rightAnswerId = answerIcons[rightAnswer];
+        Integer rightAnswerId = -1;
+        if (rightAnswer == -1) {
+            rightAnswerId = -1;
+        }  else {
+            rightAnswerId = answerIcons[rightAnswer];
+        }
 
         LayoutInflater inflater = LayoutInflater.from(this);
         Map<Integer, AnswerDetailView> answerDetailViewMap = new LinkedHashMap<>();
-        LinearLayout questionAnswerListContainerLayout = (LinearLayout)questionContainerView.findViewById(R.id.question_answer_list_container);
+        LinearLayout questionAnswerListContainerLayout = (LinearLayout) questionContainerView.findViewById(R.id.question_answer_list_container);
         for (int i = 0; i < answers.length; i++) {
             Integer currentId = answerIcons[i];
             String currentAnswer = answers[i];
@@ -155,19 +173,22 @@ public class QuestionDetailActivity extends AppCompatActivity {
             currentAnswerDetailLayout.setId(currentId);
             answerDetailViewMap.put(currentId, currentAnswerDetailLayout);
         }
-        View.OnClickListener onClickListener = new QuestionDetailActivity.AnswerOnClickListener(questionAnswerAnalysisLayout, rightAnswerId, answerDetailViewMap);
+        View.OnClickListener onClickListener = new SingleAnswerOnClickListener(questionAnswerAnalysisLayout, rightAnswerId, answerDetailViewMap);
         for (AnswerDetailView answerDetailView : answerDetailViewMap.values()) {
             answerDetailView.setOnClickListener(onClickListener);
             questionAnswerListContainerLayout.addView(answerDetailView);
         }
     }
 
-    private class AnswerOnClickListener implements View.OnClickListener {
+    /**
+     * 一题多问 onClick
+     */
+    private class MultiAnswerOnClickListener implements View.OnClickListener {
         private int rightAnswerId;
         private LinearLayout answerDescLayout;//试题详解Layout
         private Map<Integer, AnswerDetailView> answerDetailViewMap;
 
-        public AnswerOnClickListener(LinearLayout answerDescLayout, int rightAnswerId, Map<Integer, AnswerDetailView> answerDetailViewMap) {
+        public MultiAnswerOnClickListener(LinearLayout answerDescLayout, int rightAnswerId, Map<Integer, AnswerDetailView> answerDetailViewMap) {
             this.answerDescLayout = answerDescLayout;
             this.rightAnswerId = rightAnswerId;
             this.answerDetailViewMap = answerDetailViewMap;
@@ -179,7 +200,44 @@ public class QuestionDetailActivity extends AppCompatActivity {
             ImageView currentImageView = (ImageView) currentAnswerItem.findViewById(R.id.answer_ic_iv);
             if (((AnswerDetailView) v).isRightAnswer()) {//当前为正确答案
                 currentImageView.setImageResource(R.mipmap.ic_right_1);
-                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);//跳转下一页
+                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);//跳转下一页
+            } else { //当前选项不正确
+                answerDescLayout.setVisibility(View.VISIBLE);
+                currentImageView.setImageResource(R.mipmap.ic_error_1);
+                //显示正确答案
+                AnswerDetailView rightAnswerItem = answerDetailViewMap.get(rightAnswerId);
+                ImageView rightImageView = (ImageView) rightAnswerItem.findViewById(R.id.answer_ic_iv);
+                rightImageView.setImageResource(R.mipmap.ic_right_1);
+            }
+
+            //已经选择了。 去掉onclick事件
+            for (AnswerDetailView answerDetailView : answerDetailViewMap.values()) {
+                answerDetailView.setOnClickListener(null);
+            }
+        }
+    }
+
+    /**
+     * 一题一问 onClick
+     */
+    private class SingleAnswerOnClickListener implements View.OnClickListener {
+        private int rightAnswerId;
+        private LinearLayout answerDescLayout;//试题详解Layout
+        private Map<Integer, AnswerDetailView> answerDetailViewMap;
+
+        public SingleAnswerOnClickListener(LinearLayout answerDescLayout, int rightAnswerId, Map<Integer, AnswerDetailView> answerDetailViewMap) {
+            this.answerDescLayout = answerDescLayout;
+            this.rightAnswerId = rightAnswerId;
+            this.answerDetailViewMap = answerDetailViewMap;
+        }
+
+        public void onClick(View v) {
+            int id = v.getId();
+            AnswerDetailView currentAnswerItem = answerDetailViewMap.get(id);
+            ImageView currentImageView = (ImageView) currentAnswerItem.findViewById(R.id.answer_ic_iv);
+            if (((AnswerDetailView) v).isRightAnswer()) {//当前为正确答案
+                currentImageView.setImageResource(R.mipmap.ic_right_1);
+                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);//跳转下一页
             } else { //当前选项不正确
                 answerDescLayout.setVisibility(View.VISIBLE);
                 currentImageView.setImageResource(R.mipmap.ic_error_1);

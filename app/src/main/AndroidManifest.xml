@@ -22,7 +22,8 @@
             android:exported="true" />
 
         <activity android:name=".Activity.CategoryListActivity" />
-        <activity android:name=".Activity.QuestionDetailActivity"></activity>
+        <activity android:name=".Activity.QuestionDetailActivity" />
+        <activity android:name=".Activity.RKBaseActivity"></activity>
     </application>
 
 </manifest>

@@ -35,6 +35,12 @@
                 android:layout_height="wrap_content"
                 style="@style/QuestionTitleTextView"
                 android:text="" />
+            <ImageView
+                android:id="@+id/question_illustration_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/AnswerImageView"
+                android:contentDescription=""/>
         </LinearLayout>
         <!-- 试题标题 end -->
 

@@ -56,11 +56,11 @@ public class QuestionItemMultiAnswerBO implements Serializable {
         this.questionType = questionType;
     }
 
-    public int[] getRightAnswer() {
+    public Integer[] getRightAnswer() {
         return rightAnswer;
     }
 
-    public void setRightAnswer(int[] rightAnswer) {
+    public void setRightAnswer(Integer[] rightAnswer) {
         this.rightAnswer = rightAnswer;
     }
 
@@ -74,17 +74,25 @@ public class QuestionItemMultiAnswerBO implements Serializable {
     public int getQuestionCount() {
         return questionCount;
     }
-
     public void setQuestionCount(int questionCount) {
         this.questionCount = questionCount;
     }
+    public String getIllustration() {
+        return illustration;
+    }
+
+    public void setIllustration(String illustration) {
+        this.illustration = illustration;
+    }
+
     private int id;//问题ID
     private int no;//问题序号
     private String questionDesc;//问题详解
     private String questionTitle;//问题题目
     private String testPoint;//考点
     private int questionType;//试题类型 0:单选题目，一题一问  1:单选题，一题多问
-    private int[] rightAnswer;//多题正确答案
+    private Integer[] rightAnswer;//多题正确答案
     private String[][] answerList;//多题答案列表
     private int questionCount;//问题个数
+    private String illustration;//插图
 }

@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.a91coding.ruankao.R;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends RKBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * 分类列表
  */
-public class CategoryListActivity extends AppCompatActivity {
+public class CategoryListActivity extends RKBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
