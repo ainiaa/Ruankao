@@ -21,6 +21,7 @@ public class AnswerDetailView extends LinearLayout {
     }
 
     private boolean isRightAnswer = false;
+    private int viewType = 0;
 
     public AnswerDetailView(Context context) {
         super(context);

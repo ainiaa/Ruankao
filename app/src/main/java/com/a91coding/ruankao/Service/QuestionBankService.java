@@ -70,7 +70,8 @@ public class QuestionBankService extends Service {
                 Integer[] rightAnswer = (Integer[])currentObj.getJSONArray("rightAnswer").toArray(new Integer[]{});
                 JSONArray answerListArray = currentObj.getJSONArray("answerList");
                 String[][] answerList = new String[answerListArray.size()][];
-                for(int j = 0 ;j < answerListArray.size();j++) {
+                int questionCount = answerListArray.size();
+                for(int j = 0 ;j < questionCount;j++) {
                     answerList[j] = (String[]) (answerListArray.getJSONArray(j).toArray(new String[]{}));
                 }
                 QuestionItemMultiAnswerBO itemBO = new QuestionItemMultiAnswerBO();
@@ -83,6 +84,7 @@ public class QuestionBankService extends Service {
                 itemBO.setTestPoint(testPoint);
                 itemBO.setIllustration(illustration);
                 itemBO.setQuestionType(questionType);
+                itemBO.setQuestionCount(questionCount);
                 questionItemBOMap.put(id, new QuestionMapping(id,questionType));
                 questionItemMultiAnswerBOMap.put(id, itemBO);
             }
