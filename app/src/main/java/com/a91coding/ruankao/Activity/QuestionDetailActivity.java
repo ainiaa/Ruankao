@@ -131,12 +131,15 @@ public class QuestionDetailActivity extends RKBaseActivity {
             if (i != questionCount -1) {
                 AnswerDetailView separatorLaytout = (AnswerDetailView)inflater.inflate(R.layout.common_divider, null);
                 Integer nextId = View.generateViewId();
+                separatorLaytout.setViewType(1);
                 answerDetailViewMap.put(nextId, separatorLaytout);
             }
             //设置各个答案的click事件 并添加到view中 start
             View.OnClickListener onClickListener = new MultiAnswerOnClickListener(questionAnswerAnalysisLayout, rightAnswerId, answerDetailViewMap);
             for (AnswerDetailView answerDetailView : answerDetailViewMap.values()) {
-                answerDetailView.setOnClickListener(onClickListener);
+                if (answerDetailView.getViewType() == 0) {
+                    answerDetailView.setOnClickListener(onClickListener);
+                }
                 questionAnswerListContainerLayout.addView(answerDetailView);
             }
             //设置各个答案的click事件 并添加到view中 end

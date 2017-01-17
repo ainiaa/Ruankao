@@ -12,16 +12,9 @@ import com.a91coding.ruankao.R;
  */
 public class AnswerDetailView extends LinearLayout {
 
-    public boolean isRightAnswer() {
-        return isRightAnswer;
-    }
 
-    public void setRightAnswer(boolean rightAnswer) {
-        isRightAnswer = rightAnswer;
-    }
 
-    private boolean isRightAnswer = false;
-    private int viewType = 0;
+
 
     public AnswerDetailView(Context context) {
         super(context);
@@ -39,12 +32,32 @@ public class AnswerDetailView extends LinearLayout {
     }
 
     private void init(AttributeSet attrs, int defStyle) {
-        // Load attributes
         final TypedArray a = getContext().obtainStyledAttributes(
                 attrs, R.styleable.AnswerDetailView, defStyle, 0);
 
         isRightAnswer = a.getBoolean(R.styleable.AnswerDetailView_isRightAnswer, false);
-
+        viewType      = a.getInteger(R.styleable.AnswerDetailView_viewType,0);
         a.recycle();
     }
+
+
+    private boolean isRightAnswer = false;
+    private int viewType = 0; //0 普通的view  1：不需要接受click的view
+
+    public int getViewType() {
+        return viewType;
+    }
+
+    public void setViewType(int viewType) {
+        this.viewType = viewType;
+    }
+
+    public boolean isRightAnswer() {
+        return isRightAnswer;
+    }
+
+    public void setRightAnswer(boolean rightAnswer) {
+        isRightAnswer = rightAnswer;
+    }
+
 }
