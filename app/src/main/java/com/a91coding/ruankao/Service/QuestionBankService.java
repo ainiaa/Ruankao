@@ -34,10 +34,12 @@ public class QuestionBankService extends Service {
         initData();
     }
 
+    private QuestionBankBO questionBankBO;
+
     private void initData() {
         String json = getJSONstring();
         JSONObject jsonObject = JSONObject.fromObject(json);
-        QuestionBankBO questionBankBO= new QuestionBankBO();
+        questionBankBO= new QuestionBankBO();
         questionBankBO.setCategory(jsonObject.getString("category"));
         questionBankBO.setPeriod(jsonObject.getString("period"));
         JSONArray jsonArray = jsonObject.getJSONArray("questionItemList");
@@ -173,6 +175,14 @@ public class QuestionBankService extends Service {
     }
 
     private int count = 0;
+
+
+    public String getCategory() {
+        if (questionBankBO == null) {
+            return "";
+        }
+        return questionBankBO.getCategory() + "(" + questionBankBO.getPeriod() + ")";
+    }
 
     private class QuestionMapping{
         private Integer id;

@@ -51,6 +51,12 @@ public class QuestionDetailActivity extends RKBaseActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         for (int id = 1; id <= max; id++) {
             View questionContainerView = inflater.inflate(R.layout.activity_question_detail_question_container, null);
+
+            //设置header start
+            TextView headerView = (TextView)questionContainerView.findViewById(R.id.question_common_header_content);
+            headerView.setText(questionBankService.getCategory());
+            //设置header end
+
             int questionType = questionBankService.getQuestionTypeById(id);
             if (questionType == 0) { //一题一问
                 QuestionItemSingleAnswerBO questionItem = questionBankService.getQuestionItemSingleAnswerById(id);
@@ -59,6 +65,12 @@ public class QuestionDetailActivity extends RKBaseActivity {
                 QuestionItemMultiAnswerBO questionItem = questionBankService.getQuestionItemMultiAnswerById(id);
                 initUI(questionContainerView, questionItem);
             }
+
+            //设置footer start
+            TextView footerView = (TextView)questionContainerView.findViewById(R.id.question_common_footer_content);
+            footerView.setText(id + "/" + max);
+            //设置footer end
+
             views.add(questionContainerView);
         }
 
