@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.os.IBinder;
 
 import com.a91coding.ruankao.model.CategoryItemBO;
+import com.a91coding.ruankao.util.JSONUtil;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,17 +23,17 @@ public class CategoryService extends Service {
     public CategoryService() {
         String json = getJSONstring();
         JSONObject jsonObject = JSONObject.fromObject(json);
-        JSONArray jsonArray = jsonObject.getJSONArray("categoryItemList");
+        JSONArray jsonArray = JSONUtil.getJSONArrayFromObject(jsonObject, "categoryItemList");
 
-        for(int i = 0; i < jsonArray.size();i++) {
+        for (int i = 0; i < jsonArray.size(); i++) {
             Map<Integer, CategoryItemBO> currentCategoryItemMap;
-            JSONObject currentObj = (JSONObject)jsonArray.get(i);
-            int no = Integer.valueOf(currentObj.getString("no"));
-            int categoryId = Integer.valueOf(currentObj.getString("categoryId"));
-            String period = currentObj.getString("period");
-            String periodToShow = currentObj.getString("periodToShow");
-            String categoryName = currentObj.getString("categoryName");
-            String extInfo      = currentObj.getString("extInfo");
+            JSONObject currentObj = (JSONObject) jsonArray.get(i);
+            int no = Integer.valueOf(JSONUtil.getStringFromObject(currentObj, "no"));
+            int categoryId = Integer.valueOf(JSONUtil.getStringFromObject(currentObj, "categoryId"));
+            String period = JSONUtil.getStringFromObject(currentObj, "period");
+            String periodToShow = JSONUtil.getStringFromObject(currentObj, "periodToShow");
+            String categoryName = JSONUtil.getStringFromObject(currentObj, "categoryName");
+            String extInfo = JSONUtil.getStringFromObject(currentObj, "extInfo");
             CategoryItemBO itemBO = new CategoryItemBO();
             itemBO.setNo(no);
             itemBO.setCategoryId(categoryId);
@@ -60,23 +63,23 @@ public class CategoryService extends Service {
     }
 
     /**
-     *
      * @param is 输入流
      * @return 输入流的内容
      */
     private byte[] inputStreamToByte(InputStream is) {
-        byte[] imgdata = null;
+        byte[] imgData = null;
         try {
-            ByteArrayOutputStream bytestream = new ByteArrayOutputStream();
+            ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
             int ch;
             while ((ch = is.read()) != -1) {
-                bytestream.write(ch);
+                byteStream.write(ch);
             }
-            imgdata = bytestream.toByteArray();
-            bytestream.close();
-        }catch (IOException e) {}
+            imgData = byteStream.toByteArray();
+            byteStream.close();
+        } catch (IOException e) {
+        }
 
-        return imgdata;
+        return imgData;
     }
 
 
@@ -89,6 +92,7 @@ public class CategoryService extends Service {
     public Map<Integer, CategoryItemBO> getCategoryItemBOMapByName(String categoryName) {
         return categoryItemBOMap.get(categoryName);
     }
+
     public Map<String, Map<Integer, CategoryItemBO>> getAllCategoryItemBOMap() {
         return categoryItemBOMap;
     }

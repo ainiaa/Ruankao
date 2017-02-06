@@ -7,6 +7,7 @@ import android.os.IBinder;
 import com.a91coding.ruankao.model.QuestionBankBO;
 import com.a91coding.ruankao.model.QuestionItemMultiAnswerBO;
 import com.a91coding.ruankao.model.QuestionItemSingleAnswerBO;
+import com.a91coding.ruankao.util.JSONUtil;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -42,23 +43,23 @@ public class QuestionBankService extends Service {
         String json = getJSONstring();
         JSONObject jsonObject = JSONObject.fromObject(json);
         questionBankBO= new QuestionBankBO();
-        questionBankBO.setCategory(jsonObject.getString("category"));
-        questionBankBO.setPeriod(jsonObject.getString("period"));
+        questionBankBO.setCategory(JSONUtil.getStringFromObject(jsonObject, "category"));
+        questionBankBO.setPeriod(JSONUtil.getStringFromObject(jsonObject, "period"));
         questionBankBO.setPeriodToShow(periodToShow);
-        JSONArray jsonArray = jsonObject.getJSONArray("questionItemList");
+        JSONArray jsonArray = JSONUtil.getJSONArrayFromObject(jsonObject, "questionItemList");
         for(int i = 0; i < jsonArray.size();i++) {
             JSONObject currentObj = (JSONObject)jsonArray.get(i);
-            int id = Integer.valueOf(currentObj.getString("id"));
-            int no = Integer.valueOf(currentObj.getString("no"));
+            int id = Integer.valueOf(JSONUtil.getStringFromObject(currentObj, "id"));
+            int no = Integer.valueOf(JSONUtil.getStringFromObject(currentObj, "no"));
 
-            String questionDesc = currentObj.getString("questionDesc");
-            String questionTitle = currentObj.getString("questionTitle");
-            String testPoint = currentObj.getString("testPoint");
-            String      illustration  = currentObj.getString("illustration");
-            int questionType = currentObj.getInt("questionType");
+            String questionDesc = JSONUtil.getStringFromObject(currentObj, "questionDesc");
+            String questionTitle = JSONUtil.getStringFromObject(currentObj, "questionTitle");
+            String testPoint = JSONUtil.getStringFromObject(currentObj, "testPoint");
+            String      illustration  = JSONUtil.getStringFromObject(currentObj, "illustration");
+            int questionType = JSONUtil.getIntFromObject(currentObj, "questionType");
             if (questionType == 0) {//一题一问
-                int rightAnswer = Integer.valueOf(currentObj.getString("rightAnswer"));
-                String[] answerList = (String[]) currentObj.getJSONArray("answerList").toArray(new String[]{});
+                int rightAnswer = Integer.valueOf(JSONUtil.getStringFromObject(currentObj, "rightAnswer"));
+                String[] answerList = (String[]) JSONUtil.getJSONArrayFromObject(currentObj, "answerList").toArray(new String[]{});
                 QuestionItemSingleAnswerBO itemBO = new QuestionItemSingleAnswerBO();
                 itemBO.setId(id);
                 itemBO.setNo(no);
@@ -72,8 +73,8 @@ public class QuestionBankService extends Service {
                 questionItemBOMap.put(id, new QuestionMapping(id,questionType));
                 questionItemSingleAnswerBOMap.put(id, itemBO);
             } else {//一题多问
-                Integer[] rightAnswer = (Integer[])currentObj.getJSONArray("rightAnswer").toArray(new Integer[]{});
-                JSONArray answerListArray = currentObj.getJSONArray("answerList");
+                Integer[] rightAnswer = (Integer[])JSONUtil.getJSONArrayFromObject(currentObj, "rightAnswer").toArray(new Integer[]{});
+                JSONArray answerListArray = JSONUtil.getJSONArrayFromObject(currentObj, "answerList");
                 String[][] answerList = new String[answerListArray.size()][];
                 int questionCount = answerListArray.size();
                 for(int j = 0 ;j < questionCount;j++) {
@@ -185,7 +186,7 @@ public class QuestionBankService extends Service {
         if (questionBankBO == null) {
             return "";
         }
-        return questionBankBO.getCategory() + "(" + periodToShow + "("+"" +extInfo+"))";
+        return questionBankBO.getCategory() + "(" + periodToShow + "(" + extInfo + "))";
     }
 
     private class QuestionMapping{
