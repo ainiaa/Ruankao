@@ -32,8 +32,16 @@ public class QuestionBankBO implements Serializable {
     public void setCategory(String category) {
         this.category = category;
     }
+    public String getPeriodToShow() {
+        return periodToShow;
+    }
+
+    public void setPeriodToShow(String periodToShow) {
+        this.periodToShow = periodToShow;
+    }
 
     private String period;
     private String category;
+    private String periodToShow;
     private List<QuestionItemSingleAnswerBO> questionItemList;
 }

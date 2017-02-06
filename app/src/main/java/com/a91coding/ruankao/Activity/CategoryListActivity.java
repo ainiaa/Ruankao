@@ -52,7 +52,7 @@ public class CategoryListActivity extends RKBaseActivity {
                 TextView categoryPeriodTv = (TextView) catePeriodTplLayout.findViewById(R.id.category_period_tv);
                 categoryPeriodTv.setText(String.format("%s(%s)", periodToShow, extInfo));
                 singleCategoryInfoLayout.addView(catePeriodTplLayout);
-                View.OnClickListener onClickListener = new CategoryListActivity.CategoryItemOnClickListener(categoryId, period, extInfo);
+                View.OnClickListener onClickListener = new CategoryListActivity.CategoryItemOnClickListener(categoryId, period, extInfo, periodToShow);
                 catePeriodTplLayout.setOnClickListener(onClickListener);
             }
         }
@@ -63,10 +63,12 @@ public class CategoryListActivity extends RKBaseActivity {
         private int categoryId;
         private String period;
         private String extInfo;
-        public CategoryItemOnClickListener(int categoryId, String period, String extInfo) {
+        private String periodToShow;
+        public CategoryItemOnClickListener(int categoryId, String period, String extInfo, String periodToShow) {
             this.categoryId = categoryId;
             this.period = period;
             this.extInfo = extInfo;
+            this.periodToShow = periodToShow;
         }
 
         public void onClick(View v) {
@@ -74,6 +76,7 @@ public class CategoryListActivity extends RKBaseActivity {
             intent.putExtra("categoryId", categoryId);
             intent.putExtra("period", period);
             intent.putExtra("extInfo", extInfo);
+            intent.putExtra("periodToShow", periodToShow);
             startActivity(intent);
         }
     }

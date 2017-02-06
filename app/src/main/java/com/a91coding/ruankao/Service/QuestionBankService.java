@@ -26,11 +26,13 @@ public class QuestionBankService extends Service {
     private Integer categoryId = 0;
     private String period = "default";
     private String extInfo = "default";
+    private String periodToShow = "default";
 
-    public QuestionBankService(Integer categoryId, String period, String extInfo) {
+    public QuestionBankService(Integer categoryId, String period, String extInfo, String periodToShow) {
         this.categoryId = categoryId;
         this.period = period;
         this.extInfo = extInfo;
+        this.periodToShow = periodToShow;
         initData();
     }
 
@@ -42,6 +44,7 @@ public class QuestionBankService extends Service {
         questionBankBO= new QuestionBankBO();
         questionBankBO.setCategory(jsonObject.getString("category"));
         questionBankBO.setPeriod(jsonObject.getString("period"));
+        questionBankBO.setPeriodToShow(periodToShow);
         JSONArray jsonArray = jsonObject.getJSONArray("questionItemList");
         for(int i = 0; i < jsonArray.size();i++) {
             JSONObject currentObj = (JSONObject)jsonArray.get(i);
@@ -114,12 +117,13 @@ public class QuestionBankService extends Service {
      * @return
      */
     private String getDataPath() {
+        String currentExtInfo;
         if (extInfo.equals("上午")) {
-            extInfo = "am";
+            currentExtInfo = "am";
         } else {
-            extInfo = "pm";
+            currentExtInfo = "pm";
         }
-        return String.format("/assets/data/%d-%s-%s.json", categoryId, period, extInfo);
+        return String.format("/assets/data/%d-%s-%s.json", categoryId, period, currentExtInfo);
     }
 
     /**
@@ -181,7 +185,7 @@ public class QuestionBankService extends Service {
         if (questionBankBO == null) {
             return "";
         }
-        return questionBankBO.getCategory() + "(" + questionBankBO.getPeriod() + ")";
+        return questionBankBO.getCategory() + "(" + periodToShow + "("+"" +extInfo+"))";
     }
 
     private class QuestionMapping{

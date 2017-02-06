@@ -2,7 +2,6 @@ package com.a91coding.ruankao.Activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -45,7 +44,8 @@ public class QuestionDetailActivity extends RKBaseActivity {
         Integer categoryId = intent.getIntExtra("categoryId", 0);
         String period = intent.getStringExtra("period");
         String extInfo = intent.getStringExtra("extInfo");
-        QuestionBankService questionBankService = new QuestionBankService(categoryId, period, extInfo);
+        String periodToShow = intent.getStringExtra("periodToShow");
+        QuestionBankService questionBankService = new QuestionBankService(categoryId, period, extInfo, periodToShow);
         //填充内容
         int max = questionBankService.getCount();//题目数量
         LayoutInflater inflater = LayoutInflater.from(this);
