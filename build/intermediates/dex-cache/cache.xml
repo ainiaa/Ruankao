@@ -3,12 +3,156 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\8e2df9358d120ed1a41d55ed482d2c07ed52db78\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_87e94246b73ffba7204b40b6c5fd2427ce1312f2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\aa65becf754c970fd8d43e6513b992b3b7efceef\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4f43282e3ec97075b6028ebedc9bd6ffd9a5fd13\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\6f5c60f7d52794b458d437fc4064e4db371c1bec\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3dc349f997f8630b6b34c353a6bf41ae2d60fbf2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\www\GitHub\Ruankao\app\libs\json-lib-2.4-jdk15.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="136743e0d12df4e785e62b48618cee169b2ae546">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\2\json-lib-2.4-jdk15_3ead16a5f417fa49fc820db36044d094dbfe0468\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\www\GitHub\Ruankao\app\libs\commons-collections-3.2.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8ad72fe39fa8c91eaaf12aadb21e0c3661fe26d5">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-collections-3.2.2_9e17b1919e23a84b346f04f56f8c34c964b601c1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\ceddee6442c5b255e513bf3857926c3196c59b17\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e5bab664d4161215821c3e05491420b66db0abac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\www\GitHub\Ruankao\app\libs\commons-beanutils-1.9.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c845703de334ddc6b4b3cd26835458cb1cba1f3d">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-beanutils-1.9.3_90a281a29e31338104252eb91c05b3761b954500\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\b0e7f3349c4dd84136a13ce547d5147621aaf0c8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_181af11fa7df7af56d401a26ce434d3ee7f6197f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\www\GitHub\Ruankao\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2fbdfef027f19939820542e6080e06ad9c1f8d21">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b807662a3aa6bf7be5364e7076043230ac46de13\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\82bc89d72fc38ba43ecb52211aec55635587d043\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8b0cced3a17b84e111532111322347a9b7f9231a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\7d18f4002a75fa26f1fce1a2296a977e48326970\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0ce78b693dba6f09108deb3371ce4e17aec29bf4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\5e3fd0c34472793d772b48460746e46a89058ba2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4ea0b00fcae60ed88fc9ccf671c6621657dbef8b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\www\GitHub\Ruankao\app\libs\openbeans-1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c41a1082d08676a42c780dc77335afb636be113c">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\2\openbeans-1.0_21eab690238b3625af500be5698e285b52140ef3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="D:\www\GitHub\Ruankao\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="6060c50b4718519b96947fd06e95d72dc65151d5">
+        sha1="86df31373b0376b53f8d189051c532d96cbc30e0">
         <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_be0ef19dfe49c1562632a917452a8c76558ca39b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\www\GitHub\Ruankao\app\libs\ezmorph-1.0.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="01e55d2a0253ea37745d33062852fd2c90027432">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\2\ezmorph-1.0.6_8724c711c939f48f0c91e0decbb7efafb055c9ae\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\670859cd3b793c57d4b6e90d526329a0393ce6a6\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9dacabe15c74e2df75171700a9498a6fd59a3cdd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\www\GitHub\Ruankao\app\libs\commons-lang-2.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0ce1edb914c94ebc388f086c6827e8bdeec71ac2">
+        <dex dex="D:\www\GitHub\Ruankao\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-lang-2.6_1f2c6dc908dc6606a0955a9caffbb8cc9b70bce5\classes.dex" />
     </item>
 
 </items>

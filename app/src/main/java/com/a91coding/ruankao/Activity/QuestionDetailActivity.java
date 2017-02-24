@@ -94,7 +94,8 @@ public class QuestionDetailActivity extends RKBaseActivity {
         String questionDesc = questionItem.getQuestionDesc(); //问题描述
         String questionTitle = questionItem.getQuestionTitle();//问题题干
         String questionNo = String.valueOf(questionItem.getNo());//问题序号
-        String[][] answers = questionItem.getAnswerList();//答案列表
+        String[][] answers = questionItem.getAnswers();//答案列表
+        String[][] answerIllustrations = questionItem.getAnswerIllustrations();//多题答案插图
         Integer[] rightAnswer = questionItem.getRightAnswer();//问题正确答案
         int questionCount = questionItem.getQuestionCount();//问题个数
         questionTitle = "              " + questionTitle;//空出来icon内容（要不然显示不好看）
@@ -118,7 +119,6 @@ public class QuestionDetailActivity extends RKBaseActivity {
             Map<Integer, AnswerDetailView> answerDetailViewMap = new LinkedHashMap<>();
             for (int j = 0; j < answers[i].length; j++) {
                 Integer currentId = View.generateViewId();//获得id
-                String currentAnswer = answers[i][j];
                 //设置一个答案 start
                 AnswerDetailView currentAnswerDetailLayout = (AnswerDetailView) inflater.inflate(R.layout.activity_question_detail_single_answer_tpl, null);
                 //设置答案icon start
@@ -132,19 +132,31 @@ public class QuestionDetailActivity extends RKBaseActivity {
                 //设置答案icon end
 
                 //设置答案text start
-                TextView currentAnswerTextTv = (TextView) currentAnswerDetailLayout.findViewById(R.id.answer_text_tv);
-                currentAnswerTextTv.setText(currentAnswer);
+                if (answers != null && i < answers.length && answers[i]!= null && j < answers[i].length) {
+                    String currentAnswer = answers[i][j];
+                    TextView currentAnswerTextTv = (TextView) currentAnswerDetailLayout.findViewById(R.id.answer_text_tv);
+                    currentAnswerTextTv.setText(currentAnswer);
+                }
                 //设置答案text end
+
+                //设置答案IMG start
+                if (answerIllustrations != null && i < answerIllustrations.length && answerIllustrations[i] != null && j < answerIllustrations[i].length) {
+                    String currentAnswerIllustration = answerIllustrations[i][j];
+                    ImageView currentAnswerTextIv = (ImageView) currentAnswerDetailLayout.findViewById(R.id.answer_text_iv);
+                    currentAnswerTextIv.setImageResource(getResource(currentAnswerIllustration));
+                }
+                //设置答案IMG end
+
                 currentAnswerDetailLayout.setRightAnswer(j == currentRightAnswer);
                 currentAnswerDetailLayout.setId(currentId);
                 //设置一个答案 end
                 answerDetailViewMap.put(currentId, currentAnswerDetailLayout);
             }
             if (i != questionCount -1) {
-                AnswerDetailView separatorLaytout = (AnswerDetailView)inflater.inflate(R.layout.common_divider, null);
+                AnswerDetailView separatorLayout = (AnswerDetailView)inflater.inflate(R.layout.common_divider, null);
                 Integer nextId = View.generateViewId();
-                separatorLaytout.setViewType(1);
-                answerDetailViewMap.put(nextId, separatorLaytout);
+                separatorLayout.setViewType(1);
+                answerDetailViewMap.put(nextId, separatorLayout);
             }
             //设置各个答案的click事件 并添加到view中 start
             View.OnClickListener onClickListener = new MultiAnswerOnClickListener(questionAnswerAnalysisLayout, rightAnswerId, answerDetailViewMap);
@@ -174,6 +186,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
         String questionNo = String.valueOf(questionItem.getNo());//问题序号
         String illustration = questionItem.getIllustration();//问题插图
         String[] answers = questionItem.getAnswerList();//答案列表
+        String[] answerIllustrations = questionItem.getAnswerIllustrations();//答案插图
         int rightAnswer = questionItem.getRightAnswer();//问题正确答案
         questionTitle = "              " + questionTitle;//空出来icon内容（要不然显示不好看）
         questionAnswerAnalysisTv.setText(questionDesc);
@@ -194,7 +207,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
         LinearLayout questionAnswerListContainerLayout = (LinearLayout) questionContainerView.findViewById(R.id.question_answer_list_container);
         for (int i = 0; i < answers.length; i++) {
             Integer currentId = View.generateViewId();//当前view Id
-            String currentAnswer = answers[i];//当前答案
+
             AnswerDetailView currentAnswerDetailLayout = (AnswerDetailView) inflater.inflate(R.layout.activity_question_detail_single_answer_tpl, null);
             ImageView currentAnswerIconIv = (ImageView) currentAnswerDetailLayout.findViewById(R.id.answer_ic_iv);
 
@@ -208,14 +221,23 @@ public class QuestionDetailActivity extends RKBaseActivity {
             //设置答案ICON end
 
             //设置答案文字 start
-            TextView currentAnswerTextTv = (TextView) currentAnswerDetailLayout.findViewById(R.id.answer_text_tv);
-            currentAnswerTextTv.setText(currentAnswer);
+            if (answers != null && i < answers.length) {
+                String currentAnswer = answers[i];//当前答案
+                TextView currentAnswerTextTv = (TextView) currentAnswerDetailLayout.findViewById(R.id.answer_text_tv);
+                currentAnswerTextTv.setText(currentAnswer);
+            }
             //设置答案文字 end
 
+            //设置答案IMG start
+            if (answerIllustrations != null && i < answerIllustrations.length) {
+                String currentAnswerIllustration  = answerIllustrations[i];//答案插图
+                ImageView currentAnswerTextIv = (ImageView) currentAnswerDetailLayout.findViewById(R.id.answer_text_iv);
+                currentAnswerTextIv.setImageResource(getResource(currentAnswerIllustration));
+            }
+            //设置答案IMG end
+
             currentAnswerDetailLayout.setRightAnswer(i == rightAnswer);
-
             currentAnswerDetailLayout.setId(currentId);
-
             answerDetailViewMap.put(currentId, currentAnswerDetailLayout);
         }
         //设置各个答案的click事件 并添加到view中 start

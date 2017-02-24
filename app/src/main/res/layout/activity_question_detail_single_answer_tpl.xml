@@ -6,7 +6,7 @@
         android:id="@+id/answer_ic_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/AnswerImageView"
+        style="@style/AnswerIconImageView"
         android:src="@mipmap/ic_b"
         android:contentDescription="@string/question_answer_b"/>
     <TextView
@@ -15,4 +15,10 @@
         android:layout_height="wrap_content"
         style="@style/AnswerTextView"
         android:text="@string/question_answer_textview"/>
+    <ImageView
+        android:id="@+id/answer_text_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/AnswerTextImageView"
+        android:contentDescription=""/>
 </com.a91coding.ruankao.ui.AnswerDetailView>

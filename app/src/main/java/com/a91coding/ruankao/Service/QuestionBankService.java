@@ -85,7 +85,7 @@ public class QuestionBankService extends Service {
                 itemBO.setNo(no);
                 itemBO.setQuestionTitle(questionTitle);
                 itemBO.setQuestionDesc(questionDesc);
-                itemBO.setAnswerList(answerList);
+                itemBO.setAnswers(answerList);
                 itemBO.setRightAnswer(rightAnswer);
                 itemBO.setTestPoint(testPoint);
                 itemBO.setIllustration(illustration);
