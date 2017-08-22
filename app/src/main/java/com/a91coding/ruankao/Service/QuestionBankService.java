@@ -1,6 +1,7 @@
 package com.a91coding.ruankao.Service;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 
@@ -19,21 +20,25 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.a91coding.ruankao.ui.LogToFile;
+
 public class QuestionBankService extends Service {
     private Map<Integer, QuestionMapping> questionItemBOMap = new HashMap<>();
     private Map<Integer, QuestionItemSingleAnswerBO> questionItemSingleAnswerBOMap = new LinkedHashMap<>();
     private Map<Integer, QuestionItemMultiAnswerBO> questionItemMultiAnswerBOMap = new LinkedHashMap<>();
+
 
     private Integer categoryId = 0;
     private String period = "default";
     private String extInfo = "default";
     private String periodToShow = "default";
 
-    public QuestionBankService(Integer categoryId, String period, String extInfo, String periodToShow) {
+    public QuestionBankService(Integer categoryId, String period, String extInfo, String periodToShow, Context ctx) {
         this.categoryId = categoryId;
         this.period = period;
         this.extInfo = extInfo;
         this.periodToShow = periodToShow;
+        LogToFile.init(ctx);
         initData();
     }
 
@@ -51,6 +56,7 @@ public class QuestionBankService extends Service {
             JSONObject currentObj = (JSONObject)jsonArray.get(i);
             int id = Integer.valueOf(JSONUtil.getStringFromObject(currentObj, "id"));
             int no = Integer.valueOf(JSONUtil.getStringFromObject(currentObj, "no"));
+            id = i+1;
 
             String questionDesc = JSONUtil.getStringFromObject(currentObj, "questionDesc");
             String questionTitle = JSONUtil.getStringFromObject(currentObj, "questionTitle");
@@ -73,26 +79,35 @@ public class QuestionBankService extends Service {
                 questionItemBOMap.put(id, new QuestionMapping(id,questionType));
                 questionItemSingleAnswerBOMap.put(id, itemBO);
             } else {//一题多问
-                Integer[] rightAnswer = (Integer[])JSONUtil.getJSONArrayFromObject(currentObj, "rightAnswer").toArray(new Integer[]{});
-                JSONArray answerListArray = JSONUtil.getJSONArrayFromObject(currentObj, "answerList");
-                String[][] answerList = new String[answerListArray.size()][];
-                int questionCount = answerListArray.size();
-                for(int j = 0 ;j < questionCount;j++) {
-                    answerList[j] = (String[]) (answerListArray.getJSONArray(j).toArray(new String[]{}));
+                try {
+                    String[] r = (String[]) JSONUtil.getJSONArrayFromObject(currentObj, "rightAnswer").toArray(new String[]{});
+                    Integer[] rightAnswer = new Integer[r.length];
+                    for(int j = 0;j < r.length;j++) {
+                        rightAnswer[j] = Integer.valueOf(r[j]);
+                    }
+                    JSONArray answerListArray = JSONUtil.getJSONArrayFromObject(currentObj, "answerList");
+                    String[][] answerList = new String[answerListArray.size()][];
+                    int questionCount = answerListArray.size();
+                    for(int j = 0 ;j < questionCount;j++) {
+                        answerList[j] = (String[]) (answerListArray.getJSONArray(j).toArray(new String[]{}));
+                    }
+                    QuestionItemMultiAnswerBO itemBO = new QuestionItemMultiAnswerBO();
+                    itemBO.setId(id);
+                    itemBO.setNo(no);
+                    itemBO.setQuestionTitle(questionTitle);
+                    itemBO.setQuestionDesc(questionDesc);
+                    itemBO.setAnswers(answerList);
+                    itemBO.setRightAnswer(rightAnswer);
+                    itemBO.setTestPoint(testPoint);
+                    itemBO.setIllustration(illustration);
+                    itemBO.setQuestionType(questionType);
+                    itemBO.setQuestionCount(questionCount);
+                    questionItemBOMap.put(id, new QuestionMapping(id,questionType));
+                    questionItemMultiAnswerBOMap.put(id, itemBO);
+                } catch (Exception e) {
+                    LogToFile.e("initData",  e.getMessage() + "current:" + currentObj.toString());
                 }
-                QuestionItemMultiAnswerBO itemBO = new QuestionItemMultiAnswerBO();
-                itemBO.setId(id);
-                itemBO.setNo(no);
-                itemBO.setQuestionTitle(questionTitle);
-                itemBO.setQuestionDesc(questionDesc);
-                itemBO.setAnswers(answerList);
-                itemBO.setRightAnswer(rightAnswer);
-                itemBO.setTestPoint(testPoint);
-                itemBO.setIllustration(illustration);
-                itemBO.setQuestionType(questionType);
-                itemBO.setQuestionCount(questionCount);
-                questionItemBOMap.put(id, new QuestionMapping(id,questionType));
-                questionItemMultiAnswerBOMap.put(id, itemBO);
+
             }
         }
         setCount(questionItemBOMap.size());
@@ -160,7 +175,15 @@ public class QuestionBankService extends Service {
      * @return
      */
     public Integer getQuestionTypeById(int id) {
-        return questionItemBOMap.get(id).questionType;
+        QuestionMapping mapping = questionItemBOMap.get(id);
+        if (mapping == null) {
+            LogToFile.e("getQuestionTypeById", "id:" + String.valueOf(id) + " size:" + questionItemBOMap.size() );
+            for (Map.Entry entry : questionItemBOMap.entrySet()) {
+                LogToFile.e("keys", String.valueOf(entry.getKey()));
+            }
+
+        }
+        return mapping.questionType;
     }
 
     public QuestionItemMultiAnswerBO getQuestionItemMultiAnswerById(int id) {

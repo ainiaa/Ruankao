@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.a91coding.ruankao.ui.LogToFile;
+
 public class QuestionDetailActivity extends RKBaseActivity {
 
     private ViewPager viewPager;
@@ -45,7 +47,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
         String period = intent.getStringExtra("period");
         String extInfo = intent.getStringExtra("extInfo");
         String periodToShow = intent.getStringExtra("periodToShow");
-        QuestionBankService questionBankService = new QuestionBankService(categoryId, period, extInfo, periodToShow);
+        QuestionBankService questionBankService = new QuestionBankService(categoryId, period, extInfo, periodToShow, this);
         //填充内容
         int max = questionBankService.getCount();//题目数量
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -118,6 +120,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
             rightAnswerIds[i] = rightAnswerId;
             Map<Integer, AnswerDetailView> answerDetailViewMap = new LinkedHashMap<>();
             for (int j = 0; j < answers[i].length; j++) {
+                boolean isRightAnswer = j == currentRightAnswer;
                 Integer currentId = View.generateViewId();//获得id
                 //设置一个答案 start
                 AnswerDetailView currentAnswerDetailLayout = (AnswerDetailView) inflater.inflate(R.layout.activity_question_detail_single_answer_tpl, null);
@@ -147,8 +150,14 @@ public class QuestionDetailActivity extends RKBaseActivity {
                 }
                 //设置答案IMG end
 
-                currentAnswerDetailLayout.setRightAnswer(j == currentRightAnswer);
+                currentAnswerDetailLayout.setRightAnswer(isRightAnswer);
                 currentAnswerDetailLayout.setId(currentId);
+
+                if (isRightAnswer) {
+                    rightAnswerIds[i] = currentId;
+                    rightAnswerId = currentId;
+                }
+
                 //设置一个答案 end
                 answerDetailViewMap.put(currentId, currentAnswerDetailLayout);
             }
@@ -206,6 +215,8 @@ public class QuestionDetailActivity extends RKBaseActivity {
         Map<Integer, AnswerDetailView> answerDetailViewMap = new LinkedHashMap<>();
         LinearLayout questionAnswerListContainerLayout = (LinearLayout) questionContainerView.findViewById(R.id.question_answer_list_container);
         for (int i = 0; i < answers.length; i++) {
+            boolean isRightAnswer = i == rightAnswer;
+
             Integer currentId = View.generateViewId();//当前view Id
 
             AnswerDetailView currentAnswerDetailLayout = (AnswerDetailView) inflater.inflate(R.layout.activity_question_detail_single_answer_tpl, null);
@@ -236,9 +247,12 @@ public class QuestionDetailActivity extends RKBaseActivity {
             }
             //设置答案IMG end
 
-            currentAnswerDetailLayout.setRightAnswer(i == rightAnswer);
+            currentAnswerDetailLayout.setRightAnswer(isRightAnswer);
             currentAnswerDetailLayout.setId(currentId);
             answerDetailViewMap.put(currentId, currentAnswerDetailLayout);
+            if (isRightAnswer) {
+                rightAnswerId = currentId;
+            }
         }
         //设置各个答案的click事件 并添加到view中 start
         View.OnClickListener onClickListener = new SingleAnswerOnClickListener(questionAnswerAnalysisLayout, rightAnswerId, answerDetailViewMap);
@@ -261,6 +275,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
             this.answerDescLayout = answerDescLayout;
             this.rightAnswerId = rightAnswerId;
             this.answerDetailViewMap = answerDetailViewMap;
+            LogToFile.init(QuestionDetailActivity.this);
         }
 
         public void onClick(View v) {
@@ -275,6 +290,8 @@ public class QuestionDetailActivity extends RKBaseActivity {
                 currentImageView.setImageResource(R.mipmap.ic_error_1);
                 //显示正确答案
                 AnswerDetailView rightAnswerItem = answerDetailViewMap.get(rightAnswerId);
+                LogToFile.e("onClick", "rightAnswerId:" + String.valueOf(rightAnswerId) + " rightAnswerItem: " + (rightAnswerItem == null ? " null" : rightAnswerItem.toString()));
+
                 if (rightAnswerItem != null) {
                     ImageView rightImageView = (ImageView) rightAnswerItem.findViewById(R.id.answer_ic_iv);
                     rightImageView.setImageResource(R.mipmap.ic_right_1);
@@ -300,6 +317,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
             this.answerDescLayout = answerDescLayout;
             this.rightAnswerId = rightAnswerId;
             this.answerDetailViewMap = answerDetailViewMap;
+            LogToFile.init(QuestionDetailActivity.this);
         }
 
         public void onClick(View v) {
@@ -314,6 +332,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
                 currentImageView.setImageResource(R.mipmap.ic_error_1);
                 //显示正确答案
                 AnswerDetailView rightAnswerItem = answerDetailViewMap.get(rightAnswerId);
+                LogToFile.e("onClick", "rightAnswerId:" + String.valueOf(rightAnswerId) + " rightAnswerItem: " + (rightAnswerItem == null ? " null" : rightAnswerItem.toString()));
                 if (rightAnswerItem != null) {
                     ImageView rightImageView = (ImageView) rightAnswerItem.findViewById(R.id.answer_ic_iv);
                     rightImageView.setImageResource(R.mipmap.ic_right_1);
