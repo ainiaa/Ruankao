@@ -5,12 +5,12 @@
       <root url="jar://$USER_HOME$/.android/build-cache/c83931384bc2cac0b3b3da841bfe2bec492a53ab/output/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/53c1eab5aec264736d50e848823a65c13fb010e0/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/53c1eab5aec264736d50e848823a65c13fb010e0/output/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/runner-0.5.aar/140922b923b11e9a4ad3423b4545f79b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/runner-0.5.aar/140922b923b11e9a4ad3423b4545f79b/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/test/runner/0.5/runner-0.5-sources.jar!/" />
+      <root url="jar://$USER_HOME$/AppData/Local/Android/Sdk/extras/android/m2repository/com/android/support/test/runner/0.5/runner-0.5-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
