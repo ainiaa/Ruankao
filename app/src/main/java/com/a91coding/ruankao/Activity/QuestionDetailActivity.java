@@ -120,6 +120,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
             rightAnswerIds[i] = rightAnswerId;
             Map<Integer, AnswerDetailView> answerDetailViewMap = new LinkedHashMap<>();
             for (int j = 0; j < answers[i].length; j++) {
+                boolean isRightAnswer = j == currentRightAnswer;
                 Integer currentId = View.generateViewId();//获得id
                 //设置一个答案 start
                 AnswerDetailView currentAnswerDetailLayout = (AnswerDetailView) inflater.inflate(R.layout.activity_question_detail_single_answer_tpl, null);
@@ -149,8 +150,14 @@ public class QuestionDetailActivity extends RKBaseActivity {
                 }
                 //设置答案IMG end
 
-                currentAnswerDetailLayout.setRightAnswer(j == currentRightAnswer);
+                currentAnswerDetailLayout.setRightAnswer(isRightAnswer);
                 currentAnswerDetailLayout.setId(currentId);
+
+                if (isRightAnswer) {
+                    rightAnswerIds[i] = currentId;
+                    rightAnswerId = currentId;
+                }
+
                 //设置一个答案 end
                 answerDetailViewMap.put(currentId, currentAnswerDetailLayout);
             }
