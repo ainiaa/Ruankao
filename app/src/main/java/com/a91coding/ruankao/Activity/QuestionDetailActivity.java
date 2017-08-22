@@ -45,7 +45,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
         String period = intent.getStringExtra("period");
         String extInfo = intent.getStringExtra("extInfo");
         String periodToShow = intent.getStringExtra("periodToShow");
-        QuestionBankService questionBankService = new QuestionBankService(categoryId, period, extInfo, periodToShow);
+        QuestionBankService questionBankService = new QuestionBankService(categoryId, period, extInfo, periodToShow, this);
         //填充内容
         int max = questionBankService.getCount();//题目数量
         LayoutInflater inflater = LayoutInflater.from(this);
