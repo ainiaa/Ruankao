@@ -4,10 +4,15 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- *  题库Model
+ * 题库Model
  * Created by Administrator on 2017/01/04.
  */
 public class QuestionBankBO implements Serializable {
+
+    private String period;
+    private String category;
+    private String periodToShow;
+    private List<QuestionItemSingleAnswerBO> questionItemList;
 
     public List<QuestionItemSingleAnswerBO> getQuestionItemList() {
         return questionItemList;
@@ -32,6 +37,7 @@ public class QuestionBankBO implements Serializable {
     public void setCategory(String category) {
         this.category = category;
     }
+
     public String getPeriodToShow() {
         return periodToShow;
     }
@@ -39,9 +45,4 @@ public class QuestionBankBO implements Serializable {
     public void setPeriodToShow(String periodToShow) {
         this.periodToShow = periodToShow;
     }
-
-    private String period;
-    private String category;
-    private String periodToShow;
-    private List<QuestionItemSingleAnswerBO> questionItemList;
 }

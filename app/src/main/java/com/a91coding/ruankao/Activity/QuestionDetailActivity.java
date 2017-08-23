@@ -2,8 +2,8 @@ package com.a91coding.ruankao.Activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,16 +17,25 @@ import com.a91coding.ruankao.adapter.MyViewPagerAdapter;
 import com.a91coding.ruankao.model.QuestionItemMultiAnswerBO;
 import com.a91coding.ruankao.model.QuestionItemSingleAnswerBO;
 import com.a91coding.ruankao.ui.AnswerDetailView;
+import com.a91coding.ruankao.ui.LogToFile;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.a91coding.ruankao.ui.LogToFile;
-
-public class QuestionDetailActivity extends RKBaseActivity {
+public class QuestionDetailActivity extends RuanKaoBaseActivity {
 
     private ViewPager viewPager;
+
+    /**
+     * 信息提示
+     *
+     * @param context
+     * @param msg
+     */
+    public static void showMessage(Context context, String msg) {
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +64,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
             View questionContainerView = inflater.inflate(R.layout.activity_question_detail_question_container, null);
 
             //设置header start
-            TextView headerView = (TextView)questionContainerView.findViewById(R.id.question_common_header_content);
+            TextView headerView = (TextView) questionContainerView.findViewById(R.id.question_common_header_content);
             headerView.setText(questionBankService.getCategory());
             //设置header end
 
@@ -69,7 +78,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
             }
 
             //设置footer start
-            TextView footerView = (TextView)questionContainerView.findViewById(R.id.question_common_footer_content);
+            TextView footerView = (TextView) questionContainerView.findViewById(R.id.question_common_footer_content);
             footerView.setText(id + "/" + max);
             //设置footer end
 
@@ -84,6 +93,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
     /**
      * 一题多问
      * todo 自动跳转逻辑还没有处理  --- 答案不正正常显示
+     *
      * @param questionContainerView
      * @param questionItem
      */
@@ -106,7 +116,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
         questionTitleTv.setText(questionTitle);
         questionNoTv.setText(questionNo);
 
-        Integer[] answerIcons = new Integer[]{R.mipmap.ic_a_1, R.mipmap.ic_b_1, R.mipmap.ic_c_1, R.mipmap.ic_d_1, R.mipmap.ic_e_1, R.mipmap.ic_f_1, R.mipmap.ic_g_1};
+        Integer[] answerIcons = new Integer[]{R.drawable.ic_a_1, R.drawable.ic_b_1, R.drawable.ic_c_1, R.drawable.ic_d_1, R.drawable.ic_e_1, R.drawable.ic_f_1, R.drawable.ic_g_1};
         LayoutInflater inflater = LayoutInflater.from(this);
         Integer[] rightAnswerIds = new Integer[questionCount];
         LinearLayout questionAnswerListContainerLayout = (LinearLayout) questionContainerView.findViewById(R.id.question_answer_list_container);
@@ -136,7 +146,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
                 //设置答案icon end
 
                 //设置答案text start
-                if (answers != null && i < answers.length && answers[i]!= null && j < answers[i].length) {
+                if (answers != null && i < answers.length && answers[i] != null && j < answers[i].length) {
                     String currentAnswer = answers[i][j];
                     TextView currentAnswerTextTv = (TextView) currentAnswerDetailLayout.findViewById(R.id.answer_text_tv);
                     currentAnswerTextTv.setText(currentAnswer);
@@ -162,8 +172,8 @@ public class QuestionDetailActivity extends RKBaseActivity {
                 //设置一个答案 end
                 answerDetailViewMap.put(currentId, currentAnswerDetailLayout);
             }
-            if (i != questionCount -1) {
-                AnswerDetailView separatorLayout = (AnswerDetailView)inflater.inflate(R.layout.common_divider, null);
+            if (i != questionCount - 1) {
+                AnswerDetailView separatorLayout = (AnswerDetailView) inflater.inflate(R.layout.common_divider, null);
                 Integer nextId = View.generateViewId();
                 separatorLayout.setViewType(1);
                 answerDetailViewMap.put(nextId, separatorLayout);
@@ -182,6 +192,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
 
     /**
      * 一题一问
+     *
      * @param questionContainerView
      * @param questionItem
      */
@@ -204,11 +215,11 @@ public class QuestionDetailActivity extends RKBaseActivity {
         questionNoTv.setText(questionNo);
         illustrationIv.setImageResource(getResource(illustration));
 
-        Integer[] answerIcons = new Integer[]{R.mipmap.ic_a_1, R.mipmap.ic_b_1, R.mipmap.ic_c_1, R.mipmap.ic_d_1, R.mipmap.ic_e_1, R.mipmap.ic_f_1, R.mipmap.ic_g_1};
+        Integer[] answerIcons = new Integer[]{R.drawable.ic_a_1, R.drawable.ic_b_1, R.drawable.ic_c_1, R.drawable.ic_d_1, R.drawable.ic_e_1, R.drawable.ic_f_1, R.drawable.ic_g_1};
         Integer rightAnswerId;//正确答案id
         if (rightAnswer == -1) {
             rightAnswerId = -1;
-        }  else {
+        } else {
             rightAnswerId = answerIcons[rightAnswer];
         }
 
@@ -242,7 +253,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
 
             //设置答案IMG start
             if (answerIllustrations != null && i < answerIllustrations.length) {
-                String currentAnswerIllustration  = answerIllustrations[i];//答案插图
+                String currentAnswerIllustration = answerIllustrations[i];//答案插图
                 ImageView currentAnswerTextIv = (ImageView) currentAnswerDetailLayout.findViewById(R.id.answer_text_iv);
                 currentAnswerTextIv.setImageResource(getResource(currentAnswerIllustration));
             }
@@ -264,11 +275,11 @@ public class QuestionDetailActivity extends RKBaseActivity {
         //设置各个答案的click事件 并添加到view中
     }
 
-    private class MultiAnswerHandler{
+    private class MultiAnswerHandler {
         private LinearLayout answerDescLayout;
         private int answerCount = 0;
-        private int answeredCount= 0;
-        private int rightAnswerCount= 0;
+        private int answeredCount = 0;
+        private int rightAnswerCount = 0;
 
         public MultiAnswerHandler(LinearLayout answerDescLayout, int answerCount) {
             this.answerDescLayout = answerDescLayout;
@@ -350,17 +361,17 @@ public class QuestionDetailActivity extends RKBaseActivity {
             AnswerDetailView currentAnswerItem = answerDetailViewMap.get(id);
             ImageView currentImageView = (ImageView) currentAnswerItem.findViewById(R.id.answer_ic_iv);
             if (((AnswerDetailView) v).isRightAnswer()) {//当前为正确答案
-                currentImageView.setImageResource(R.mipmap.ic_right_1);
+                currentImageView.setImageResource(R.drawable.ic_right_1);
                 handler.setRightAnswerCountIncr(1);
             } else { //当前选项不正确
-                currentImageView.setImageResource(R.mipmap.ic_error_1);
+                currentImageView.setImageResource(R.drawable.ic_error_1);
                 //显示正确答案
                 AnswerDetailView rightAnswerItem = answerDetailViewMap.get(rightAnswerId);
                 LogToFile.e("onClick", "rightAnswerId:" + String.valueOf(rightAnswerId) + " rightAnswerItem: " + (rightAnswerItem == null ? " null" : rightAnswerItem.toString()));
 
                 if (rightAnswerItem != null) {
                     ImageView rightImageView = (ImageView) rightAnswerItem.findViewById(R.id.answer_ic_iv);
-                    rightImageView.setImageResource(R.mipmap.ic_right_1);
+                    rightImageView.setImageResource(R.drawable.ic_right_1);
                 }
             }
 
@@ -393,17 +404,17 @@ public class QuestionDetailActivity extends RKBaseActivity {
             AnswerDetailView currentAnswerItem = answerDetailViewMap.get(id);
             ImageView currentImageView = (ImageView) currentAnswerItem.findViewById(R.id.answer_ic_iv);
             if (((AnswerDetailView) v).isRightAnswer()) {//当前为正确答案
-                currentImageView.setImageResource(R.mipmap.ic_right_1);
+                currentImageView.setImageResource(R.drawable.ic_right_1);
                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);//跳转下一页
             } else { //当前选项不正确
                 answerDescLayout.setVisibility(View.VISIBLE);
-                currentImageView.setImageResource(R.mipmap.ic_error_1);
+                currentImageView.setImageResource(R.drawable.ic_error_1);
                 //显示正确答案
                 AnswerDetailView rightAnswerItem = answerDetailViewMap.get(rightAnswerId);
                 LogToFile.e("onClick", "rightAnswerId:" + String.valueOf(rightAnswerId) + " rightAnswerItem: " + (rightAnswerItem == null ? " null" : rightAnswerItem.toString()));
                 if (rightAnswerItem != null) {
                     ImageView rightImageView = (ImageView) rightAnswerItem.findViewById(R.id.answer_ic_iv);
-                    rightImageView.setImageResource(R.mipmap.ic_right_1);
+                    rightImageView.setImageResource(R.drawable.ic_right_1);
                 }
             }
 
@@ -412,15 +423,5 @@ public class QuestionDetailActivity extends RKBaseActivity {
                 answerDetailView.setOnClickListener(null);
             }
         }
-    }
-
-    /**
-     * 信息提示
-     *
-     * @param context
-     * @param msg
-     */
-    public static void showMessage(Context context, String msg) {
-        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 }

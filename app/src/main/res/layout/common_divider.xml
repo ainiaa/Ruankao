@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.a91coding.ruankao.ui.AnswerDetailView xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/common_horizontal_division_line_style1"
-    android:id="@+id/common_divider_id">
-</com.a91coding.ruankao.ui.AnswerDetailView>
+    android:id="@+id/common_divider_id"
+    style="@style/common_horizontal_division_line_style1"></com.a91coding.ruankao.ui.AnswerDetailView>

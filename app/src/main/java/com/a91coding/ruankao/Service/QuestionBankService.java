@@ -8,6 +8,7 @@ import android.os.IBinder;
 import com.a91coding.ruankao.model.QuestionBankBO;
 import com.a91coding.ruankao.model.QuestionItemMultiAnswerBO;
 import com.a91coding.ruankao.model.QuestionItemSingleAnswerBO;
+import com.a91coding.ruankao.ui.LogToFile;
 import com.a91coding.ruankao.util.JSONUtil;
 
 import net.sf.json.JSONArray;
@@ -20,8 +21,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.a91coding.ruankao.ui.LogToFile;
-
 public class QuestionBankService extends Service {
     private Map<Integer, QuestionMapping> questionItemBOMap = new HashMap<>();
     private Map<Integer, QuestionItemSingleAnswerBO> questionItemSingleAnswerBOMap = new LinkedHashMap<>();
@@ -32,6 +31,8 @@ public class QuestionBankService extends Service {
     private String period = "default";
     private String extInfo = "default";
     private String periodToShow = "default";
+    private QuestionBankBO questionBankBO;
+    private int count = 0;
 
     public QuestionBankService(Integer categoryId, String period, String extInfo, String periodToShow, Context ctx) {
         this.categoryId = categoryId;
@@ -42,26 +43,28 @@ public class QuestionBankService extends Service {
         initData();
     }
 
-    private QuestionBankBO questionBankBO;
+    public QuestionBankService() {
+        initData();
+    }
 
     private void initData() {
         String json = getJSONstring();
         JSONObject jsonObject = JSONObject.fromObject(json);
-        questionBankBO= new QuestionBankBO();
+        questionBankBO = new QuestionBankBO();
         questionBankBO.setCategory(JSONUtil.getStringFromObject(jsonObject, "category"));
         questionBankBO.setPeriod(JSONUtil.getStringFromObject(jsonObject, "period"));
         questionBankBO.setPeriodToShow(periodToShow);
         JSONArray jsonArray = JSONUtil.getJSONArrayFromObject(jsonObject, "questionItemList");
-        for(int i = 0; i < jsonArray.size();i++) {
-            JSONObject currentObj = (JSONObject)jsonArray.get(i);
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JSONObject currentObj = (JSONObject) jsonArray.get(i);
             int id = Integer.valueOf(JSONUtil.getStringFromObject(currentObj, "id"));
             int no = Integer.valueOf(JSONUtil.getStringFromObject(currentObj, "no"));
-            id = i+1;
+            id = i + 1;
 
             String questionDesc = JSONUtil.getStringFromObject(currentObj, "questionDesc");
             String questionTitle = JSONUtil.getStringFromObject(currentObj, "questionTitle");
             String testPoint = JSONUtil.getStringFromObject(currentObj, "testPoint");
-            String      illustration  = JSONUtil.getStringFromObject(currentObj, "illustration");
+            String illustration = JSONUtil.getStringFromObject(currentObj, "illustration");
             int questionType = JSONUtil.getIntFromObject(currentObj, "questionType");
             if (questionType == 0) {//一题一问
                 int rightAnswer = Integer.valueOf(JSONUtil.getStringFromObject(currentObj, "rightAnswer"));
@@ -76,19 +79,19 @@ public class QuestionBankService extends Service {
                 itemBO.setTestPoint(testPoint);
                 itemBO.setIllustration(illustration);
                 itemBO.setQuestionType(questionType);
-                questionItemBOMap.put(id, new QuestionMapping(id,questionType));
+                questionItemBOMap.put(id, new QuestionMapping(id, questionType));
                 questionItemSingleAnswerBOMap.put(id, itemBO);
             } else {//一题多问
                 try {
                     String[] r = (String[]) JSONUtil.getJSONArrayFromObject(currentObj, "rightAnswer").toArray(new String[]{});
                     Integer[] rightAnswer = new Integer[r.length];
-                    for(int j = 0;j < r.length;j++) {
+                    for (int j = 0; j < r.length; j++) {
                         rightAnswer[j] = Integer.valueOf(r[j]);
                     }
                     JSONArray answerListArray = JSONUtil.getJSONArrayFromObject(currentObj, "answerList");
                     String[][] answerList = new String[answerListArray.size()][];
                     int questionCount = answerListArray.size();
-                    for(int j = 0 ;j < questionCount;j++) {
+                    for (int j = 0; j < questionCount; j++) {
                         answerList[j] = (String[]) (answerListArray.getJSONArray(j).toArray(new String[]{}));
                     }
                     QuestionItemMultiAnswerBO itemBO = new QuestionItemMultiAnswerBO();
@@ -102,10 +105,11 @@ public class QuestionBankService extends Service {
                     itemBO.setIllustration(illustration);
                     itemBO.setQuestionType(questionType);
                     itemBO.setQuestionCount(questionCount);
-                    questionItemBOMap.put(id, new QuestionMapping(id,questionType));
+                    itemBO.setAnswerIllustrations();
+                    questionItemBOMap.put(id, new QuestionMapping(id, questionType));
                     questionItemMultiAnswerBOMap.put(id, itemBO);
                 } catch (Exception e) {
-                    LogToFile.e("initData",  e.getMessage() + "current:" + currentObj.toString());
+                    LogToFile.e("initData", e.getMessage() + "current:" + currentObj.toString());
                 }
 
             }
@@ -113,12 +117,9 @@ public class QuestionBankService extends Service {
         setCount(questionItemBOMap.size());
     }
 
-    public QuestionBankService() {
-        initData();
-    }
-
     /**
      * todo 这个需要根本period和category进行分类
+     *
      * @return
      */
     public String getJSONstring() {
@@ -129,7 +130,6 @@ public class QuestionBankService extends Service {
     }
 
     /**
-     *
      * @return
      */
     private String getDataPath() {
@@ -143,7 +143,6 @@ public class QuestionBankService extends Service {
     }
 
     /**
-     *
      * @param is
      * @return
      */
@@ -157,11 +156,11 @@ public class QuestionBankService extends Service {
             }
             imgdata = bytestream.toByteArray();
             bytestream.close();
-        }catch (IOException e) {}
+        } catch (IOException e) {
+        }
 
         return imgdata;
     }
-
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -171,13 +170,14 @@ public class QuestionBankService extends Service {
 
     /**
      * 根据ID 获得对应的题目
+     *
      * @param id
      * @return
      */
     public Integer getQuestionTypeById(int id) {
         QuestionMapping mapping = questionItemBOMap.get(id);
         if (mapping == null) {
-            LogToFile.e("getQuestionTypeById", "id:" + String.valueOf(id) + " size:" + questionItemBOMap.size() );
+            LogToFile.e("getQuestionTypeById", "id:" + String.valueOf(id) + " size:" + questionItemBOMap.size());
             for (Map.Entry entry : questionItemBOMap.entrySet()) {
                 LogToFile.e("keys", String.valueOf(entry.getKey()));
             }
@@ -202,9 +202,6 @@ public class QuestionBankService extends Service {
         this.count = count;
     }
 
-    private int count = 0;
-
-
     public String getCategory() {
         if (questionBankBO == null) {
             return "";
@@ -212,7 +209,7 @@ public class QuestionBankService extends Service {
         return questionBankBO.getCategory() + "(" + periodToShow + "(" + extInfo + "))";
     }
 
-    private class QuestionMapping{
+    private class QuestionMapping {
         private Integer id;
         private int questionType;
 

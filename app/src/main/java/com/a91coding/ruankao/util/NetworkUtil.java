@@ -11,6 +11,7 @@ import android.net.NetworkInfo;
 public class NetworkUtil {
     /**
      * 获得网络以及网络类型
+     *
      * @param context
      * @return 0：无网络 1：WIFI 2：CMWAP 3：CMNET
      */

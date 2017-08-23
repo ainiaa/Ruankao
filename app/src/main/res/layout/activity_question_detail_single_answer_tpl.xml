@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.a91coding.ruankao.ui.AnswerDetailView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
     <ImageView
         android:id="@+id/answer_ic_iv"
+        style="@style/AnswerIconImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/AnswerIconImageView"
-        android:src="@mipmap/ic_b"
-        android:contentDescription="@string/question_answer_b"/>
+        android:contentDescription="@string/question_answer_b"
+        android:src="@drawable/ic_b" />
+
     <TextView
         android:id="@+id/answer_text_tv"
+        style="@style/AnswerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/AnswerTextView"
-        android:text="@string/question_answer_textview"/>
+        android:text="@string/question_answer_textview" />
+
     <ImageView
         android:id="@+id/answer_text_iv"
+        style="@style/AnswerTextImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/AnswerTextImageView"
-        android:contentDescription=""/>
+        android:contentDescription="" />
 </com.a91coding.ruankao.ui.AnswerDetailView>

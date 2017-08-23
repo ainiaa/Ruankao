@@ -8,6 +8,14 @@ import java.io.Serializable;
  */
 public class CategoryItemBO implements Serializable {
 
+    private int id;//当前分类id
+    private int no;//序号
+    private int categoryId;//大分类ID
+    private String categoryName;//分类名称
+    private String period;//期数
+    private String periodToShow;//期数（用于展示）
+    private String extInfo;//扩展信息 -- 上午、下午
+
     public int getNo() {
         return no;
     }
@@ -55,12 +63,4 @@ public class CategoryItemBO implements Serializable {
     public void setPeriodToShow(String periodToShow) {
         this.periodToShow = periodToShow;
     }
-
-    private int id;//当前分类id
-    private int no;//序号
-    private int categoryId;//大分类ID
-    private String categoryName;//分类名称
-    private String period;//期数
-    private String periodToShow;//期数（用于展示）
-    private String extInfo;//扩展信息 -- 上午、下午
 }

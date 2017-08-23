@@ -3,12 +3,11 @@ package com.a91coding.ruankao.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.a91coding.ruankao.R;
 
 
-public class MainActivity extends RKBaseActivity {
+public class MainActivity extends RuanKaoBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

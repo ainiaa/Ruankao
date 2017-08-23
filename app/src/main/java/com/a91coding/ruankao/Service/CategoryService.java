@@ -13,12 +13,12 @@ import net.sf.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class CategoryService extends Service {
     private Map<String, Map<Integer, CategoryItemBO>> categoryItemBOMap = new LinkedHashMap<>();
+    private int count = 0;
 
     public CategoryService() {
         String json = getJSONstring();
@@ -82,7 +82,6 @@ public class CategoryService extends Service {
         return imgData;
     }
 
-
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
@@ -104,6 +103,4 @@ public class CategoryService extends Service {
     public void setCount(int count) {
         this.count = count;
     }
-
-    private int count = 0;
 }

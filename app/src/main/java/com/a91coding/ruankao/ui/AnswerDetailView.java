@@ -13,8 +13,8 @@ import com.a91coding.ruankao.R;
 public class AnswerDetailView extends LinearLayout {
 
 
-
-
+    private boolean isRightAnswer = false;
+    private int viewType = 0; //0 普通的view  1：不需要接受click的view
 
     public AnswerDetailView(Context context) {
         super(context);
@@ -26,6 +26,7 @@ public class AnswerDetailView extends LinearLayout {
         init(attrs, 0);
     }
 
+
     public AnswerDetailView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(attrs, defStyle);
@@ -36,13 +37,9 @@ public class AnswerDetailView extends LinearLayout {
                 attrs, R.styleable.AnswerDetailView, defStyle, 0);
 
         isRightAnswer = a.getBoolean(R.styleable.AnswerDetailView_isRightAnswer, false);
-        viewType      = a.getInteger(R.styleable.AnswerDetailView_viewType,0);
+        viewType = a.getInteger(R.styleable.AnswerDetailView_viewType, 0);
         a.recycle();
     }
-
-
-    private boolean isRightAnswer = false;
-    private int viewType = 0; //0 普通的view  1：不需要接受click的view
 
     public int getViewType() {
         return viewType;

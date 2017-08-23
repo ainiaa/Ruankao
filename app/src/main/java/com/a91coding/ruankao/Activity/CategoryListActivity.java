@@ -1,7 +1,6 @@
 package com.a91coding.ruankao.Activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,7 @@ import java.util.Map;
 /**
  * 分类列表
  */
-public class CategoryListActivity extends RKBaseActivity {
+public class CategoryListActivity extends RuanKaoBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,22 +32,22 @@ public class CategoryListActivity extends RKBaseActivity {
         CategoryService categoryService = new CategoryService();
         //获取所有的category详情
         Map<String, Map<Integer, CategoryItemBO>> allCategoryItemBOMap = categoryService.getAllCategoryItemBOMap();
-        LinearLayout categoryListLayout = (LinearLayout)findViewById(R.id.category_list_ll);
+        LinearLayout categoryListLayout = (LinearLayout) findViewById(R.id.category_list_ll);
         LayoutInflater inflater = LayoutInflater.from(this);
-        LinearLayout singleCategoryInfoLayout = (LinearLayout)inflater.inflate(R.layout.activity_category_list_single_category_info, null);
+        LinearLayout singleCategoryInfoLayout = (LinearLayout) inflater.inflate(R.layout.activity_category_list_single_category_info, null);
         for (Map.Entry<String, Map<Integer, CategoryItemBO>> entry : allCategoryItemBOMap.entrySet()) {
             String categoryName = entry.getKey();
             Map<Integer, CategoryItemBO> categoryItemBOMap = entry.getValue();
-            LinearLayout cateTitleTplLayout =  (LinearLayout)inflater.inflate(R.layout.activity_category_list_cate_title_tpl, null);
+            LinearLayout cateTitleTplLayout = (LinearLayout) inflater.inflate(R.layout.activity_category_list_cate_title_tpl, null);
             TextView categoryNameTv = (TextView) cateTitleTplLayout.findViewById(R.id.category_name_tv);
             categoryNameTv.setText(categoryName);
             singleCategoryInfoLayout.addView(cateTitleTplLayout);
             for (CategoryItemBO categoryItemBO : categoryItemBOMap.values()) {
                 String period = categoryItemBO.getPeriod();
-                String periodToShow= categoryItemBO.getPeriodToShow();
+                String periodToShow = categoryItemBO.getPeriodToShow();
                 String extInfo = categoryItemBO.getExtInfo();
                 Integer categoryId = categoryItemBO.getCategoryId();
-                LinearLayout catePeriodTplLayout =  (LinearLayout)inflater.inflate(R.layout.activity_category_list_cate_period_tpl, null);
+                LinearLayout catePeriodTplLayout = (LinearLayout) inflater.inflate(R.layout.activity_category_list_cate_period_tpl, null);
                 TextView categoryPeriodTv = (TextView) catePeriodTplLayout.findViewById(R.id.category_period_tv);
                 categoryPeriodTv.setText(String.format("%s(%s)", periodToShow, extInfo));
                 singleCategoryInfoLayout.addView(catePeriodTplLayout);
@@ -64,6 +63,7 @@ public class CategoryListActivity extends RKBaseActivity {
         private String period;
         private String extInfo;
         private String periodToShow;
+
         public CategoryItemOnClickListener(int categoryId, String period, String extInfo, String periodToShow) {
             this.categoryId = categoryId;
             this.period = period;

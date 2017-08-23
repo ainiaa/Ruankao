@@ -10,6 +10,7 @@ import java.io.RandomAccessFile;
 public class FileWriterUtil {
     /**
      * A方法追加文件：使用RandomAccessFile
+     *
      * @param fileName
      * @param content
      */
@@ -31,6 +32,7 @@ public class FileWriterUtil {
 
     /**
      * B方法追加文件：使用FileWriter
+     *
      * @param fileName
      * @param content
      */

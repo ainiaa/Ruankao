@@ -8,6 +8,18 @@ import java.io.Serializable;
  */
 public class QuestionItemMultiAnswerBO implements Serializable {
 
+    private int id;//问题ID
+    private int no;//问题序号
+    private String questionDesc;//问题详解
+    private String questionTitle;//问题题目
+    private String testPoint;//考点
+    private int questionType;//试题类型 0:单选题目，一题一问  1:单选题，一题多问
+    private Integer[] rightAnswer;//多题正确答案
+    private String[][] answers;//多题答案列表
+    private int questionCount;//问题个数
+    private String illustration;//插图
+    private String[][] answerIllustrations;//多题答案插图
+
     public int getId() {
         return id;
     }
@@ -71,33 +83,28 @@ public class QuestionItemMultiAnswerBO implements Serializable {
     public void setAnswers(String[][] answers) {
         this.answers = answers;
     }
+
     public int getQuestionCount() {
         return questionCount;
     }
+
     public void setQuestionCount(int questionCount) {
         this.questionCount = questionCount;
     }
+
     public String getIllustration() {
         return illustration;
     }
+
     public void setIllustration(String illustration) {
         this.illustration = illustration;
     }
 
-    public String[][] getAnswerIllustrations() {return answerIllustrations;}
+    public String[][] getAnswerIllustrations() {
+        return answerIllustrations;
+    }
 
     public void setAnswerIllustrations(String[][] answerIllustrations) {
         this.answerIllustrations = answerIllustrations;
     }
-    private int id;//问题ID
-    private int no;//问题序号
-    private String questionDesc;//问题详解
-    private String questionTitle;//问题题目
-    private String testPoint;//考点
-    private int questionType;//试题类型 0:单选题目，一题一问  1:单选题，一题多问
-    private Integer[] rightAnswer;//多题正确答案
-    private String[][] answers;//多题答案列表
-    private int questionCount;//问题个数
-    private String illustration;//插图
-    private String[][] answerIllustrations;//多题答案插图
 }

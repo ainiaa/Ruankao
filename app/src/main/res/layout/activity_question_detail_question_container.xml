@@ -2,125 +2,130 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.a91coding.ruankao.Activity.QuestionDetailActivity" >
+    android:orientation="vertical"
+    tools:context="com.a91coding.ruankao.Activity.QuestionDetailActivity">
     <!-- 详情内容 start -->
     <LinearLayout
         android:id="@+id/question_common_content"
-        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:weightSum="1">
-            <!-- 详情头部 start -->
+        <!-- 详情头部 start -->
+        <LinearLayout
+            android:id="@+id/question_common_header"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/question_common_header_content"
+                style="@style/QuestionCommonHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="" />
+        </LinearLayout>
+        <!-- 详情头部 end -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <!-- 试题标题 start -->
             <LinearLayout
-                android:id="@+id/question_common_header"
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:weightSum="1">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="50dp">
+
                 <TextView
-                    android:id="@+id/question_common_header_content"
+                    android:id="@+id/question_no_tv"
+                    style="@style/QuestionNoTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/QuestionCommonHeader"
-                    android:text=""
-                    android:gravity="center"/>
-            </LinearLayout>
-            <!-- 详情头部 end -->
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:weightSum="1">
+                    android:text="122"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="7dp" />
 
-                <!-- 试题标题 start -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    tools:layout_editor_absoluteX="50dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="20dp"
-                    android:weightSum="1">
-                    <TextView
-                        android:id="@+id/question_no_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/QuestionNoTextView"
-                        android:text="122"
-                        tools:layout_editor_absoluteX="26dp"
-                        tools:layout_editor_absoluteY="7dp" />
-                    <TextView
-                        android:id="@+id/question_title_tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/QuestionTitleTextView"
-                        android:text="" />
-                    <ImageView
-                        android:id="@+id/question_illustration_iv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/AnswerTextImageView"
-                        android:contentDescription=""/>
-                </LinearLayout>
-                <!-- 试题标题 end -->
-
-                <!-- 试题内容 - 程序动态填充 start -->
-                <LinearLayout
-                    android:id="@+id/question_answer_list_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:weightSum="1" />
-                <!-- 试题内容 - 程序动态填充 end -->
-
-                <!-- 试题详解 start -->
-                <LinearLayout
-                    android:id="@+id/question_answer_analysis_ll"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_weight="0.61"
-                    android:orientation="vertical"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="350dp">
-
-                    <LinearLayout style="@style/common_horizontal_division_line_style" />
-
-                    <TextView
-                        android:id="@+id/question_answer_analysis_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        style="@style/QuestionDescTextView"
-                        tools:layout_editor_absoluteX="326dp"
-                        tools:layout_editor_absoluteY="327dp" />
-                </LinearLayout>
-                <!-- 试题详解 end -->
-            </LinearLayout>
-
-            <LinearLayout style="@style/common_horizontal_division_line_style" />
-
-            <!-- 详情尾部 start -->
-            <LinearLayout
-                android:id="@+id/question_common_footer"
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:weightSum="1">
                 <TextView
-                    android:id="@+id/question_common_footer_content"
+                    android:id="@+id/question_title_tv"
+                    style="@style/QuestionTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/question_illustration_iv"
+                    style="@style/AnswerTextImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/QuestionCommonFooter"
-                    android:text=""
-                    android:gravity="center"/>
+                    android:contentDescription="" />
             </LinearLayout>
-            <!-- 详情尾部 end -->
+            <!-- 试题标题 end -->
+
+            <!-- 试题内容 - 程序动态填充 start -->
+            <LinearLayout
+                android:id="@+id/question_answer_list_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="1" />
+            <!-- 试题内容 - 程序动态填充 end -->
+
+            <!-- 试题详解 start -->
+            <LinearLayout
+                android:id="@+id/question_answer_analysis_ll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0.61"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="350dp">
+
+                <LinearLayout style="@style/common_horizontal_division_line_style" />
+
+                <TextView
+                    android:id="@+id/question_answer_analysis_tv"
+                    style="@style/QuestionDescTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    tools:layout_editor_absoluteX="326dp"
+                    tools:layout_editor_absoluteY="327dp" />
+            </LinearLayout>
+            <!-- 试题详解 end -->
+        </LinearLayout>
+
+        <LinearLayout style="@style/common_horizontal_division_line_style" />
+
+        <!-- 详情尾部 start -->
+        <LinearLayout
+            android:id="@+id/question_common_footer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/question_common_footer_content"
+                style="@style/QuestionCommonFooter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="" />
+        </LinearLayout>
+        <!-- 详情尾部 end -->
     </LinearLayout>
     <!-- 详情内容 end -->
 </ScrollView>

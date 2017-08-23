@@ -8,6 +8,17 @@ import java.io.Serializable;
  */
 public class QuestionItemSingleAnswerBO implements Serializable {
 
+    private int id;//问题ID
+    private int no;//问题序号
+    private String questionDesc;//问题详解
+    private String questionTitle;//问题题目
+    private int rightAnswer;//正确答案
+    private String[] answerList;//问题答案
+    private String testPoint;//考点
+    private int questionType;//试题类型 0:单选题目，一题一问  1:单选题，一题多问
+    private String illustration;//插图
+    private String[] answerIllustrations;//答案插图
+
     public int getId() {
         return id;
     }
@@ -79,20 +90,12 @@ public class QuestionItemSingleAnswerBO implements Serializable {
     public void setIllustration(String illustration) {
         this.illustration = illustration;
     }
+
     public String[] getAnswerIllustrations() {
         return answerIllustrations;
     }
+
     public void setAnswerIllustrations(String[] answerIllustrations) {
         this.answerIllustrations = answerIllustrations;
     }
-    private int id;//问题ID
-    private int no;//问题序号
-    private String questionDesc;//问题详解
-    private String questionTitle;//问题题目
-    private int rightAnswer;//正确答案
-    private String[] answerList;//问题答案
-    private String testPoint;//考点
-    private int questionType;//试题类型 0:单选题目，一题一问  1:单选题，一题多问
-    private String illustration;//插图
-    private String[] answerIllustrations;//答案插图
 }
