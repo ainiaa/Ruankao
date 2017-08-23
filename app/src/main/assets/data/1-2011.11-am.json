@@ -11,15 +11,17 @@
       "questionDesc": "\u672c\u9898\u4e3b\u8981\u8003\u67e5\u5bc4\u5b58\u5668\u7684\u76f8\u5173\u5185\u5bb9\u3002 \u7a0b\u5e8f\u8ba1\u6570\u5668\u662f\u7528\u4e8e\u5b58\u653e\u4e0b\u4e00\u6761\u6307\u4ee4\u6240\u5728\u5355\u5143\u7684\u5730\u5740\u7684\u5730\u65b9\u3002\u5728\u7a0b\u5e8f\u6267\u884c\u524d\uff0c\u5fc5\u987b\u5c06\u7a0b\u5e8f\u7684\u8d77\u59cb\u5730\u5740\uff0c\u5373\u7a0b\u5e8f\u7684\u4e00\u6761\u6307\u4ee4\u6240\u5728\u7684\u5185\u5b58\u5355\u5143\u5730\u5740\u9001\u5165\u7a0b\u5e8f\u8ba1\u6570\u5668\uff0c\u5f53\u6267\u884c\u6307\u4ee4\u65f6\uff0cCPU\u5c06\u81ea\u52a8\u4fee\u6539\u7a0b\u5e8f\u8ba1\u6570\u5668\u7684\u5185\u5bb9\uff0c\u5373\u6bcf\u6267\u884c\u4e00\u6761\u6307\u4ee4\u7a0b\u5e8f\u8ba1\u6570\u5668\u589e\u52a0\u4e00\u4e2a\u91cf\uff0c\u4f7f\u5176\u6307\u5411\u4e0b\u4e00\u4e2a\u5f85\u6307\u5411\u7684\u6307\u4ee4\u3002\u7a0b\u5e8f\u7684\u8f6c\u79fb\u7b49\u64cd\u4f5c\u4e5f\u662f\u901a\u8fc7\u8be5\u5bc4\u5b58\u5668\u6765\u5b9e\u73b0\u7684\u3002 \u5730\u5740\u5bc4\u5b58\u5668\u4e00\u822c\u7528\u6765\u4fdd\u5b58\u5f53\u524dCPU\u6240\u8bbf\u95ee\u7684\u5185\u5b58\u5355\u5143\u7684\u5730\u5740\uff0c\u4ee5\u65b9\u4fbf\u5bf9\u5185\u5b58\u7684\u8bfb\u5199\u64cd\u4f5c\u3002 \u7d2f\u52a0\u5668\u662f\u4e13\u95e8\u5b58\u653e\u7b97\u672f\u6216\u903b\u8f91\u8fd0\u7b97\u7684\u4e00\u4e2a\u64cd\u4f5c\u6570\u548c\u8fd0\u7b97\u7ed3\u679c\u7684\u5bc4\u5b58\u5668 ALU\u662fCPU\u7684\u6267\u884c\u5355\u5143\uff0c\u4e3b\u8981\u8d1f\u8d23\u8fd0\u7b97\u5de5\u4f5c\u3002",
       "rightAnswer": "0",
       "answerList": [
-        "PC\uff08\u7a0b\u5e8f\u8ba1\u6570\u5668\uff09  ",
+        "PC\uff08\u7a0b\u5e8f\u8ba1\u6570\u5668\uff09",
         "AR\uff08\u5730\u5740\u5bc4\u5b58\u5668\uff09",
-        "AC\uff08\u7d2f\u52a0\u5668\uff09       ",
+        "AC\uff08\u7d2f\u52a0\u5668\uff09",
         "ALU\uff08\u7b97\u903b\u8fd0\u7b97\u5355\u5143\uff09"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "116",
@@ -28,15 +30,17 @@
       "questionDesc": "I\/O\u63a5\u53e3\u4e0e\u4e3b\u5b58\u91c7\u7528\u7edf\u4e00\u7f16\u5740\uff0c\u5373\u5c06I\/O\u8bbe\u5907\u7684\u63a5\u53e3\u4e0e\u4e3b\u5b58\u5355\u5143\u4e00\u6837\u770b\u5f85\uff0c\u6bcf\u4e2a\u7aef\u53e3\u5360\u7528\u4e00\u4e2a\u5b58\u50a8\u5355\u5143\u7684\u5730\u5740\uff0c\u5176\u5b9e\u5c31\u662f\u5c06\u4e3b\u5b58\u7684\u4e00\u90e8\u5206\u5212\u51fa\u6765\u4f5c\u4e3aI\/O\u5730\u5740\u7a7a\u95f4\u3002 \u8bbf\u5b58\u6307\u4ee4\u662f\u6307\u8bbf\u95ee\u5185\u5b58\u7684\u6307\u4ee4\uff0c\u663e\u7136\uff0c\u8fd9\u91cc\u9700\u8981\u8bbf\u95ee\u5185\u5b58\uff0c\u624d\u80fd\u627e\u5230\u76f8\u5e94\u7684\u8f93\u5165\u8f93\u51fa\u8bbe\u5907\uff0c\u4e00\u6b21\u9700\u8981\u4f7f\u7528\u8bbf\u5b58\u6307\u4ee4\u3002 \u800c\u63a7\u5236\u7c7b\u6307\u4ee4\u901a\u5e38\u662f\u6307\u7a0b\u5e8f\u63a7\u5236\u7c7b\u6307\u4ee4\uff0c\u7528\u4e8e\u63a7\u5236\u7a0b\u5e8f\u6d41\u7a0b\u6539\u53d8\u7684\u6307\u4ee4\uff0c\u5305\u62ec\u6761\u4ef6\u8f6c\u79fb\u6307\u4ee4\u3001\u65e0\u6761\u4ef6\u8f6c\u79fb\u6307\u4ee4\u3001\u5faa\u73af\u63a7\u5236\u6307\u4ee4\u3001\u7a0b\u5e8f\u8c03\u7528\u548c\u8fd4\u56de\u6307\u4ee4\u3001\u4e2d\u65ad\u6307\u4ee4\u7b49\u3002",
       "rightAnswer": "3",
       "answerList": [
-        "\u63a7\u5236   ",
-        "\u4e2d\u65ad   ",
-        "\u8f93\u5165\u8f93\u51fa  ",
+        "\u63a7\u5236",
+        "\u4e2d\u65ad",
+        "\u8f93\u5165\u8f93\u51fa",
         "\u8bbf\u5b58"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "62",
@@ -45,15 +49,17 @@
       "questionDesc": "Cache\u4e0e\u4e3b\u5b58\u7684\u5730\u5740\u6620\u50cf\u9700\u8981\u4e13\u95e8\u7684\u786c\u4ef6\u81ea\u52a8\u5b8c\u6210\uff0c\u4f7f\u7528\u786c\u4ef6\u6765\u5904\u7406\u5177\u6709\u66f4\u9ad8\u7684\u8f6c\u6362\u901f\u7387\u3002",
       "rightAnswer": "0",
       "answerList": [
-        "\u4e13\u95e8\u7684\u786c\u4ef6\u81ea\u52a8\u5b8c\u6210   ",
+        "\u4e13\u95e8\u7684\u786c\u4ef6\u81ea\u52a8\u5b8c\u6210",
         "\u7a0b\u5e8f\u5458\u8fdb\u884c\u8c03\u5ea6",
-        "\u64cd\u4f5c\u7cfb\u7edf\u8fdb\u884c\u7ba1\u7406 ",
+        "\u64cd\u4f5c\u7cfb\u7edf\u8fdb\u884c\u7ba1\u7406",
         "\u7a0b\u5e8f\u5458\u548c\u64cd\u4f5c\u7cfb\u7edf\u5171\u540c\u534f\u8c03\u5b8c\u6210"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "63",
@@ -62,15 +68,17 @@
       "questionDesc": "\u603b\u7ebf\u590d\u7528\uff0c\u987e\u540d\u601d\u4e49\u5c31\u662f\u4e00\u6761\u603b\u7ebf\u5b9e\u73b0\u591a\u79cd\u529f\u80fd\u3002\u5e38\u89c1\u7684\u603b\u7ebf\u590d\u7528\u65b9\u5f0f\u6709\u603b\u7ebf\u5206\u65f6\u590d\u7528\uff0c\u5b83\u662f\u6307\u5728\u4e0d\u540c\u65f6\u6bb5\u5229\u7528\u603b\u7ebf\u4e0a\u540c\u4e00\u4e2a\u4fe1\u53f7\u7ebf\u4f20\u9001\u4e0d\u540c\u4fe1\u53f7\uff0c\u4f8b\u5982\uff0c\u5730\u5740\u603b\u7ebf\u548c\u6570\u636e\u603b\u7ebf\u5171\u7528\u4e00\u7ec4\u4fe1\u53f7\u7ebf\u3002\u91c7\u7528\u8fd9\u79cd\u65b9\u5f0f\u7684\u76ee\u7684\u662f\u51cf\u5c11\u603b\u7ebf\u6570\u91cf\uff0c\u63d0\u9ad8\u603b\u7ebf\u7684\u5229\u7528\u7387\u3002",
       "rightAnswer": "2",
       "answerList": [
-        "\u63d0\u9ad8\u603b\u7ebf\u7684\u4f20\u8f93\u5e26\u5bbd  ",
+        "\u63d0\u9ad8\u603b\u7ebf\u7684\u4f20\u8f93\u5e26\u5bbd",
         "\u589e\u52a0\u603b\u7ebf\u7684\u529f\u80fd",
-        "\u51cf\u5c11\u603b\u7ebf\u4e2d\u4fe1\u53f7\u7ebf\u7684\u6570\u91cf     ",
+        "\u51cf\u5c11\u603b\u7ebf\u4e2d\u4fe1\u53f7\u7ebf\u7684\u6570\u91cf",
         "\u63d0\u9ad8CPU\u5229\u7528\u7387"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "64",
@@ -79,15 +87,17 @@
       "questionDesc": "\u6307\u4ee4\u5bc4\u5b58\u5668\u7528\u6765\u5b58\u653e\u5f53\u524d\u6b63\u5728\u6267\u884c\u7684\u6307\u4ee4\uff0c\u5bf9\u7528\u6237\u662f\u5b8c\u5168\u900f\u660e\u7684\u3002 \u72b6\u6001\u5bc4\u5b58\u5668\u7528\u6765\u5b58\u653e\u8ba1\u7b97\u7ed3\u679c\u7684\u6807\u5fd7\u4fe1\u606f\uff0c\u5982\u8fdb\u4f4d\u6807\u5fd7\u3001\u6ea2\u51fa\u6807\u5fd7\u7b49\u3002 \u901a\u7528\u5bc4\u5b58\u5668\u53ef\u7528\u4e8e\u4f20\u9001\u548c\u6682\u5b58\u6570\u636e\uff0c\u4e5f\u53ef\u53c2\u4e0e\u7b97\u672f\u903b\u8f91\u8fd0\u7b97\uff0c\u5e76\u4fdd\u5b58\u8fd0\u7b97\u7ed3\u679c\u3002",
       "rightAnswer": "1",
       "answerList": [
-        "\u7a0b\u5e8f\u8ba1\u6570\u5668   ",
-        "\u6307\u4ee4\u5bc4\u5b58\u5668  ",
-        "\u72b6\u6001\u5bc4\u5b58\u5668   ",
+        "\u7a0b\u5e8f\u8ba1\u6570\u5668",
+        "\u6307\u4ee4\u5bc4\u5b58\u5668",
+        "\u72b6\u6001\u5bc4\u5b58\u5668",
         "\u901a\u7528\u5bc4\u5b58\u5668"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "65",
@@ -96,15 +106,17 @@
       "questionDesc": "\u5728\u8ba1\u7b97\u673a\u4e2d\uff0c\u901a\u5e38\u90fd\u662f\u4e8c\u8fdb\u5236\u4ee3\u7801\uff0c\u5982\u679c\u6211\u4eec\u8981\u5c06\u4e00\u4e2a\u4fe1\u606f\u653e\u5230\u8ba1\u7b97\u673a\u4e2d\u53bb\u8868\u8ff0\uff0c\u5c31\u90fd\u9700\u8981\u5c06\u5176\u7f16\u7801\u4e3a\u4e8c\u8fdb\u5236\u4ee3\u7801\uff0c\u5728\u7f16\u7801\u65f6\uff0c\u6bcf\u4e00\u79cd\u4e8c\u8fdb\u5236\u4ee3\u7801\uff0c\u90fd\u8d4b\u4e88\u4e86\u7279\u5b9a\u7684\u542b\u4e49\uff0c\u5373\u90fd\u8868\u793a\u4e86\u4e00\u4e2a\u786e\u5b9a\u7684\u4fe1\u53f7\u6216\u8005\u5bf9\u8c61\u3002\u800c\u8bd1\u7801\u5c31\u662f\u7f16\u7801\u7684\u9006\u8fc7\u7a0b\u3002 CPU\u4e2d\u7684\u8bd1\u7801\u5668\u7684\u4e3b\u8981\u4f5c\u7528\u662f\u5bf9\u6307\u4ee4\u8fdb\u884c\u8bd1\u7801\u3002",
       "rightAnswer": "1",
       "answerList": [
-        "\u5730\u5740\u8bd1\u7801   ",
-        "\u6307\u4ee4\u8bd1\u7801  ",
-        "\u6570\u636e\u8bd1\u7801   ",
+        "\u5730\u5740\u8bd1\u7801",
+        "\u6307\u4ee4\u8bd1\u7801",
+        "\u6570\u636e\u8bd1\u7801",
         "\u9009\u62e9\u591a\u8def\u6570\u636e\u81f3ALU"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "233",
@@ -114,14 +126,16 @@
       "rightAnswer": "0",
       "answerList": [
         "\u7279\u6d1b\u4f0a\u6728\u9a6c",
-        "\u8815\u866b\u75c5\u6bd2  ",
-        "\u5b8f\u75c5\u6bd2  ",
+        "\u8815\u866b\u75c5\u6bd2",
+        "\u5b8f\u75c5\u6bd2",
         "CIH\u75c5\u6bd2"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "234",
@@ -130,15 +144,17 @@
       "questionDesc": "\u6570\u5b57\u8bc1\u4e66\u5c31\u662f\u4e92\u8054\u7f51\u901a\u8baf\u4e2d\u6807\u5fd7\u901a\u8baf\u5404\u65b9\u8eab\u4efd\u4fe1\u606f\u7684\u4e00\u7cfb\u5217\u6570\u636e\uff0c\u5c31\u597d\u6bd4\u65e5\u5e38\u751f\u6d3b\u4e2d\u4e2a\u4eba\u8eab\u4efd\u8bc1\u4e00\u6837\u3002\u6570\u5b57\u8bc1\u4e66\u662f\u7531\u4e00\u4e2a\u6743\u5a01\u673a\u6784\u8bc1\u4e66\u6388\u6743\u4e2d\u5fc3\uff08CA\uff09\u53d1\u884c\u7684\u3002\u6700\u7b80\u5355\u7684\u8bc1\u4e66\u5305\u542b\u4e00\u4e2a\u516c\u5f00\u5bc6\u94a5\u3001\u540d\u79f0\u4ee5\u53ca\u8bc1\u4e66\u6388\u6743\u4e2d\u5fc3\u7684\u6570\u5b57\u7b7e\u540d\u3002\u5176\u4e2d\u8bc1\u4e66\u6388\u6743\u4e2d\u5fc3\u7684\u6570\u5b57\u7b7e\u540d\u662f\u7528\u5b83\u81ea\u5df1\u7684\u79c1\u94a5\u5b8c\u6210\u7684\uff0c\u800c\u5b83\u7684\u516c\u94a5\u4e5f\u662f\u516c\u5f00\u7684\uff0c\u5927\u5bb6\u53ef\u4ee5\u901a\u8fc7\u5b83\u7684\u516c\u94a5\u6765\u9a8c\u8bc1\u8be5\u8bc1\u4e66\u662f\u5426\u662f\u67d0\u8bc1\u4e66\u6388\u6743\u4e2d\u5fc3\u53d1\u884c\u7684\uff0c\u4ee5\u8fbe\u5230\u9a8c\u8bc1\u6570\u5b57\u8bc1\u4e66\u7684\u771f\u5b9e\u6027\u3002\u56e0\u6b64\u672c\u9898\u7b54\u6848\u9009B\u3002",
       "rightAnswer": "1",
       "answerList": [
-        "CA\u7684\u516c\u94a5  ",
-        "CA\u7684\u79c1\u94a5  ",
-        "B\u7684\u516c\u94a5   ",
+        "CA\u7684\u516c\u94a5",
+        "CA\u7684\u79c1\u94a5",
+        "B\u7684\u516c\u94a5",
         "B\u7684\u79c1\u94a5"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "663",
@@ -149,13 +165,15 @@
       "answerList": [
         "\u5408\u7406\u4f7f\u7528",
         "\u8bb8\u53ef\u4f7f\u7528",
-        "\u5f3a\u5236\u8bb8\u53ef\u4f7f\u7528  ",
+        "\u5f3a\u5236\u8bb8\u53ef\u4f7f\u7528",
         "\u6cd5\u5b9a\u8bb8\u53ef\u4f7f\u7528"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "664",
@@ -172,7 +190,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "634",
@@ -181,15 +201,17 @@
       "questionDesc": "\u901a\u8fc7\u8bdd\u9898\u4f20\u5165\u8ba1\u7b97\u673a\u7684\u662f\u6211\u4eec\u4eba\u7c7b\u7684\u58f0\u97f3\uff0c\u800c\u8fd9\u79cd\u58f0\u97f3\u4fe1\u53f7\u662f\u4e00\u79cd\u8fde\u7eed\u7684\u6a21\u62df\u4fe1\u53f7\uff0c\u800c\u975e\u79bb\u6563\u7684\u6570\u5b57\u4fe1\u53f7\uff0c\u5728\u63a5\u6536\u5230\u6a21\u62df\u4fe1\u53f7\u4ee5\u540e\uff0c\u7ecf\u8fc7\u91c7\u7528\u3001\u91cf\u5316\u7b49\u5de5\u4f5c\u5c31\u6a21\u62df\u4fe1\u53f7\u8f6c\u6362\u4e3a\u6570\u5b57\u4fe1\u53f7\u5728\u8ba1\u7b97\u673a\u4e2d\u5904\u7406\u3002",
       "rightAnswer": "1",
       "answerList": [
-        "\u97f3\u9891\u6570\u5b57\u4fe1\u53f7   ",
-        "\u97f3\u9891\u6a21\u62df\u4fe1\u53f7   ",
-        "\u91c7\u6837\u4fe1\u53f7 ",
+        "\u97f3\u9891\u6570\u5b57\u4fe1\u53f7",
+        "\u97f3\u9891\u6a21\u62df\u4fe1\u53f7",
+        "\u91c7\u6837\u4fe1\u53f7",
         "\u91cf\u5316\u4fe1\u53f7"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "635",
@@ -206,7 +228,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "636",
@@ -223,7 +247,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "320",
@@ -232,7 +258,7 @@
       "questionDesc": "\u9700\u6c42\u5206\u6790\u9636\u6bb5\u7684\u4efb\u52a1\u4e3b\u8981\u662f\u8981\u89e3\u51b3\u7cfb\u7edf\u505a\u4ec0\u4e48\u7684\u95ee\u9898\uff0c\u5373\u5f04\u6e05\u695a\u95ee\u9898\u7684\u8981\u6c42\uff0c\u5305\u62ec\u9700\u8981\u8f93\u5165\u4ec0\u4e48\u6570\u636e\uff0c\u8981\u5f97\u5230\u4ec0\u4e48\u7ed3\u679c\uff0c\u6700\u540e\u5e94\u8f93\u51fa\u4ec0\u4e48\u3002 \u6982\u8981\u8bbe\u8ba1\u7684\u4e3b\u8981\u4efb\u52a1\u662f\u628a\u9700\u6c42\u5206\u6790\u5f97\u5230\u7684\u7ed3\u679c\u8f6c\u6362\u4e3a\u8f6f\u4ef6\u7ed3\u6784\u548c\u6570\u636e\u7ed3\u6784\uff0c\u5373\u5c06\u4e00\u4e2a\u590d\u6742\u7cfb\u7edf\u6309\u529f\u80fd\u8fdb\u884c\u6a21\u5757\u5212\u5206\u3001\u5efa\u7acb\u6a21\u5757\u7684\u5c42\u6b21\u7ed3\u6784\u53ca\u8c03\u7528\u5173\u7cfb\u3001\u786e\u5b9a\u6a21\u5757\u95f4\u7684\u63a5\u53e3\u53ca\u4eba\u673a\u754c\u9762\u3001\u786e\u5b9a\u6570\u636e\u7684\u7ed3\u6784\u7279\u6027\u3001\u4ee5\u53ca\u6570\u636e\u5e93\u7684\u8bbe\u8ba1\u7b49\u3002 \u8be6\u7ec6\u8bbe\u8ba1\u662f\u5728\u6982\u8981\u8bbe\u8ba1\u7684\u57fa\u7840\u4e0a\u66f4\u7ec6\u81f4\u7684\u8bbe\u8ba1\uff0c\u5b83\u5305\u62ec\u5177\u4f53\u7684\u4e1a\u52a1\u5bf9\u8c61\u8bbe\u8ba1\u3001\u529f\u80fd\u903b\u8f91\u8bbe\u8ba1\u3001\u754c\u9762\u8bbe\u8ba1\u7b49\u5de5\u4f5c\u3002\u8be6\u7ec6\u8bbe\u8ba1\u662f\u7cfb\u7edf\u5b9e\u73b0\u7684\u4f9d\u636e\uff0c\u9700\u8981\u66f4\u591a\u5730\u8003\u8651\u8bbe\u8ba1\u7ec6\u8282\u3002 \u7f16\u7801\u5373\u7f16\u5199\u7a0b\u5e8f\u4ee3\u7801\uff0c\u5177\u4f53\u5b9e\u73b0\u7cfb\u7edf\u3002",
       "rightAnswer": "1",
       "answerList": [
-        "\u9700\u6c42\u5206\u6790   ",
+        "\u9700\u6c42\u5206\u6790",
         "\u6982\u8981\u8bbe\u8ba1",
         "\u8be6\u7ec6\u8bbe\u8ba1",
         "\u7f16\u7801"
@@ -240,7 +266,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "321",
@@ -257,7 +285,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "358",
@@ -273,8 +303,10 @@
       ],
       "testPoint": "",
       "categoryId": "11",
-      "illustration": "2011.11-am-17-title-1.png",
-      "questionType": "0"
+      "illustration": "q_2011_11_am_17_title_1.png",
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "359",
@@ -291,7 +323,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "360",
@@ -308,7 +342,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "593",
@@ -325,7 +361,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "520",
@@ -334,15 +372,17 @@
       "questionDesc": "\u9898\u76ee\u544a\u8bc9\u6211\u4eec\u662f\u6309\u5217\u5b58\u50a8\uff0c\u90a3\u4e48\u5728\u5b58\u50a8\u5143\u7d20arr[i\uff0cj]\u4ee5\u524d\uff0c\u5e94\u8be5\u5b58\u653e\u4e86j-1\u5217\uff0c\u800c\u6bcf\u4e00\u5217\u4e2d\u6709M\u4e2a\u5143\u7d20\uff08\u5373\u6570\u7ec4\u7684\u884c\u6570\uff09\uff0c\u90a3\u4e48\u5e94\u8be5\u6709\uff08j-1\uff09*M\u4e2a\u5143\u7d20\uff0c\u800c\u5728\u7b2cj\u5217\u4e2d\uff0c\u5b58\u653e\u5143\u7d20arr[i\uff0cj]\u4ee5\u524d\uff0c\u5e94\u8be5\u6709i-1\u4e2a\u5143\u7d20\u88ab\u5b58\u653e\uff0c\u56e0\u6b64\uff0c\u5728\u5b58\u653e\u5143\u7d20arr[i\uff0cj]\u4ee5\u524d\u603b\u5171\u6709\uff08j-1\uff09*M+i-1\u4e2a\u5143\u7d20\u88ab\u5b58\u653e\uff0c\u800c\u6bcf\u4e2a\u5143\u7d20\u5360\u7528K\u4e2a\u5b58\u50a8\u5355\u5143\uff0c\u56e0\u6b64\u672c\u9898\u7b54\u6848\u9009C\u3002",
       "rightAnswer": "2",
       "answerList": [
-        "base+((i-1)*M+j-1)*K   ",
+        "base+((i-1)*M+j-1)*K",
         "base+((i-1)*N+j-1)*K",
-        "base+((j-1)*M+i-1)*K  ",
+        "base+((j-1)*M+i-1)*K",
         "base+((j-1)*N+i-1)*K"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "117",
@@ -356,15 +396,15 @@
       ],
       "answerList": [
         [
-          "0      ",
+          "0",
           "1",
           "n",
           "\u4efb\u610f\u6b63\u6574\u6570"
         ],
         [
           "n\u30010",
-          "0\u3001n ",
-          "1\u3001n ",
+          "0\u3001n",
+          "1\u3001n",
           "n\u30011"
         ],
         [
@@ -376,8 +416,10 @@
       ],
       "testPoint": "",
       "categoryId": "11",
-      "illustration": "2011.05-am-22-title-1.png",
-      "questionType": "1"
+      "illustration": "q_2011_05_am_22_title_1.png",
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "118",
@@ -397,9 +439,9 @@
           "\\Program\\Java-prog\\f1.java"
         ],
         [
-          "Java-prog\\      ",
+          "Java-prog\\",
           "\\Java-prog\\",
-          "Program\\Java-prog  ",
+          "Program\\Java-prog",
           "\\Program\\Java-prog\\"
         ],
         [
@@ -411,8 +453,10 @@
       ],
       "testPoint": "",
       "categoryId": "11",
-      "illustration": "2011.05-am-24-title-1.png",
-      "questionType": "1"
+      "illustration": "q_2011_05_am_24_title_1.png",
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "66",
@@ -425,22 +469,24 @@
       ],
       "answerList": [
         [
-          "\u2466\u2469\u2460\u2461\u2463\u2462\u2468\u2467\u2464\u2465   ",
+          "\u2466\u2469\u2460\u2461\u2463\u2462\u2468\u2467\u2464\u2465",
           "\u2460\u2466\u2469\u2461\u2462\u2463\u2465\u2464\u2467\u2468",
-          "\u2466\u2469\u2460\u2461\u2463\u2462\u2465\u2464\u2467\u2468   ",
+          "\u2466\u2469\u2460\u2461\u2463\u2462\u2465\u2464\u2467\u2468",
           "\u2460\u2466\u2469\u2461\u2462\u2463\u2467\u2468\u2465\u2464"
         ],
         [
-          "\u2466\u2469\u2460\u2461\u2463\u2462\u2468\u2467\u2464\u2465   ",
+          "\u2466\u2469\u2460\u2461\u2463\u2462\u2468\u2467\u2464\u2465",
           "\u2460\u2466\u2469\u2461\u2462\u2463\u2465\u2464\u2467\u2468",
-          "\u2466\u2469\u2460\u2461\u2463\u2462\u2465\u2464\u2467\u2468   ",
+          "\u2466\u2469\u2460\u2461\u2463\u2462\u2465\u2464\u2467\u2468",
           "\u2460\u2466\u2469\u2461\u2462\u2463\u2467\u2468\u2465\u2464"
         ]
       ],
       "testPoint": "",
       "categoryId": "11",
-      "illustration": "2011.11-am-6-title-1.png",
-      "questionType": "1"
+      "illustration": "q_2011_11_am_6_title_1.png",
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "594",
@@ -457,7 +503,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "322",
@@ -474,7 +522,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "323",
@@ -484,14 +534,16 @@
       "rightAnswer": "0",
       "answerList": [
         "\u7011\u5e03\u6a21\u578b",
-        "\u6f14\u5316\u6a21\u578b  ",
+        "\u6f14\u5316\u6a21\u578b",
         "\u87ba\u65cb\u6a21\u578b",
         "\u539f\u578b\u6a21\u578b"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "324",
@@ -500,15 +552,17 @@
       "questionDesc": "\u529f\u80fd\u6027\u662f\u6307\u4e0e\u529f\u80fd\u53ca\u5176\u6307\u5b9a\u7684\u6027\u8d28\u6709\u5173\u7684\u4e00\u7ec4\u8f6f\u4ef6\u8d28\u91cf\uff1b\u53ef\u9760\u6027\u662f\u6307\u8861\u91cf\u5728\u89c4\u5b9a\u7684\u4e00\u6bb5\u65f6\u95f4\u5185\u548c\u89c4\u5b9a\u6761\u4ef6\u4e0b\u7ef4\u62a4\u6027\u80fd\u6c34\u5e73\u7684\u4e00\u7ec4\u8f6f\u4ef6\u8d28\u91cf\uff1b\u53ef\u7ef4\u62a4\u6027\u662f\u6307\u4e0e\u8f6f\u4ef6\u7ef4\u62a4\u7684\u96be\u6613\u7a0b\u5ea6\u76f8\u5173\u7684\u4e00\u7ec4\u8f6f\u4ef6\u5c5e\u6027\uff1b\u6613\u4f7f\u7528\u6027\u662f\u6307\u4e0e\u4f7f\u7528\u96be\u6613\u7a0b\u5ea6\u53ca\u89c4\u5b9a\u6216\u9690\u542b\u7528\u6237\u5bf9\u4f7f\u7528\u65b9\u5f0f\u6240\u505a\u7684\u8bc4\u4ef7\u76f8\u5173\u7684\u5c5e\u6027\u3002 \u7efc\u4e0a\u6240\u8ff0\uff0c\u53ef\u4ee5\u77e5\u9053\u5c06\u6bcf\u4e2a\u7528\u6237\u7684\u6570\u636e\u548c\u5176\u4ed6\u7528\u6237\u7684\u6570\u636e\u9694\u79bb\u5f00\uff0c\u662f\u8003\u8651\u4e86\u8f6f\u4ef6\u7684\u529f\u80fd\u6027\u8d28\u91cf\u7279\u6027\u3002",
       "rightAnswer": "0",
       "answerList": [
-        "\u529f\u80fd\u6027  ",
-        "\u53ef\u9760\u6027 ",
-        "\u53ef\u7ef4\u62a4\u6027   ",
+        "\u529f\u80fd\u6027",
+        "\u53ef\u9760\u6027",
+        "\u53ef\u7ef4\u62a4\u6027",
         "\u6613\u4f7f\u7528\u6027"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "325",
@@ -525,7 +579,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "326",
@@ -534,15 +590,17 @@
       "questionDesc": "\u6539\u6b63\u6027\u7ef4\u62a4\u4e5f\u53eb\u6b63\u786e\u6027\u7ef4\u62a4\uff0c\u662f\u6307\u5728\u4f7f\u7528\u8fc7\u7a0b\u4e2d\u53d1\u73b0\u4e86\u9690\u853d\u7684\u9519\u8bef\u540e\uff0c\u4e3a\u4e86\u8bca\u65ad\u548c\u6539\u6b63\u8fd9\u4e9b\u9690\u853d\u9519\u8bef\u800c\u4fee\u6539\u8f6f\u4ef6\u7684\u6d3b\u52a8\u3002 \u9002\u5e94\u6027\u7ef4\u62a4\u662f\u6307\u4e3a\u4e86\u9002\u5e94\u53d8\u5316\u4e86\u7684\u73af\u5883\u800c\u4fee\u6539\u8f6f\u4ef6\u7684\u6d3b\u52a8\u3002 \u5b8c\u5584\u6027\u7ef4\u62a4\u662f\u6307\u4e3a\u4e86\u6269\u5145\u6216\u5b8c\u5584\u539f\u6709\u8f6f\u4ef6\u7684\u529f\u80fd\u6216\u6027\u80fd\u800c\u4fee\u6539\u8f6f\u4ef6\u7684\u6d3b\u52a8\u3002 \u9884\u9632\u6027\u7ef4\u62a4\u662f\u6307\u4e3a\u4e86\u63d0\u9ad8\u8f6f\u4ef6\u7684\u53ef\u7ef4\u62a4\u6027\u548c\u53ef\u9760\u6027\u3001\u4e3a\u672a\u6765\u7684\u8fdb\u4e00\u6b65\u6539\u8fdb\u6253\u4e0b\u57fa\u7840\u800c\u4fee\u6539\u8f6f\u4ef6\u7684\u6d3b\u52a8\u3002 \u7efc\u4e0a\u6240\u8ff0\uff0c\u53ef\u77e5\u9488\u5bf9\u5e94\u7528\u5728\u8fd0\u884c\u671f\u7684\u6570\u636e\u7279\u70b9\uff0c\u4fee\u6539\u5176\u6392\u5e8f\u7b97\u6cd5\u4f7f\u5176\u66f4\u9ad8\u6548\u5c5e\u4e8e\u5b8c\u5584\u6027\u7ef4\u62a4\u3002",
       "rightAnswer": "2",
       "answerList": [
-        "\u6b63\u786e\u6027 ",
-        "\u9002\u5e94\u6027   ",
-        "\u5b8c\u5584\u6027 ",
+        "\u6b63\u786e\u6027",
+        "\u9002\u5e94\u6027",
+        "\u5b8c\u5584\u6027",
         "\u9884\u9632\u6027"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "327",
@@ -558,8 +616,10 @@
       ],
       "testPoint": "",
       "categoryId": "11",
-      "illustration": "2011.05-am-33-title-1.png",
-      "questionType": "0"
+      "illustration": "q_2011_05_am_33_title_1.png",
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "328",
@@ -568,7 +628,7 @@
       "questionDesc": "\u6240\u8c13\u7b49\u4ef7\u7c7b\u5c31\u662f\u67d0\u4e2a\u8f93\u5165\u57df\u7684\u96c6\u5408\uff0c\u5bf9\u4e8e\u4e00\u4e2a\u7b49\u4ef7\u7c7b\u4e2d\u7684\u8f93\u5165\u503c\u6765\u8bf4\uff0c\u5b83\u4eec\u63ed\u793a\u7a0b\u5e8f\u4e2d\u9519\u8bef\u7684\u4f5c\u7528\u662f\u7b49\u6548\u7684\u3002\u4e5f\u5c31\u662f\u8bf4\uff0c\u5982\u679c\u7b49\u4ef7\u7c7b\u4e2d\u7684\u4e00\u4e2a\u8f93\u5165\u6570\u636e\u80fd\u68c0\u6d4b\u51fa\u4e00\u4e2a\u9519\u8bef\uff0c\u90a3\u4e48\u7b49\u4ef7\u7c7b\u4e2d\u7684\u5176\u4ed6\u8f93\u5165\u6570\u636e\u4e5f\u80fd\u68c0\u6d4b\u51fa\u540c\u4e00\u4e2a\u9519\u8bef\u3002 \u5728\u672c\u9898\u4e2d\u4e00\u4e2a\u8bbe\u8ba1\u7528\u4f8b\u5305\u542b\u4e24\u4e2a\u8f93\u5165\u6761\u4ef6\uff0c\u4e00\u4e2a\u662f\u73ed\u59d4\uff0c\u53e6\u4e00\u4e2a\u662f\u5e74\u9f84\uff0c\u4ece\u56db\u4e2a\u9009\u9879\u6765\u770b\uff0cD\u9009\u9879\u4e2d\u7684\u4e24\u4e2a\u8f93\u5165\u90fd\u4e0d\u662f\u6709\u6548\u6570\u636e\uff0c\u5982\u679c\u7528\u8fd9\u4e2a\u7528\u4f8b\u68c0\u6d4b\u51fa\u4e86\u4e00\u4e2a\u9519\u8bef\uff0c\u90a3\u4e48\u4e5f\u4e0d\u80fd\u786e\u5b9a\u662f\u7531\u54ea\u4e2a\u8f93\u5165\u6761\u4ef6\u5f15\u8d77\u7684\uff0c\u56e0\u6b64\u5176\u4e0d\u662f\u4e00\u4e2a\u597d\u7684\u6d4b\u8bd5\u7528\u4f8b\u3002",
       "rightAnswer": "3",
       "answerList": [
-        "\uff08\u961f\u957f\uff0c15\uff09   ",
+        "\uff08\u961f\u957f\uff0c15\uff09",
         "\uff08\u73ed\u957f\uff0c20\uff09",
         "\uff08\u73ed\u957f\uff0c15\uff09",
         "\uff08\u961f\u957f\uff0c12\uff09"
@@ -576,7 +636,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "329",
@@ -587,13 +649,15 @@
       "answerList": [
         "\u6b63\u786e\u6027",
         "\u9002\u5e94\u6027",
-        "\u5b8c\u5584\u6027 ",
+        "\u5b8c\u5584\u6027",
         "\u9884\u9632\u6027"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "435",
@@ -610,7 +674,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "436",
@@ -638,7 +704,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "437",
@@ -652,21 +720,23 @@
       "answerList": [
         [
           "\u547d\u4ee4( Command)",
-          "\u8d23\u4efb\u94fe(Chain of Responsibility)   ",
-          "\u89c2\u5bdf\u8005( Observer) ",
+          "\u8d23\u4efb\u94fe(Chain of Responsibility)",
+          "\u89c2\u5bdf\u8005( Observer)",
           "\u8fed\u4ee3\u5668(Iterator)"
         ],
         [
-          "Subject    ",
+          "Subject",
           "ConcreteSubject",
-          "Observer   ",
+          "Observer",
           "ConcreteObserver"
         ]
       ],
       "testPoint": "",
       "categoryId": "11",
-      "illustration": "2011.05-am-40-title-1.png",
-      "questionType": "1"
+      "illustration": "q_2011_05_am_40_title_1.png",
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "438",
@@ -683,7 +753,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "439",
@@ -694,13 +766,15 @@
       "answerList": [
         "\u9002\u914d\u5668(Adapter)",
         "\u6865\u63a5(Bridge)",
-        "\u7ec4\u5408( Composite)  ",
+        "\u7ec4\u5408( Composite)",
         "\u88c5\u9970\u5668(Decorator)"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "440",
@@ -709,7 +783,7 @@
       "questionDesc": "\u9002\u914d\u5668\u6a21\u5f0f\u5c06\u4e00\u4e2a\u63a5\u53e3\u8f6c\u6362\u6210\u4e3a\u5ba2\u6237\u60f3\u8981\u7684\u53e6\u4e00\u4e2a\u63a5\u53e3\uff0c\u9002\u914d\u5668\u6a21\u5f0f\u4f7f\u63a5\u53e3\u4e0d\u517c\u5bb9\u7684\u90a3\u4e9b\u7c7b\u53ef\u4ee5\u4e00\u8d77\u5de5\u4f5c\u3002 \u4ee3\u7406\u6a21\u5f0f\u901a\u8fc7\u63d0\u4f9b\u4e0e\u5bf9\u8c61\u76f8\u540c\u7684\u63a5\u53e3\u6765\u63a7\u5236\u5bf9\u8fd9\u4e2a\u5bf9\u8c61\u7684\u8bbf\u95ee\u3002 \u7ec4\u5408\u6a21\u5f0f\u7ec4\u5408\u591a\u4e2a\u5bf9\u8c61\u5f62\u6210\u6811\u578b\u7ed3\u6784\u4ee5\u8868\u793a\u6574\u4f53\u2014\u90e8\u5206\u7684\u7ed3\u6784\u5c42\u6b21\u3002 \u88c5\u9970\u5668\u6a21\u5f0f\u52a8\u6001\u5730\u7ed9\u4e00\u4e2a\u5bf9\u8c61\u589e\u52a0\u5176\u4ed6\u804c\u8d23\uff0c\u5c31\u589e\u52a0\u5bf9\u8c61\u529f\u80fd\u6765\u8bf4\uff0c\u88c5\u9970\u6a21\u5f0f\u6bd4\u751f\u6210\u5b50\u7c7b\u5b9e\u73b0\u66f4\u4e3a\u7075\u6d3b\u3002",
       "rightAnswer": "1",
       "answerList": [
-        "\u9002\u914d\u5668( Adapter) ",
+        "\u9002\u914d\u5668( Adapter)",
         "\u4ee3\u7406(Proxy)",
         "\u7ec4\u5408( Composite)",
         "\u88c5\u9970\u5668(Decorator)"
@@ -717,7 +791,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "441",
@@ -726,15 +802,17 @@
       "questionDesc": "\u90e8\u7f72\u56fe\u63cf\u8ff0\u4e86\u4e00\u4e2a\u8fd0\u884c\u65f6\u7684\u786c\u4ef6\u7ed3\u70b9\uff0c\u4ee5\u53ca\u5728\u8fd9\u4e9b\u7ed3\u70b9\u4e0a\u8fd0\u884c\u7684\u8f6f\u4ef6\u7ec4\u4ef6\u7684\u9759\u6001\u89c6\u56fe\u3002 \u90e8\u7f72\u56fe\u663e\u793a\u4e86\u7cfb\u7edf\u7684\u786c\u4ef6\uff0c\u5b89\u88c5\u5728\u786c\u4ef6\u4e0a\u7684\u8f6f\u4ef6\uff0c\u4ee5\u53ca\u7528\u4e8e\u8fde\u63a5\u5f02\u6784\u7684\u673a\u5668\u4e4b\u95f4\u7684\u4e2d\u95f4\u4ef6\u3002\u56e0\u6b64\u5b83\u662f\u5728\u5b9e\u65bd\u9636\u6bb5\u88ab\u4f7f\u7528\u3002",
       "rightAnswer": "3",
       "answerList": [
-        "\u9700\u6c42\u5206\u6790 ",
-        "\u67b6\u6784\u8bbe\u8ba1  ",
+        "\u9700\u6c42\u5206\u6790",
+        "\u67b6\u6784\u8bbe\u8ba1",
         "\u5b9e\u73b0",
         "\u5b9e\u65bd"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "442",
@@ -747,13 +825,13 @@
       ],
       "answerList": [
         [
-          "\u5de5\u4f5c\u8fc7\u7a0b\u4e2d\u7684\u9759\u6001\u5143\u7d20  ",
-          "\u5de5\u4f5c\u8fc7\u7a0b\u4e2d\u7684\u52a8\u6001\u5143\u7d20  ",
-          "\u5de5\u4f5c\u8fc7\u7a0b\u4e2d\u7684\u903b\u8f91\u89c6\u56fe   ",
+          "\u5de5\u4f5c\u8fc7\u7a0b\u4e2d\u7684\u9759\u6001\u5143\u7d20",
+          "\u5de5\u4f5c\u8fc7\u7a0b\u4e2d\u7684\u52a8\u6001\u5143\u7d20",
+          "\u5de5\u4f5c\u8fc7\u7a0b\u4e2d\u7684\u903b\u8f91\u89c6\u56fe",
           "\u7ec4\u7ec7\u652f\u6301\u7684\u4e1a\u52a1\u8fc7\u7a0b"
         ],
         [
-          "\u4e1a\u52a1\u7ed3\u6784   ",
+          "\u4e1a\u52a1\u7ed3\u6784",
           "\u7ed3\u6784\u5143\u7d20\u5982\u4f55\u5b8c\u6210\u4e1a\u52a1\u7528\u4f8b",
           "\u4e1a\u52a1\u7ed3\u6784\u4ee5\u53ca\u7ed3\u6784\u5143\u7d20\u5982\u4f55\u5b8c\u6210\u4e1a\u52a1\u7528\u4f8b",
           "\u7ec4\u7ec7\u652f\u6301\u7684\u4e1a\u52a1\u8fc7\u7a0b"
@@ -762,7 +840,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "595",
@@ -771,15 +851,17 @@
       "questionDesc": "\u88ab\u6709\u9650\u81ea\u52a8\u673a\u6240\u8bc6\u522b\u662f\u6307\u4ece\u521d\u6001\u5f00\u59cb\u5230\u7ec8\u6001\u7ed3\u675f\uff0c\u6240\u8f93\u5165\u7684\u5b57\u7b26\u4e32\u80fd\u591f\u6309\u987a\u5e8f\u5730\u6267\u884c\u4e0b\u53bb\uff0c\u82e5\u5230\u67d0\u4e2a\u72b6\u6001\u4e0d\u80fd\u5f80\u4e0b\u8d70\u5f97\u5230\u4e0b\u4e00\u4e2a\u5b57\u7b26\uff0c\u5219\u8ba4\u4e3a\u4e0d\u80fd\u8bc6\u522b\u3002 \u5728\u672c\u9898\u4e2d\uff0c\u9009\u9879A\u80fd\u88ab\u8bc6\u522b\u3002\u4ece\u521d\u6001A\u51fa\u53d1\uff0c\u4e0d\u7ba1\u7ecf\u8fc7\u591a\u5c11\u4e2a1\u548c0\u4e4b\u540e\uff0c\u53ea\u80fd\u662f\u5904\u5728A\u3001B\u3001C\u4e09\u79cd\u72b6\u6001\u4e2d\u7684\u4e00\u79cd\uff0c\u6240\u4ee5\u5728(0|1)*\u540e\uff0c\u53ea\u80fd\u662f\u5904\u5728A\u3001B\u3001C\u4e09\u79cd\u72b6\u6001\u4e2d\u7684\u4e00\u79cd\uff0c\u4e0d\u7ba1\u662f\u5728\u90a3\u4e2a\u72b6\u6001\uff0c\u8f93\u51650\u540e\uff0c\u90fd\u4f1a\u5904\u5728\u72b6\u6001B\uff0c\u7136\u540e\u8f93\u51651\uff0c\u90fd\u4f1a\u8f6c\u6362\u5230\u72b6\u6001C\uff0c\u56e0\u6b64\u9009\u9879A\u80fd\u88ab\u8be5\u6709\u9650\u81ea\u52a8\u673a\u6240\u8bc6\u522b\u3002 \u540c\u6837\u7684\u9053\u7406\uff0c\u6211\u4eec\u53ef\u4ee5\u77e5\u9053\u5176\u5b83\u9009\u9879\u7684\u6b63\u89c4\u5f0f\u4e0d\u80fd\u88ab\u8bc6\u522b\u3002",
       "rightAnswer": "0",
       "answerList": [
-        "(0|1)*01  ",
+        "(0|1)*01",
         "1*0*10*1",
         "1*(0)*01",
         "1*(0|10)*1*"
       ],
       "testPoint": "",
       "categoryId": "11",
-      "illustration": "2011.05-am-48-title-1.png",
-      "questionType": "0"
+      "illustration": "q_2011_05_am_48_title_1.png",
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "596",
@@ -794,7 +876,7 @@
         [
           "12",
           "16",
-          "20 ",
+          "20",
           "24"
         ],
         [
@@ -806,8 +888,10 @@
       ],
       "testPoint": "",
       "categoryId": "11",
-      "illustration": "2011.11-am-49-title-1.png",
-      "questionType": "1"
+      "illustration": "q_2011_11_am_49_title_1.png",
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "154",
@@ -821,15 +905,15 @@
       ],
       "answerList": [
         [
-          "UPDATE   ",
-          "UPDATE ON    ",
-          "INSERT   ",
+          "UPDATE",
+          "UPDATE ON",
+          "INSERT",
           "INSERT ON"
         ],
         [
-          "FOR ALL   ",
+          "FOR ALL",
           "PUBLIC",
-          "WITH CHECK OPTION   ",
+          "WITH CHECK OPTION",
           "WITH GRANT OPTION"
         ],
         [
@@ -842,7 +926,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "157",
@@ -857,14 +943,14 @@
       ],
       "answerList": [
         [
-          "1\uff1a1 ",
+          "1\uff1a1",
           "1\uff1an",
           "n\uff1a1",
           "n\uff1am"
         ],
         [
           "1\uff1a1",
-          "1\uff1an  ",
+          "1\uff1an",
           "n\uff1a1",
           "n\uff1am"
         ],
@@ -884,12 +970,14 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "155",
       "no": "53",
-      "questionTitle": "\u82e5\u6709\u5173\u7cfbR (A\uff0cB\uff0cC\uff0cD)\u548cS(C\uff0cD\uff0cE)\uff0c\u5219\u4e0e\u8868\u8fbe\u5f0f\u03c03\uff0c4\uff0c7(\u03c34<5 (R\u00d7S))\u7b49\u4ef7\u7684SQL\u8bed\u53e5\u5982\u4e0b\uff1a     SELECT __(53)__ FROM __(54)__WHERE __(55)__\uff1b",
+      "questionTitle": "\u82e5\u6709\u5173\u7cfbR (A\uff0cB\uff0cC\uff0cD)\u548cS(C\uff0cD\uff0cE)\uff0c\u5219\u4e0e\u8868\u8fbe\u5f0f\u03c03\uff0c4\uff0c7(\u03c34&lt;5 (R\u00d7S))\u7b49\u4ef7\u7684SQL\u8bed\u53e5\u5982\u4e0b\uff1a     SELECT __(53)__ FROM __(54)__WHERE __(55)__\uff1b",
       "questionDesc": "R\u00d7S\u8868\u793a\u5173\u7cfbR\u4e0e\u5173\u7cfbS\u7684\u7b1b\u5361\u5c14\u79ef\uff0c\u5176\u7ed3\u679c\u662f\u4e00\u4e2a\u5177\u6709n\uff08n\u7684\u503c\u7531\u5173\u7cfbR\u4e0eS\u7684\u5143\u7ec4\u4e2a\u6570\u5171\u540c\u51b3\u5b9a\uff09\u884c7\u5217\u5143\u7d20\u7684\u4e8c\u7ef4\u8868\uff0c\u03c34<5 (R\u00d7S)\u662f\u9009\u53d6\u8868\u4e2d\u7b2c4\u5217\uff08R.D\uff09\u5143\u7d20\u503c\u5c0f\u4e8e\u7b2c5\u5217\uff08S.C\uff09\u5143\u7d20\u503c\u7684\u8bb0\u5f55\uff0c\u7136\u540e\u5bf9\u8fd9\u4e2a\u7ed3\u679c\u8fdb\u884c\u6295\u5f71\u64cd\u4f5c\uff0c\u5373\u9009\u53d6\u51fa\u7b2c3\uff08R.C\uff09\u30014\uff08R.D\uff09\u30017\uff08S.E\uff09\u5217\u7ec4\u6210\u4e00\u4e2a\u65b0\u8868\u3002 \u56e0\u6b64\u7b2c53\u7a7a\u7684\u7ed3\u679c\u5e94\u8be5\u4e3aR.C\uff0cR.D\uff0cS.E\uff0c\u800c\u7b2c54\u7a7a\u662f\u4ece\u5173\u7cfb\u8868R\u548cS\u4e2d\u8fdb\u884c\u67e5\u627e\uff0c\u67e5\u627e\u7684\u6761\u4ef6\u4e3aR.D\u5143\u7d20\u503c\u5c0f\u4e8eS.C\u5143\u7d20\u503c\uff0c\u5373R.D<S.C\u3002",
       "rightAnswer": [
         "3",
@@ -898,28 +986,30 @@
       ],
       "answerList": [
         [
-          "A\uff0cB\uff0cC\uff0cD\uff0cE    ",
-          "C\uff0cD\uff0cE ",
-          "R.A\uff0c R.B\uff0cR.C\uff0c R.D\uff0c S.E   ",
+          "A\uff0cB\uff0cC\uff0cD\uff0cE",
+          "C\uff0cD\uff0cE",
+          "R.A\uff0c R.B\uff0cR.C\uff0c R.D\uff0c S.E",
           "R.C\uff0cR.D\uff0cS.E"
         ],
         [
-          "R  ",
-          "S   ",
-          "R\uff0cS  ",
+          "R",
+          "S",
+          "R\uff0cS",
           "RS"
         ],
         [
-          "D<C ",
-          "R.D<S.C ",
-          "R.D< R.C ",
+          "D<C",
+          "R.D<S.C",
+          "R.D< R.C",
           "S.D< R.C"
         ]
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "158",
@@ -933,15 +1023,15 @@
       ],
       "answerList": [
         [
-          "\u53ea\u67091\u4e2a\u5019\u9009\u5173\u952e\u5b57AC ",
+          "\u53ea\u67091\u4e2a\u5019\u9009\u5173\u952e\u5b57AC",
           "\u53ea\u67091\u4e2a\u5019\u9009\u5173\u952e\u5b57AB",
-          "\u67092\u4e2a\u5019\u9009\u5173\u952e\u5b57AC\u548cBC ",
+          "\u67092\u4e2a\u5019\u9009\u5173\u952e\u5b57AC\u548cBC",
           "\u67092\u4e2a\u5019\u9009\u5173\u952e\u5b57AC\u548cAB"
         ],
         [
-          "1\u4e2a\u975e\u4e3b\u5c5e\u6027\u548c2\u4e2a\u4e3b\u5c5e\u6027   ",
+          "1\u4e2a\u975e\u4e3b\u5c5e\u6027\u548c2\u4e2a\u4e3b\u5c5e\u6027",
           "2\u4e2a\u975e\u4e3b\u5c5e\u6027\u548c1\u4e2a\u4e3b\u5c5e\u6027",
-          "0\u4e2a\u975e\u4e3b\u5c5e\u6027\u548c3\u4e2a\u4e3b\u5c5e\u6027 ",
+          "0\u4e2a\u975e\u4e3b\u5c5e\u6027\u548c3\u4e2a\u4e3b\u5c5e\u6027",
           "3\u4e2a\u975e\u4e3b\u5c5e\u6027\u548cO\u4e2a\u4e3b\u5c5e\u6027"
         ],
         [
@@ -954,7 +1044,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "156",
@@ -971,7 +1063,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "521",
@@ -987,8 +1081,10 @@
       ],
       "testPoint": "",
       "categoryId": "11",
-      "illustration": "2011.05-am-57-title-1.png",
-      "questionType": "0"
+      "illustration": "q_2011_05_am_57_title_1.png",
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "522",
@@ -1005,7 +1101,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "523",
@@ -1014,15 +1112,17 @@
       "questionDesc": "\u5728\u65e0\u5411\u56fe\u4e2d\uff0c\u4e00\u6761\u8fb9\u8fde\u63a5\u4e24\u4e2a\u9876\u70b9\uff0c\u5373\u5982\u679c\u5b58\u5728\u4e00\u6761\u8fb9\uff0c\u90a3\u4e48\u4e0e\u8fd9\u6761\u8fb9\u76f8\u5173\u7684\u4e24\u4e2a\u9876\u70b9\u7684\u5ea6\u90fd\u4e3a\u52a01\uff0c\u90a3\u4e48\u603b\u7684\u5ea6\u5c31\u5e94\u8be5\u52a02\uff0c\u56e0\u6b64\uff0c\u5982\u679c\u56fe\u4e2d\u6709n\u6761\u8fb9\uff0c\u90a3\u4e48\u6240\u6709\u9876\u70b9\u7684\u5ea6\u6570\u4e4b\u548c\u5c31\u5e94\u8be5\u4e3a2e\u3002",
       "rightAnswer": "3",
       "answerList": [
-        "n*e ",
+        "n*e",
         "n+e",
-        "2n ",
+        "2n",
         "2e"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "524",
@@ -1039,7 +1139,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "525",
@@ -1050,13 +1152,15 @@
       "answerList": [
         "\u5206\u6cbb",
         "\u52a8\u6001\u89c4\u5212",
-        "\u8d2a\u5fc3  ",
+        "\u8d2a\u5fc3",
         "\u56de\u6eaf"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "526",
@@ -1073,7 +1177,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "527",
@@ -1089,8 +1195,10 @@
       ],
       "testPoint": "",
       "categoryId": "11",
-      "illustration": "2011.11-am-65-title-1.png,2011.11-am-65-title-2.png",
-      "questionType": "0"
+      "illustration": "q_2011_11_am_65_title_1.png,q_2011_11_am_65_title_2.png",
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "200",
@@ -1109,16 +1217,18 @@
           "2^24"
         ],
         [
-          "128   ",
-          "256   ",
-          "1024   ",
+          "128",
+          "256",
+          "1024",
           "2048"
         ]
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "201",
@@ -1131,9 +1241,9 @@
       ],
       "answerList": [
         [
-          "\u4f20\u8f93\u5c42   ",
-          "\u7f51\u7edc\u5c42  ",
-          "\u4f1a\u8bdd\u5c42  ",
+          "\u4f20\u8f93\u5c42",
+          "\u7f51\u7edc\u5c42",
+          "\u4f1a\u8bdd\u5c42",
           "\u5e94\u7528\u5c42"
         ],
         [
@@ -1146,7 +1256,9 @@
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "202",
@@ -1155,15 +1267,17 @@
       "questionDesc": "ipconfig\/renew\u7684\u542b\u4e49\u662f\u66f4\u65b0\u6240\u6709\u9002\u914d\u5668\u7684 DHCP \u914d\u7f6e\u3002\u8be5\u547d\u4ee4\u4ec5\u5728\u5177\u6709\u914d\u7f6e\u4e3a\u81ea\u52a8\u83b7\u53d6 IP \u5730\u5740\u7684\u9002\u914d\u5668\u7684\u8ba1\u7b97\u673a\u4e0a\u53ef\u7528\u3002 ipconfig\/flushdns\u7684\u542b\u4e49\u662f\u5237\u65b0\u5e76\u91cd\u8bbeDNS\u89e3\u6790\u5668\u7f13\u5b58\u3002 netstat \u2013r\u7528\u4e8e\u663e\u793a\u6838\u5fc3\u8def\u7531\u8868\u3002 arp \u2013a\u7528\u4e8e\u67e5\u770bARP\u9ad8\u901f\u7f13\u5b58\u4e2d\u7684\u5185\u5bb9\u3002",
       "rightAnswer": "1",
       "answerList": [
-        "ipconfig\/renew    ",
+        "ipconfig\/renew",
         "ipconfig\/flushdns",
-        "netstat -r      ",
+        "netstat -r",
         "arp \u2013a"
       ],
       "testPoint": "",
       "categoryId": "11",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     }
   ]
 }

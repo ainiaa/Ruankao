@@ -11,6 +11,7 @@ public class QuestionItemMultiAnswerBO implements Serializable {
     private int id;//问题ID
     private int no;//问题序号
     private String questionDesc;//问题详解
+    private String descIllustration;//问题详解图片
     private String questionTitle;//问题题目
     private String testPoint;//考点
     private int questionType;//试题类型 0:单选题目，一题一问  1:单选题，一题多问
@@ -35,6 +36,10 @@ public class QuestionItemMultiAnswerBO implements Serializable {
     public void setQuestionDesc(String questionDesc) {
         this.questionDesc = questionDesc;
     }
+
+    public String getDescIllustration() { return descIllustration; }
+
+    public void setDescIllustration(String descIllustration) { this.descIllustration = descIllustration;}
 
     public String getQuestionTitle() {
         return questionTitle;

@@ -19,7 +19,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "30",
@@ -36,7 +38,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "31",
@@ -53,7 +57,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "32",
@@ -70,7 +76,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "33",
@@ -79,7 +87,7 @@
       "questionDesc": "\u672c\u9898\u8003\u67e5\u8ba1\u7b97\u673a\u590d\u6742\u6307\u4ee4\u96c6\u3002 CISC\u8ba1\u7b97\u673a\u6307\u590d\u6742\u6307\u4ee4\u96c6\u8ba1\u7b97\u673a\uff0c\u662f20\u4e16\u7eaa\u516d\u3001\u4e03\u5341\u5e74\u4ee3\u53d1\u5c55\u8d77\u6765\u7684\u7cfb\u5217\u8ba1\u7b97\u673a\u3002\u8fd9\u79cd\u8ba1\u7b97\u673a\u6240\u652f\u6301\u7684\u6307\u4ee4\u7cfb\u7edf\u8d8b\u4e8e\u591a\u7528\u9014\u3001\u5f3a\u529f\u80fd\u5316\u3002\u6307\u4ee4\u7cfb\u7edf\u56f4\u7ed5\u7740\u7f29\u5c0f\u4e0e\u9ad8\u7ea7\u8bed\u8a00\u7684\u8bed\u4e49\u5dee\u8ddd\u4ee5\u53ca\u6709\u5229\u4e8e\u64cd\u4f5c\u7cfb\u7edf\u7684\u4f18\u5316\u800c\u8bbe\u8ba1\u3002\u6307\u4ee4\u7cfb\u7edf\u7684\u590d\u6742\u5316\u4f7f\u5f97\u8bbe\u8ba1\u5468\u671f\u53d8\u957f\uff0c\u6b63\u786e\u6027\u96be\u4e8e\u4fdd\u8bc1\uff0c\u4e0d\u6613\u7ef4\u62a4\u3002\u800c\u4e14\u5728\u590d\u6742\u7684\u6307\u4ee4\u7cfb\u7edf\u4e2d\uff0c\u53ea\u6709\u5c11\u6570\u57fa\u672c\u6307\u4ee4\u662f\u7ecf\u5e38\u4f7f\u7528\u7684\uff0c\u9700\u8981\u5927\u91cf\u786c\u4ef6\u652f\u6301\u7684\u590d\u6742\u6307\u4ee4\u5229\u7528\u7387\u5374\u5f88\u4f4e\u3002\u6240\u4ee5\u572870\u5e74\u4ee3\u672b\uff0c\u968f\u7740VLSI\u6280\u672f\u7684\u53d1\u5c55\u4ea7\u751f\u4e86RISC\u8ba1\u7b97\u673a\u3002 RISC\u8ba1\u7b97\u673a\u6307\u7cbe\u7b80\u6307\u4ee4\u96c6\u8ba1\u7b97\u673a\uff0c\u8fd9\u79cd\u8ba1\u7b97\u673a\u6709\u4e0b\u5217\u7279\u70b9\u3002 (1)\u6307\u4ee4\u7cfb\u7edf\u4e2d\u53ea\u5305\u542b\u4f7f\u7528\u9891\u7387\u8f83\u9ad8\u4f46\u4e0d\u590d\u6742\u7684\u6307\u4ee4\u3002 (2)\u6307\u4ee4\u957f\u5ea6\u56fa\u5b9a\uff0c\u6307\u4ee4\u683c\u5f0f\u5c11\uff0c\u5bfb\u5740\u65b9\u5f0f\u5c11\u3002 (3)\u53ea\u6709\u5b58\u53d6\u6570\u6307\u4ee4\u8bbf\u95ee\u4e3b\u5b58\uff0c\u5176\u4ed6\u6307\u4ee4\u90fd\u5728\u5bc4\u5b58\u5668\u4e4b\u95f4\u8fd0\u7b97\u3002 (4)\u5927\u90e8\u5206\u6307\u4ee4\u5728\u4e00\u4e2a\u673a\u5668\u5468\u671f\u5185\u5b8c\u6210\uff0c\u91c7\u7528\u6d41\u6c34\u6280\u672f\u3002 (5)CPU\u4e2d\u589e\u52a0\u4e86\u901a\u7528\u5bc4\u5b58\u5668\u7684\u6570\u91cf\u3002 (6)\u786c\u8054\u903b\u8f91\u63a7\u5236\uff0c\u4e0d\u7528\u5fae\u7a0b\u5e8f\u63a7\u5236\u6280\u672f\u3002 (7)\u91c7\u7528\u4f18\u5316\u7684\u7f16\u8bd1\uff0c\u4ee5\u6709\u6548\u5730\u652f\u6301\u9ad8\u7ea7\u8bed\u8a00\u3002",
       "rightAnswer": "0",
       "answerList": [
-        "RISC\u901a\u5e38\u6bd4CISC\u7684\u6307\u4ee4\u7cfb\u7edf\u66f4\u590d\u6742     ",
+        "RISC\u901a\u5e38\u6bd4CISC\u7684\u6307\u4ee4\u7cfb\u7edf\u66f4\u590d\u6742",
         "RISC\u901a\u5e38\u4f1a\u6bd4CISC\u914d\u7f6e\u66f4\u591a\u7684\u5bc4\u5b58\u5668",
         "RISC\u7f16\u8bd1\u5668\u7684\u5b50\u7a0b\u5e8f\u5e93\u901a\u5e38\u8981\u6bd4CISC\u7f16\u8bd1\u5668\u7684\u5b50\u7a0b\u5e8f\u5e93\u5927\u5f97\u591a",
         "RISC\u6bd4CISC\u66f4\u52a0\u9002\u5408VLSI\u5de5\u827a\u7684\u89c4\u6574\u6027\u8981\u6c42"
@@ -87,7 +95,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "34",
@@ -104,7 +114,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "217",
@@ -121,7 +133,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "218",
@@ -138,7 +152,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "219",
@@ -155,7 +171,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "651",
@@ -172,7 +190,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "652",
@@ -189,7 +209,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "619",
@@ -217,7 +239,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "620",
@@ -234,7 +258,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "268",
@@ -246,12 +272,14 @@
         "\u603b\u7684\u6307\u5bfc\u601d\u60f3\u662f\u81ea\u9876\u5411\u4e0b\uff0c\u9010\u5c42\u5206\u89e3",
         "\u57fa\u672c\u539f\u5219\u662f\u529f\u80fd\u7684\u5206\u89e3\u4e0e\u62bd\u8c61",
         "\u4e0e\u9762\u5411\u5bf9\u8c61\u5f00\u53d1\u65b9\u6cd5\u76f8\u6bd4\uff0c\u66f4\u9002\u5408\u4e8e\u5927\u89c4\u6a21\u3001\u7279\u522b\u590d\u6742\u7684\u9879\u76ee",
-        "\u7279\u522b\u9002\u5408\u4e8e\u6570\u636e\u5904\u7406\u9886\u57df\u7684\u9879\u76ee  "
+        "\u7279\u522b\u9002\u5408\u4e8e\u6570\u636e\u5904\u7406\u9886\u57df\u7684\u9879\u76ee"
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "269",
@@ -260,7 +288,7 @@
       "questionDesc": "\u529f\u80fd\u5185\u805a\uff1a\u5b8c\u6210\u4e00\u4e2a\u5355\u4e00\u529f\u80fd\uff0c\u5404\u4e2a\u90e8\u5206\u534f\u540c\u5de5\u4f5c\uff0c\u7f3a\u4e00\u4e0d\u53ef\u3002 \u987a\u5e8f\u5185\u805a\uff1a\u5904\u7406\u5143\u7d20\u76f8\u5173\uff0c\u800c\u4e14\u5fc5\u987b\u987a\u5e8f\u6267\u884c\u3002 \u901a\u4fe1\u5185\u805a\uff1a\u6240\u6709\u5904\u7406\u5143\u7d20\u96c6\u4e2d\u5728\u4e00\u4e2a\u6570\u636e\u7ed3\u6784\u7684\u533a\u57df\u4e0a\u3002 \u8fc7\u7a0b\u5185\u805a\uff1a\u5904\u7406\u5143\u7d20\u76f8\u5173\uff0c\u800c\u4e14\u5fc5\u987b\u6309\u7279\u5b9a\u7684\u6b21\u5e8f\u6267\u884c\u3002 \u77ac\u65f6\u5185\u805a\uff1a\u6240\u5305\u542b\u7684\u4efb\u52a1\u5fc5\u987b\u5728\u540c\u4e00\u65f6\u95f4\u95f4\u9694\u5185\u6267\u884c\uff08\u5982\u521d\u59cb\u5316\u6a21\u5757\uff09\u3002 \u903b\u8f91\u5185\u805a\uff1a\u5b8c\u6210\u903b\u8f91\u4e0a\u76f8\u5173\u7684\u4e00\u7ec4\u4efb\u52a1\u3002 \u5076\u7136\u5185\u805a\uff1a\u5b8c\u6210\u4e00\u7ec4\u6ca1\u6709\u5173\u7cfb\u6216\u677e\u6563\u5173\u7cfb\u7684\u4efb\u52a1\u3002",
       "rightAnswer": "3",
       "answerList": [
-        "\u529f\u80fd ",
+        "\u529f\u80fd",
         "\u901a\u4fe1",
         "\u903b\u8f91",
         "\u5de7\u5408"
@@ -268,7 +296,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "346",
@@ -279,13 +309,15 @@
       "answerList": [
         "\u5e02\u573a",
         "\u6280\u672f",
-        "\u7ecf\u6d4e  ",
+        "\u7ecf\u6d4e",
         "\u5546\u4e1a"
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "558",
@@ -302,7 +334,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "347",
@@ -329,8 +363,10 @@
       ],
       "testPoint": "",
       "categoryId": "5",
-      "illustration": "2014.11-am-17-title-1.png",
-      "questionType": "1"
+      "illustration": "q_2014_11_am_17_title_1.png",
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "559",
@@ -339,15 +375,17 @@
       "questionDesc": "\u540e\u7f00\u8868\u8fbe\u5f0f\u662f\u4ece\u5de6\u5230\u53f3\u7b97\u3002\u628a\u8868\u8fbe\u5f0f\u52a0\u4e0a\u62ec\u53f7\uff0c((a-b)*(c+d))\uff0c\u518d\u628a\u8fd0\u7b97\u7b26\u52a0\u5230\u62ec\u53f7\u5916\u9762ab-cd+*\u3002\u7b54\u6848\u4e3aA\u3002",
       "rightAnswer": "0",
       "answerList": [
-        "ab-cd+*  ",
+        "ab-cd+*",
         "abcd-*+",
-        "ab-*cd+  ",
+        "ab-*cd+",
         "ab-c+d*"
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "560",
@@ -364,7 +402,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "90",
@@ -374,14 +414,16 @@
       "rightAnswer": "3",
       "answerList": [
         "-2\uff5en",
-        "-(n-1)\uff5e1    ",
-        "-(n-1)\uff5e2    ",
+        "-(n-1)\uff5e1",
+        "-(n-1)\uff5e2",
         "-(n-2)\uff5e2"
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "91",
@@ -397,8 +439,10 @@
       ],
       "testPoint": "",
       "categoryId": "5",
-      "illustration": "2014.11-am-24-title-1.png",
-      "questionType": "0"
+      "illustration": "q_2014_11_am_24_title_1.png",
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "36",
@@ -411,13 +455,13 @@
       ],
       "answerList": [
         [
-          "100    ",
+          "100",
           "107",
           "152",
           "170"
         ],
         [
-          "100    ",
+          "100",
           "107",
           "152",
           "170"
@@ -426,7 +470,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "92",
@@ -440,7 +486,7 @@
       ],
       "answerList": [
         [
-          "P1\u3001P2\u3001P3\u90fd\u662f\u963b\u585e\u8282\u70b9 ",
+          "P1\u3001P2\u3001P3\u90fd\u662f\u963b\u585e\u8282\u70b9",
           "P1\u662f\u963b\u585e\u8282\u70b9\u3001P2\u3001P3\u662f\u975e\u963b\u585e\u8282\u70b9",
           "P1\u3001P2\u662f\u963b\u585e\u8282\u70b9\u3001P3\u662f\u975e\u963b\u585e\u8282\u70b9",
           "P1\u3001P2\u662f\u975e\u963b\u585e\u8282\u70b9\u3001P3\u662f\u963b\u585e\u8282\u70b9"
@@ -460,8 +506,10 @@
       ],
       "testPoint": "",
       "categoryId": "5",
-      "illustration": "2014.11-am-27-title-1.png",
-      "questionType": "1"
+      "illustration": "q_2014_11_am_27_title_1.png",
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "270",
@@ -478,7 +526,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "271",
@@ -487,15 +537,17 @@
       "questionDesc": "2014.11-am-31-desc-1.png",
       "rightAnswer": "3",
       "answerList": [
-        "\u6210\u719f\u6027  ",
-        "\u5bb9\u9519\u6027    ",
-        "\u6613\u6062\u590d  ",
+        "\u6210\u719f\u6027",
+        "\u5bb9\u9519\u6027",
+        "\u6613\u6062\u590d",
         "\u53ef\u79fb\u690d\u6027"
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "[ill_1]",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "272",
@@ -504,15 +556,17 @@
       "questionDesc": "\u6d4b\u8bd5\u7684\u76ee\u6807\u662f\u9700\u6c42\u5206\u6790\u5f00\u59cb\u3002\u4ece\u9700\u6c42\u5f00\u59cb\u65f6\u5c31\u5df2\u7ecf\u786e\u5b9a\u4e86\u4ea7\u54c1\u7684\u529f\u80fd\uff0c\u5728\u90a3\u4e9b\u7684\u7528\u6237\u573a\u666f\u3001\u7528\u6237\u4f7f\u7528\u7684\u529f\u80fd\u3002",
       "rightAnswer": "0",
       "answerList": [
-        "\u9700\u6c42\u5206\u6790  ",
-        "\u6982\u8981\u8bbe\u8ba1    ",
-        "\u8be6\u7ec6\u8bbe\u8ba1    ",
+        "\u9700\u6c42\u5206\u6790",
+        "\u6982\u8981\u8bbe\u8ba1",
+        "\u8be6\u7ec6\u8bbe\u8ba1",
         "\u8f6f\u4ef6\u5b9e\u73b0"
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "273",
@@ -529,7 +583,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "274",
@@ -556,8 +612,10 @@
       ],
       "testPoint": "",
       "categoryId": "5",
-      "illustration": "2014.05-am-34-title-1.png",
-      "questionType": "1"
+      "illustration": "q_2014_05_am_34_title_1.png",
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "275",
@@ -574,7 +632,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "394",
@@ -583,15 +643,17 @@
       "questionDesc": "\u98de\u673a\u5c5e\u4e8e\u4ea4\u901a\u5de5\u5177\u7684\u4e00\u79cd\u3002",
       "rightAnswer": "1",
       "answerList": [
-        "\u6c7d\u8f66\u4e0e\u8f6e\u8239 ",
+        "\u6c7d\u8f66\u4e0e\u8f6e\u8239",
         "\u4ea4\u901a\u5de5\u5177\u4e0e\u98de\u673a",
-        "\u8f6e\u8239\u4e0e\u98de\u673a ",
+        "\u8f6e\u8239\u4e0e\u98de\u673a",
         "\u6c7d\u8f66\u4e0e\u98de\u673a"
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "395",
@@ -600,7 +662,7 @@
       "questionDesc": "\u591a\u6001\u5206\u4e3a\u4e24\u79cd\uff1a\u901a\u7528\u7684\u591a\u6001\u548c\u7279\u5b9a\u7684\u591a\u6001\u3002\u4e24\u8005\u7684\u533a\u522b\u662f\u524d\u8005\u5bf9\u5de5\u4f5c\u7684\u7c7b\u578b\u4e0d\u52a0\u9650\u5236\uff0c\u5141\u8bb8\u5bf9\u4e0d\u540c\u7c7b\u578b\u7684\u503c\u6267\u884c\u76f8\u540c\u7684\u4ee3\u7801\uff1b\u540e\u8005\u53ea\u5bf9\u6709\u9650\u6570\u91cf\u7684\u7c7b\u578b\u6709\u6548\uff0c\u800c\u4e14\u5bf9\u4e0d\u540c\u7c7b\u578b\u7684\u503c\u53ef\u80fd\u8981\u6267\u884c\u4e0d\u540c\u7684\u4ee3\u7801\u3002 \u901a\u7528\u7684\u591a\u6001\u53c8\u5206\u4e3a\u53c2\u6570\u591a\u6001\uff08parametric\uff09\u548c\u5305\u542b\u591a\u6001\uff08inclusion\uff09\uff1b\u7279\u5b9a\u7684\u591a\u6001\u5206\u4e3a\u8fc7\u8f7d\u591a\u6001\uff08overloading\uff09\u548c\u5f3a\u5236\u591a\u6001\uff08coercion\uff09\u3002 \u5f3a\u5236\u591a\u6001\uff1a\u7f16\u8bd1\u7a0b\u5e8f\u901a\u8fc7\u8bed\u4e49\u64cd\u4f5c\uff0c\u628a\u64cd\u4f5c\u5bf9\u8c61\u7684\u7c7b\u578b\u5f3a\u884c\u52a0\u4ee5\u53d8\u6362\uff0c\u4ee5\u7b26\u5408\u51fd\u6570\u6216\u64cd\u4f5c\u7b26\u7684\u8981\u6c42\u3002\u7a0b\u5e8f\u8bbe\u8ba1\u8bed\u8a00\u4e2d\u57fa\u672c\u7c7b\u578b\u7684\u5927\u591a\u6570\u64cd\u4f5c\u7b26\uff0c\u5728\u53d1\u751f\u4e0d\u540c\u7c7b\u578b\u7684\u6570\u636e\u8fdb\u884c\u6df7\u5408\u8fd0\u7b97\u65f6\uff0c\u7f16\u8bd1\u7a0b\u5e8f\u4e00\u822c\u90fd\u4f1a\u8fdb\u884c\u5f3a\u5236\u591a\u6001\u3002\u7a0b\u5e8f\u5458\u4e5f\u53ef\u4ee5\u663e\u793a\u5730\u8fdb\u884c\u5f3a\u5236\u591a\u6001\u7684\u64cd\u4f5c(Casting)\u3002\u4e3e\u4e2a\u4f8b\u5b50\uff0c\u6bd4\u5982\uff0cint+double\uff0c\u7f16\u8bd1\u7cfb\u7edf\u4e00\u822c\u4f1a\u628aint\u8f6c\u6362\u4e3adouble\uff0c\u7136\u540e\u6267\u884cdouble+double\u8fd0\u7b97\uff0c\u8fd9\u4e2aint-\u300bdouble\u7684\u8f6c\u6362\uff0c\u5c31\u5b9e\u73b0\u4e86\u5f3a\u5236\u591a\u6001\uff0c\u5373\u53ef\u662f\u9690\u5f0f\u7684\uff0c\u4e5f\u53ef\u663e\u5f0f\u8f6c\u6362\u3002 \u8fc7\u8f7d\uff08overloading\uff09\u591a\u6001\uff1a\u540c\u4e00\u4e2a\u540d\uff08\u64cd\u4f5c\u7b26\ufe51\u51fd\u6570\u540d\uff09\u5728\u4e0d\u540c\u7684\u4e0a\u4e0b\u6587\u4e2d\u6709\u4e0d\u540c\u7684\u7c7b\u578b\u3002\u7a0b\u5e8f\u8bbe\u8ba1\u8bed\u8a00\u4e2d\u57fa\u672c\u7c7b\u578b\u7684\u5927\u591a\u6570\u64cd\u4f5c\u7b26\u90fd\u662f\u8fc7\u8f7d\u591a\u6001\u7684\u3002\u901a\u4fd7\u7684\u8bb2\u6cd5\uff0c\u5c31\u662fc++\u4e2d\u7684\u51fd\u6570\u91cd\u8f7d\u3002\u5728\u6b64\u5904\u4e2d\u201coverload\u201d\u8bd1\u4e3a\u201c\u8fc7\u8f7d\u201d\uff0c\u5176\u5b9e\u5c31\u662f\u6240\u8c13\u7684\u201c\u91cd\u8f7d\u201d\uff0c\u4e5f\u8bb8\u201coverload\u201d\u5c31\u5e94\u7ffb\u8bd1\u4e3a\u201c\u8fc7\u8f7d\uff0c\u91cd\u8f7d\u201d\u5427\uff0c\u90a3\u201coverride\u201d\u5c31\u53ea\u80fd\u662f\u201c\u8986\u76d6\u201d\u4e86\u3002 \u53c2\u6570\u591a\u6001\uff1a\u91c7\u7528\u53c2\u6570\u5316\u6a21\u677f\uff0c\u901a\u8fc7\u7ed9\u51fa\u4e0d\u540c\u7684\u7c7b\u578b\u53c2\u6570\uff0c\u4f7f\u5f97\u4e00\u4e2a\u7ed3\u6784\u6709\u591a\u79cd\u7c7b\u578b\u3002 \u5305\u542b\u591a\u6001\uff1a\u540c\u6837\u7684\u64cd\u4f5c\u53ef\u7528\u4e8e\u4e00\u4e2a\u7c7b\u578b\u53ca\u5176\u5b50\u7c7b\u578b\u3002\uff08\u6ce8\u610f\u662f\u5b50\u7c7b\u578b\uff0c\u4e0d\u662f\u5b50\u7c7b\u3002\uff09\u5305\u542b\u591a\u6001\u4e00\u822c\u9700\u8981\u8fdb\u884c\u8fd0\u884c\u65f6\u7684\u7c7b\u578b\u68c0\u67e5\u3002",
       "rightAnswer": "1",
       "answerList": [
-        "\u53c2\u6570  ",
+        "\u53c2\u6570",
         "\u5305\u542b",
         "\u8fc7\u8f7d",
         "\u5f3a\u5236"
@@ -608,7 +670,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "396",
@@ -621,22 +685,24 @@
       ],
       "answerList": [
         [
-          "\u6d88\u606f\u4f20\u9012 ",
-          "\u7ee7\u627f ",
+          "\u6d88\u606f\u4f20\u9012",
+          "\u7ee7\u627f",
           "\u5f15\u7528",
           "\u591a\u6001"
         ],
         [
-          "\u5e94\u8be5\u652f\u6301\u88ab\u5c01\u88c5\u7684\u5bf9\u8c61    ",
+          "\u5e94\u8be5\u652f\u6301\u88ab\u5c01\u88c5\u7684\u5bf9\u8c61",
           "\u5e94\u8be5\u652f\u6301\u7c7b\u5199\u5b9e\u4f8b\u7684\u6982\u5ff5",
-          "\u5e94\u8be5\u652f\u6301\u901a\u8fc7\u6307\u9488\u8fdb\u884c\u5f15\u7528    ",
+          "\u5e94\u8be5\u652f\u6301\u901a\u8fc7\u6307\u9488\u8fdb\u884c\u5f15\u7528",
           "\u5e94\u8be5\u652f\u6301\u7ee7\u627f\u548c\u591a\u6001"
         ]
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "397",
@@ -649,13 +715,13 @@
       ],
       "answerList": [
         [
-          "\u7ed3\u6784 ",
+          "\u7ed3\u6784",
           "\u884c\u4e3a",
           "\u5206\u7ec4",
           "\u6ce8\u91ca"
         ],
         [
-          "\u7ed3\u6784 ",
+          "\u7ed3\u6784",
           "\u884c\u4e3a",
           "\u5206\u7ec4",
           "\u6ce8\u91ca"
@@ -664,7 +730,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "398",
@@ -677,13 +745,13 @@
       ],
       "answerList": [
         [
-          "\u89e3\u91ca\u5668(Interpreter)      ",
+          "\u89e3\u91ca\u5668(Interpreter)",
           "\u7b56\u7565(Strategy)",
-          "\u4e2d\u4ecb\u8005(Mediator) ",
+          "\u4e2d\u4ecb\u8005(Mediator)",
           "\u89c2\u5bdf\u8005(Observer)"
         ],
         [
-          "\u89e3\u91ca\u5668(Interpreter)     ",
+          "\u89e3\u91ca\u5668(Interpreter)",
           "\u7b56\u7565(Strategy)",
           "\u4e2d\u4ecb\u8005(Mediator)",
           "\u89c2\u5bdf\u8005(Observer)"
@@ -692,7 +760,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "399",
@@ -701,7 +771,7 @@
       "questionDesc": "\u4ea4\u4e92\u56fe\u7531\u4e00\u7ec4\u5bf9\u8c61\u548c\u5b83\u4eec\u4e4b\u95f4\u7684\u5173\u7cfb\u6784\u6210\uff0c\u5176\u4e2d\u5305\u62ec\uff1a\u9700\u8981\u4ec0\u4e48\u5bf9\u8c61\uff0c\u5bf9\u8c61\u76f8\u4e92\u4e4b\u95f4\u53d1\u9001\u4ec0\u4e48\u6d88\u606f\uff0c\u4ec0\u4e48\u89d2\u8272\u542f\u52a8\u6d88\u606f\u4ee5\u53ca\u6d88\u606f\u6309\u4ec0\u4e48\u987a\u5e8f\u53d1\u9001\u3002\u4ea4\u4e92\u56fe\u7684\u5206\u7c7b\uff1a\u4ea4\u4e92\u56fe\u4e3b\u8981\u5206\u4e3a\u8fd9\u4e24\u79cd\uff1a\u987a\u5e8f\u56fe\u548c\u534f\u4f5c\u56fe\u3002\u5bf9\u8c61\u56fe\u4e0d\u662f\u4ea4\u4e92\u56fe\u7684\u4e00\u79cd\u3002",
       "rightAnswer": "1",
       "answerList": [
-        "\u5e8f\u5217\u56fe ",
+        "\u5e8f\u5217\u56fe",
         "\u5bf9\u8c61\u56fe",
         "\u901a\u4fe1\u56fe",
         "\u65f6\u5e8f\u56fe"
@@ -709,7 +779,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "400",
@@ -722,7 +794,7 @@
       ],
       "answerList": [
         [
-          "\u62bd\u8c61\u5de5\u5382(Abstract Factory)   ",
+          "\u62bd\u8c61\u5de5\u5382(Abstract Factory)",
           "\u751f\u6210\u5668(Builder)",
           "\u5de5\u5382\u65b9\u6cd5(Factory Method)",
           "\u539f\u578b(Prototype)"
@@ -736,8 +808,10 @@
       ],
       "testPoint": "",
       "categoryId": "5",
-      "illustration": "2014.11-am-46-title-1.png",
-      "questionType": "1"
+      "illustration": "q_2014_11_am_46_title_1.png",
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "561",
@@ -754,7 +828,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "562",
@@ -770,8 +846,10 @@
       ],
       "testPoint": "",
       "categoryId": "5",
-      "illustration": "2014.11-am-49-title-1.png",
-      "questionType": "0"
+      "illustration": "q_2014_11_am_49_title_1.png",
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "563",
@@ -788,7 +866,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "137",
@@ -802,9 +882,9 @@
       ],
       "answerList": [
         [
-          "\u9700\u6c42\u5206\u6790   ",
+          "\u9700\u6c42\u5206\u6790",
           "\u6982\u5ff5\u7ed3\u6784\u8bbe\u8ba1",
-          "\u7269\u7406\u7ed3\u6784\u8bbe\u8ba1  ",
+          "\u7269\u7406\u7ed3\u6784\u8bbe\u8ba1",
           "\u6570\u636e\u5e93\u8fd0\u884c\u548c\u7ef4\u62a4"
         ],
         [
@@ -823,7 +903,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "138",
@@ -832,15 +914,17 @@
       "questionDesc": "R\u7684\u5019\u9009\u5173\u952e\u5b57\u4e3aAE\u3002",
       "rightAnswer": "2",
       "answerList": [
-        "AC    ",
-        "AB   ",
-        "AE      ",
+        "AC",
+        "AB",
+        "AE",
         "DE"
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "479",
@@ -857,7 +941,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "480",
@@ -874,7 +960,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "481",
@@ -883,15 +971,17 @@
       "questionDesc": "\u5355\u679d\u6811\u65f6\u8be5\u4e8c\u53c9\u67e5\u627e\u6811\u6548\u7387\u6700\u4f4e\u3002",
       "rightAnswer": "2",
       "answerList": [
-        "\u5b8c\u5168\u4e8c\u53c9\u6811 ",
+        "\u5b8c\u5168\u4e8c\u53c9\u6811",
         "\u5e73\u8861\u4e8c\u53c9\u6811",
-        "\u5355\u679d\u6811 ",
+        "\u5355\u679d\u6811",
         "\u6ee1\u4e8c\u53c9\u6811"
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "482",
@@ -907,8 +997,10 @@
       ],
       "testPoint": "",
       "categoryId": "5",
-      "illustration": "2014.11-am-60-title-1.png",
-      "questionType": "0"
+      "illustration": "q_2014_11_am_60_title_1.png",
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "483",
@@ -922,21 +1014,23 @@
       "answerList": [
         [
           "\u5206\u6cbb",
-          "\u52a8\u6001\u89c4\u5212 ",
-          "\u8d2a\u5fc3 ",
-          "\u56de\u6eaf  "
+          "\u52a8\u6001\u89c4\u5212",
+          "\u8d2a\u5fc3",
+          "\u56de\u6eaf"
         ],
         [
           "\u0398(n)\u548c\u0398(nlgn)",
           "\u0398(n)\u548c\u0398(n^2)",
-          "\u0398(nlgn)\u548c\u0398(nlgn)    ",
+          "\u0398(nlgn)\u548c\u0398(nlgn)",
           "\u0398(nlgn)\u548c\u0398(n^2)"
         ]
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": "q_2014_11_am_61_title_1.png"
     },
     {
       "id": "484",
@@ -945,15 +1039,17 @@
       "questionDesc": "\u76f4\u63a5\u63d2\u5165\u6392\u5e8f\u624d\u662f\u7a33\u5b9a\u7684\u6392\u5e8f\u7b97\u6cd5\u3002",
       "rightAnswer": "2",
       "answerList": [
-        "\u76f4\u63a5\u63d2\u5165\u6392\u5e8f\u548c\u7b80\u5355\u9009\u62e9\u6392\u5e8f\u90fd\u53ef\u4ee5  ",
-        "\u76f4\u63a5\u63d2\u5165\u6392\u5e8f\u548c\u7b80\u5355\u9009\u62e9\u6392\u5e8f\u90fd\u4e0d\u80fd   ",
+        "\u76f4\u63a5\u63d2\u5165\u6392\u5e8f\u548c\u7b80\u5355\u9009\u62e9\u6392\u5e8f\u90fd\u53ef\u4ee5",
+        "\u76f4\u63a5\u63d2\u5165\u6392\u5e8f\u548c\u7b80\u5355\u9009\u62e9\u6392\u5e8f\u90fd\u4e0d\u80fd",
         "\u53ea\u6709\u76f4\u63a5\u63d2\u5165\u6392\u5e8f\u53ef\u4ee5",
         "\u53ea\u6709\u7b80\u5355\u9009\u62e9\u6392\u5e8f\u53ef\u4ee5"
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "485",
@@ -980,8 +1076,10 @@
       ],
       "testPoint": "",
       "categoryId": "5",
-      "illustration": "2014.11-am-64-title-1.png",
-      "questionType": "1"
+      "illustration": "q_2014_11_am_64_title_1.png",
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "220",
@@ -991,14 +1089,16 @@
       "rightAnswer": "2",
       "answerList": [
         "MD5",
-        "PAP      ",
-        "CHAP    ",
+        "PAP",
+        "CHAP",
         "HASH"
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "177",
@@ -1011,22 +1111,24 @@
       ],
       "answerList": [
         [
-          "\u6570\u636e\u94fe\u8def\u5c42     ",
-          "\u7f51\u7edc\u5c42      ",
-          "\u4f20\u8f93\u5c42    ",
+          "\u6570\u636e\u94fe\u8def\u5c42",
+          "\u7f51\u7edc\u5c42",
+          "\u4f20\u8f93\u5c42",
           "\u4f1a\u8bdd\u5c42"
         ],
         [
-          "\u4ee5\u592a\u5e27       ",
-          "TCP\u6bb5 ",
-          "UDP\u6570\u636e\u62a5      ",
+          "\u4ee5\u592a\u5e27",
+          "TCP\u6bb5",
+          "UDP\u6570\u636e\u62a5",
           "IP\u6570\u636e\u62a5"
         ]
       ],
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "1"
+      "questionType": "1",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "178",
@@ -1043,7 +1145,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     },
     {
       "id": "179",
@@ -1060,7 +1164,9 @@
       "testPoint": "",
       "categoryId": "5",
       "illustration": "",
-      "questionType": "0"
+      "questionType": "0",
+      "answerIllustration": "",
+      "descIllustration": ""
     }
   ]
 }

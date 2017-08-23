@@ -103,6 +103,13 @@
                     android:text=""
                     tools:layout_editor_absoluteX="326dp"
                     tools:layout_editor_absoluteY="327dp" />
+
+                <ImageView
+                    android:id="@+id/question_answer_analysis_iv"
+                    style="@style/AnswerTextImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="" />
             </LinearLayout>
             <!-- 试题详解 end -->
         </LinearLayout>

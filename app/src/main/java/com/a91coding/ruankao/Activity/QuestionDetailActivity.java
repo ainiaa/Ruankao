@@ -100,10 +100,12 @@ public class QuestionDetailActivity extends RuanKaoBaseActivity {
     private void initUI(View questionContainerView, QuestionItemMultiAnswerBO questionItem) {
         LinearLayout questionAnswerAnalysisLayout = (LinearLayout) questionContainerView.findViewById(R.id.question_answer_analysis_ll);//试题详解Layout
         TextView questionAnswerAnalysisTv = (TextView) questionContainerView.findViewById(R.id.question_answer_analysis_tv);//试题详解内容
+        ImageView questionAnswerAnalysisIv = (ImageView) questionContainerView.findViewById(R.id.question_answer_analysis_iv);//试题详解内容 img
         TextView questionTitleTv = (TextView) questionContainerView.findViewById(R.id.question_title_tv);//试题标题
         TextView questionNoTv = (TextView) questionContainerView.findViewById(R.id.question_no_tv);//试题No
 
         String questionDesc = questionItem.getQuestionDesc(); //问题描述
+        String descIllustration = questionItem.getDescIllustration();//问题描述 img
         String questionTitle = questionItem.getQuestionTitle();//问题题干
         String questionNo = String.valueOf(questionItem.getNo());//问题序号
         String[][] answers = questionItem.getAnswers();//答案列表
@@ -113,6 +115,7 @@ public class QuestionDetailActivity extends RuanKaoBaseActivity {
         questionTitle = "              " + questionTitle;//空出来icon内容（要不然显示不好看）
 
         questionAnswerAnalysisTv.setText(questionDesc);
+        questionAnswerAnalysisIv.setImageResource(getResource(descIllustration));
         questionTitleTv.setText(questionTitle);
         questionNoTv.setText(questionNo);
 
@@ -199,10 +202,12 @@ public class QuestionDetailActivity extends RuanKaoBaseActivity {
     private void initUI(View questionContainerView, QuestionItemSingleAnswerBO questionItem) {
         LinearLayout questionAnswerAnalysisLayout = (LinearLayout) questionContainerView.findViewById(R.id.question_answer_analysis_ll);//试题详解Layout
         TextView questionAnswerAnalysisTv = (TextView) questionContainerView.findViewById(R.id.question_answer_analysis_tv);//试题详解内容
+        ImageView questionAnswerAnalysisIv = (ImageView) questionContainerView.findViewById(R.id.question_answer_analysis_iv);//试题详解内容 img
         TextView questionTitleTv = (TextView) questionContainerView.findViewById(R.id.question_title_tv);//试题标题
         TextView questionNoTv = (TextView) questionContainerView.findViewById(R.id.question_no_tv);//试题No
         ImageView illustrationIv = (ImageView) questionContainerView.findViewById(R.id.question_illustration_iv);//问题插图
         String questionDesc = questionItem.getQuestionDesc(); //问题描述
+        String descIllustration = questionItem.getDescIllustration();//问题描述 img
         String questionTitle = questionItem.getQuestionTitle();//问题题干
         String questionNo = String.valueOf(questionItem.getNo());//问题序号
         String illustration = questionItem.getIllustration();//问题插图
@@ -211,6 +216,7 @@ public class QuestionDetailActivity extends RuanKaoBaseActivity {
         int rightAnswer = questionItem.getRightAnswer();//问题正确答案
         questionTitle = "              " + questionTitle;//空出来icon内容（要不然显示不好看）
         questionAnswerAnalysisTv.setText(questionDesc);
+        questionAnswerAnalysisIv.setImageResource(getResource(descIllustration));
         questionTitleTv.setText(questionTitle);
         questionNoTv.setText(questionNo);
         illustrationIv.setImageResource(getResource(illustration));

@@ -65,10 +65,12 @@ public class QuestionBankService extends Service {
             String questionTitle = JSONUtil.getStringFromObject(currentObj, "questionTitle");
             String testPoint = JSONUtil.getStringFromObject(currentObj, "testPoint");
             String illustration = JSONUtil.getStringFromObject(currentObj, "illustration");
+            String descIllustration = JSONUtil.getStringFromObject(currentObj, "descIllustration");
             int questionType = JSONUtil.getIntFromObject(currentObj, "questionType");
             if (questionType == 0) {//一题一问
                 int rightAnswer = Integer.valueOf(JSONUtil.getStringFromObject(currentObj, "rightAnswer"));
                 String[] answerList = (String[]) JSONUtil.getJSONArrayFromObject(currentObj, "answerList").toArray(new String[]{});
+                String[] answerIllustration = (String[]) JSONUtil.getJSONArrayFromObject(currentObj, "answerIllustration").toArray(new String[]{});
                 QuestionItemSingleAnswerBO itemBO = new QuestionItemSingleAnswerBO();
                 itemBO.setId(id);
                 itemBO.setNo(no);
@@ -79,6 +81,8 @@ public class QuestionBankService extends Service {
                 itemBO.setTestPoint(testPoint);
                 itemBO.setIllustration(illustration);
                 itemBO.setQuestionType(questionType);
+                itemBO.setAnswerIllustrations(answerIllustration);
+                itemBO.setDescIllustration(descIllustration);
                 questionItemBOMap.put(id, new QuestionMapping(id, questionType));
                 questionItemSingleAnswerBOMap.put(id, itemBO);
             } else {//一题多问
@@ -94,6 +98,14 @@ public class QuestionBankService extends Service {
                     for (int j = 0; j < questionCount; j++) {
                         answerList[j] = (String[]) (answerListArray.getJSONArray(j).toArray(new String[]{}));
                     }
+
+                    JSONArray answerIllustrationArray = JSONUtil.getJSONArrayFromObject(currentObj, "answerIllustration");
+                    String[][] answerIllustration = new String[answerIllustrationArray.size()][];
+                    int questionCount1 = answerIllustrationArray.size();
+                    for (int j = 0; j < questionCount1; j++) {
+                        answerIllustration[j] = (String[]) (answerIllustrationArray.getJSONArray(j).toArray(new String[]{}));
+                    }
+
                     QuestionItemMultiAnswerBO itemBO = new QuestionItemMultiAnswerBO();
                     itemBO.setId(id);
                     itemBO.setNo(no);
@@ -104,8 +116,9 @@ public class QuestionBankService extends Service {
                     itemBO.setTestPoint(testPoint);
                     itemBO.setIllustration(illustration);
                     itemBO.setQuestionType(questionType);
-                    itemBO.setQuestionCount(questionCount);
-                    itemBO.setAnswerIllustrations();
+                    itemBO.setQuestionCount(questionCount > questionCount1 ? questionCount : questionCount1);
+                    itemBO.setAnswerIllustrations(answerIllustration);
+                    itemBO.setDescIllustration(descIllustration);
                     questionItemBOMap.put(id, new QuestionMapping(id, questionType));
                     questionItemMultiAnswerBOMap.put(id, itemBO);
                 } catch (Exception e) {
