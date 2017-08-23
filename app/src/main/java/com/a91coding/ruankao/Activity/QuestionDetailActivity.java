@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.a91coding.ruankao.R;
 import com.a91coding.ruankao.Service.QuestionBankService;
-import com.a91coding.ruankao.adapter.MYViewPagerAdapter;
+import com.a91coding.ruankao.adapter.MyViewPagerAdapter;
 import com.a91coding.ruankao.model.QuestionItemMultiAnswerBO;
 import com.a91coding.ruankao.model.QuestionItemSingleAnswerBO;
 import com.a91coding.ruankao.ui.AnswerDetailView;
@@ -76,7 +76,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
             views.add(questionContainerView);
         }
 
-        MYViewPagerAdapter adapter = new MYViewPagerAdapter();
+        MyViewPagerAdapter adapter = new MyViewPagerAdapter();
         adapter.setViews(views);
         viewPager.setAdapter(adapter);
     }
@@ -110,6 +110,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         Integer[] rightAnswerIds = new Integer[questionCount];
         LinearLayout questionAnswerListContainerLayout = (LinearLayout) questionContainerView.findViewById(R.id.question_answer_list_container);
+        MultiAnswerHandler handler = new MultiAnswerHandler(questionAnswerAnalysisLayout, questionCount);
         for (int i = 0; i < questionCount; i++) {
             int currentRightAnswer = rightAnswer[i];
             Integer rightAnswerId = currentRightAnswer;
@@ -168,7 +169,7 @@ public class QuestionDetailActivity extends RKBaseActivity {
                 answerDetailViewMap.put(nextId, separatorLayout);
             }
             //设置各个答案的click事件 并添加到view中 start
-            View.OnClickListener onClickListener = new MultiAnswerOnClickListener(questionAnswerAnalysisLayout, rightAnswerId, answerDetailViewMap);
+            View.OnClickListener onClickListener = new MultiAnswerOnClickListener(handler, rightAnswerId, answerDetailViewMap);
             for (AnswerDetailView answerDetailView : answerDetailViewMap.values()) {
                 if (answerDetailView.getViewType() == 0) {
                     answerDetailView.setOnClickListener(onClickListener);
@@ -263,18 +264,84 @@ public class QuestionDetailActivity extends RKBaseActivity {
         //设置各个答案的click事件 并添加到view中
     }
 
+    private class MultiAnswerHandler{
+        private LinearLayout answerDescLayout;
+        private int answerCount = 0;
+        private int answeredCount= 0;
+        private int rightAnswerCount= 0;
+
+        public MultiAnswerHandler(LinearLayout answerDescLayout, int answerCount) {
+            this.answerDescLayout = answerDescLayout;
+            this.answerCount = answerCount;
+        }
+
+        public int getAnswerCount() {
+            return answerCount;
+        }
+
+        public void setAnswerCount(int answerCount) {
+            this.answerCount = answerCount;
+        }
+
+        public void setAnswerCountIncr(int count) {
+            this.answerCount += count;
+        }
+
+        public int getAnsweredCount() {
+            return answeredCount;
+        }
+
+        public void setAnsweredCount(int answeredCount) {
+            this.answeredCount = answeredCount;
+        }
+
+        public void setAnsweredCountIncr(int count) {
+            this.answeredCount += count;
+        }
+
+        public int getRightAnswerCount() {
+            return rightAnswerCount;
+        }
+
+        public void setRightAnswerCount(int rightAnswerCount) {
+            this.rightAnswerCount = rightAnswerCount;
+        }
+
+        public void setRightAnswerCountIncr(int count) {
+            this.rightAnswerCount += count;
+        }
+
+        public LinearLayout getAnswerDescLayout() {
+            return answerDescLayout;
+        }
+
+        public void setAnswerDescLayout(LinearLayout answerDescLayout) {
+            this.answerDescLayout = answerDescLayout;
+        }
+
+        public void process() {
+            if (answerCount == answeredCount) {
+                if (answeredCount == rightAnswerCount) { //全部正确
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);//跳转下一页
+                } else {
+                    answerDescLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        }
+    }
+
     /**
      * 一题多问 onClick
      */
     private class MultiAnswerOnClickListener implements View.OnClickListener {
         private int rightAnswerId;
-        private LinearLayout answerDescLayout;//试题详解Layout
         private Map<Integer, AnswerDetailView> answerDetailViewMap;
+        private MultiAnswerHandler handler;
 
-        public MultiAnswerOnClickListener(LinearLayout answerDescLayout, int rightAnswerId, Map<Integer, AnswerDetailView> answerDetailViewMap) {
-            this.answerDescLayout = answerDescLayout;
+        public MultiAnswerOnClickListener(MultiAnswerHandler handler, int rightAnswerId, Map<Integer, AnswerDetailView> answerDetailViewMap) {
             this.rightAnswerId = rightAnswerId;
             this.answerDetailViewMap = answerDetailViewMap;
+            this.handler = handler;
             LogToFile.init(QuestionDetailActivity.this);
         }
 
@@ -284,9 +351,8 @@ public class QuestionDetailActivity extends RKBaseActivity {
             ImageView currentImageView = (ImageView) currentAnswerItem.findViewById(R.id.answer_ic_iv);
             if (((AnswerDetailView) v).isRightAnswer()) {//当前为正确答案
                 currentImageView.setImageResource(R.mipmap.ic_right_1);
-                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);//跳转下一页
+                handler.setRightAnswerCountIncr(1);
             } else { //当前选项不正确
-                answerDescLayout.setVisibility(View.VISIBLE);
                 currentImageView.setImageResource(R.mipmap.ic_error_1);
                 //显示正确答案
                 AnswerDetailView rightAnswerItem = answerDetailViewMap.get(rightAnswerId);
@@ -302,6 +368,8 @@ public class QuestionDetailActivity extends RKBaseActivity {
             for (AnswerDetailView answerDetailView : answerDetailViewMap.values()) {
                 answerDetailView.setOnClickListener(null);
             }
+            handler.setAnsweredCountIncr(1);
+            handler.process();
         }
     }
 

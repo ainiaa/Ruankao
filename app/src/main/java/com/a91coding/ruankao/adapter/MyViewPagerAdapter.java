@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Created by Administrator on 2017/01/05.
  */
 
-public class MYViewPagerAdapter extends PagerAdapter {
+public class MyViewPagerAdapter extends PagerAdapter {
     private ArrayList<View> views;
 
     public void setViews(ArrayList<View> views) {
